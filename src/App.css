@@ -84,7 +84,12 @@
   width: 100%;
   height: 56px;
   display: block;
-  animation: toranDrop 1.1s ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toran {
+    animation: toranDrop 1.1s ease-out both;
+  }
 }
 
 .hero-diyas {
@@ -107,11 +112,10 @@
 .leaf {
   position: absolute;
   bottom: 48px;
-  width: min(150px, 28vw);
-  opacity: 0.88;
+  width: min(160px, 30vw);
+  opacity: 0.95;
   pointer-events: none;
   z-index: 1;
-  animation: leafIn 1.4s ease-out both;
 }
 
 .leaf-left {
@@ -120,7 +124,16 @@
 
 .leaf-right {
   right: -8px;
-  animation-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .leaf {
+    animation: leafIn 1.4s ease-out both;
+  }
+
+  .leaf-right {
+    animation-delay: 0.15s;
+  }
 }
 
 .hero-inner {
@@ -137,9 +150,8 @@
 }
 
 .ganesha {
-  width: 64px;
-  height: 64px;
-  animation: fadeRise 1s ease-out both;
+  width: 72px;
+  height: 72px;
 }
 
 .hero-invite {
@@ -148,14 +160,12 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--maroon);
-  animation: fadeRise 1s 0.1s ease-out both;
 }
 
 .kolam {
   width: 42px;
   height: 42px;
   margin: 0.15rem 0;
-  animation: fadeRise 1s 0.15s ease-out both;
 }
 
 .hero-names {
@@ -166,7 +176,6 @@
   font-size: clamp(3rem, 12vw, 5.4rem);
   line-height: 0.95;
   color: var(--maroon-deep);
-  animation: fadeRise 1.1s 0.2s ease-out both;
 }
 
 .hero-names.kn {
@@ -187,7 +196,6 @@
   font-size: clamp(0.98rem, 2.2vw, 1.12rem);
   color: var(--ink);
   opacity: 0.88;
-  animation: fadeRise 1.1s 0.3s ease-out both;
 }
 
 .hero-place,
@@ -197,7 +205,33 @@
   text-transform: uppercase;
   font-size: 0.82rem;
   color: var(--maroon);
-  animation: fadeRise 1.1s 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ganesha {
+    animation: fadeRise 1s ease-out both;
+  }
+
+  .hero-invite {
+    animation: fadeRise 1s 0.1s ease-out both;
+  }
+
+  .kolam {
+    animation: fadeRise 1s 0.15s ease-out both;
+  }
+
+  .hero-names {
+    animation: fadeRise 1.1s 0.2s ease-out both;
+  }
+
+  .hero-tagline {
+    animation: fadeRise 1.1s 0.3s ease-out both;
+  }
+
+  .hero-place,
+  .hero-dates {
+    animation: fadeRise 1.1s 0.35s ease-out both;
+  }
 }
 
 .hero-band {
@@ -234,7 +268,12 @@
   text-transform: uppercase;
   color: var(--maroon);
   opacity: 0.75;
-  animation: fadeRise 1.2s 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-cue {
+    animation: fadeRise 1.2s 0.5s ease-out both;
+  }
 }
 
 .scroll-arrow {
@@ -243,7 +282,6 @@
   border-right: 2px solid var(--maroon);
   border-bottom: 2px solid var(--maroon);
   transform: rotate(45deg);
-  animation: bob 1.6s ease-in-out infinite;
 }
 
 /* —— Countdown —— */
@@ -252,7 +290,12 @@
   padding: 0.85rem 1rem;
   border: 1px solid rgba(201, 162, 39, 0.45);
   background: rgba(255, 252, 245, 0.55);
-  animation: fadeRise 1.2s 0.45s ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .countdown {
+    animation: fadeRise 1.2s 0.45s ease-out both;
+  }
 }
 
 .countdown-label {
@@ -576,27 +619,33 @@
 }
 
 /* —— Motif motion —— */
-.diya-swing {
-  transform-origin: top center;
-  animation: sway 3.6s ease-in-out infinite;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .diya-swing {
+    transform-origin: top center;
+    animation: sway 3.6s ease-in-out infinite;
+  }
 
-.diya-swing-1 {
-  animation-delay: 0.4s;
-}
+  .diya-swing-1 {
+    animation-delay: 0.4s;
+  }
 
-.diya-swing-2 {
-  animation-delay: 0.9s;
-}
+  .diya-swing-2 {
+    animation-delay: 0.9s;
+  }
 
-.flame,
-.flame-core {
-  transform-origin: center bottom;
-  animation: flicker 1.4s ease-in-out infinite;
-}
+  .flame,
+  .flame-core {
+    transform-origin: center bottom;
+    animation: flicker 1.4s ease-in-out infinite;
+  }
 
-.flame-core {
-  animation-duration: 1.1s;
+  .flame-core {
+    animation-duration: 1.1s;
+  }
+
+  .scroll-arrow {
+    animation: bob 1.6s ease-in-out infinite;
+  }
 }
 
 @keyframes sway {

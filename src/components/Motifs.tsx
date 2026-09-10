@@ -138,7 +138,8 @@ export function Footprints({ className = '' }: { className?: string }) {
 export function GaneshaMark({ className = '' }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 80 80" aria-hidden="true">
-      <circle cx="40" cy="40" r="36" fill="#8b1e1e" opacity="0.08" />
+      <circle cx="40" cy="40" r="36" fill="#8b1e1e" opacity="0.12" />
+      <circle cx="40" cy="40" r="30" fill="none" stroke="#c9a227" strokeWidth="1.5" />
       <path
         d="M40 16c-10 0-18 7-18 18 0 6 3 11 7 14v8c0 4 3 8 8 8h6c5 0 8-4 8-8v-8c4-3 7-8 7-14 0-11-8-18-18-18z"
         fill="#8b1e1e"
