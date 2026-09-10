@@ -23,6 +23,14 @@ export function Cover({
       />
       <div className="cover-veil" />
       <div className="cover-inner">
+        <img
+          className="cover-logo"
+          src="/ss-logo.png"
+          alt=""
+          width={64}
+          height={64}
+          decoding="async"
+        />
         <p className="cover-kicker">{t(copy.together)}</p>
         <h1 className={`cover-name ${lang === 'kn' ? 'kn' : ''}`}>
           {t(couple.bride)}

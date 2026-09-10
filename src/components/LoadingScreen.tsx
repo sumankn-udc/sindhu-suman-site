@@ -13,7 +13,6 @@ export function LoadingScreen({
 }: LoadingScreenProps) {
   const { t, lang } = useLang()
   const [progress, setProgress] = useState(0)
-  const [faceFrame, setFaceFrame] = useState(0)
 
   useEffect(() => {
     const start = performance.now()
@@ -35,22 +34,16 @@ export function LoadingScreen({
     return () => cancelAnimationFrame(frame)
   }, [durationMs, onDone])
 
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setFaceFrame((n) => (n + 1) % 5)
-    }, 320)
-    return () => window.clearInterval(id)
-  }, [])
-
   return (
     <section className="loading-screen" aria-busy="true" aria-live="polite">
       <img
-        className="loading-faces"
-        src={`/favicon-frames/f${faceFrame}.png`}
+        className="loading-logo"
+        src="/ss-logo.png"
         alt=""
         aria-hidden="true"
-        width={72}
-        height={72}
+        width={88}
+        height={88}
+        decoding="async"
       />
       <p className="loading-label">{t(copy.weddingLabel)}</p>
       <h1 className={`loading-name ${lang === 'kn' ? 'kn' : ''}`}>
