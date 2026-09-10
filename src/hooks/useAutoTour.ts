@@ -6,6 +6,8 @@ const TOUR_STOPS = [
   '#gallery',
   '#countdown',
   '#events',
+  '#guest-info',
+  '#rsvp',
   '#wishes',
   '#share',
   '#closing',

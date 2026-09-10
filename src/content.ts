@@ -202,6 +202,9 @@ export const events = [
       en: '17 October 2026 · 10:00 AM',
       kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೧೦:೦೦',
     },
+    /** ICS / calendar (Asia/Kolkata) */
+    start: '20261017T100000',
+    end: '20261017T120000',
   },
   {
     id: 'reception',
@@ -210,6 +213,8 @@ export const events = [
       en: '17 October 2026 · 6:30 PM',
       kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಸಂಜೆ ೬:೩೦',
     },
+    start: '20261017T183000',
+    end: '20261017T220000',
   },
   {
     id: 'muhurtham',
@@ -218,5 +223,63 @@ export const events = [
       en: '18 October 2026 · 6:40 AM – 7:40 AM',
       kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
     },
+    start: '20261018T064000',
+    end: '20261018T074000',
   },
 ] as const
+
+/** Guest practical notes */
+export const guestInfo = {
+  eyebrow: { en: 'FOR OUR GUESTS', kn: 'ನಮ್ಮ ಅತಿಥಿಗಳಿಗೆ' },
+  title: {
+    en: 'A few helpful notes',
+    kn: 'ಕೆಲವು ಉಪಯುಕ್ತ ಸೂಚನೆಗಳು',
+  },
+  dress: {
+    label: { en: 'Dress code', kn: 'ಉಡುಪು' },
+    body: {
+      en: 'Festive traditional or elegant ethnic wear. Soft pastels and jewel tones welcome.',
+      kn: 'ಶುಭ ಸಂದರ್ಭಕ್ಕೆ ತಕ್ಕ ಸಾಂಪ್ರದಾಯಿಕ ಅಥವಾ ಎಲಿಗೆಂಟ್ ಎಥ್ನಿಕ್ ಉಡುಪು. ಮೃದು ಬಣ್ಣಗಳು ಸ್ವಾಗತ.',
+    },
+  },
+  travel: {
+    label: { en: 'How to reach', kn: 'ಹೇಗೆ ತಲುಪುವುದು' },
+    body: {
+      en: 'Sri Kanaka Convention Hall is on Ganagalu Road, Hoskote (Bengaluru Rural). About 45–60 min from central Bengaluru via Old Madras Road / NH75. Parking available at the venue.',
+      kn: 'ಶ್ರೀ ಕನಕ ಕನ್ವೆನ್ಷನ್ ಹಾಲ್, ಗಣಗಲು ರೋಡ್, ಹೊಸಕೋಟೆ. ಬೆಂಗಳೂರು ನಗರದಿಂದ ಸುಮಾರು ೪೫–೬೦ ನಿಮಿಷ. ವೇದಿಕೆಯಲ್ಲಿ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯ.',
+    },
+  },
+  stay: {
+    label: { en: 'Stay', kn: 'ತಂಗುವಿಕೆ' },
+    body: {
+      en: 'Hoskote and nearby Whitefield / KR Puram have several hotels. Reach out on WhatsApp if you need stay suggestions.',
+      kn: 'ಹೊಸಕೋಟೆ ಮತ್ತು ಹತ್ತಿರದ ವೈಟ್‌ಫೀಲ್ಡ್ / ಕೆಆರ್ ಪುರಂನಲ್ಲಿ ಹೋಟೆಲ್‌ಗಳಿವೆ. ತಂಗುವಿಕೆ ಸಲಹೆಗೆ WhatsApp ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ.',
+    },
+  },
+  gift: {
+    label: { en: 'Gifts', kn: 'ಉಡುಗೊರೆ' },
+    body: {
+      en: 'Your presence and blessings are the greatest gift. No presents expected.',
+      kn: 'ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ ಮತ್ತು ಆಶೀರ್ವಾದವೇ ಅತ್ಯುತ್ತಮ ಉಡುಗೊರೆ. ಉಡುಗೊರೆಗಳ ಅಗತ್ಯವಿಲ್ಲ.',
+    },
+  },
+}
+
+export const rsvpCopy = {
+  eyebrow: { en: 'RSVP', kn: 'RSVP' },
+  title: {
+    en: 'Will you join us?',
+    kn: 'ನೀವು ನಮ್ಮೊಂದಿಗೆ ಸೇರುತ್ತೀರಾ?',
+  },
+  sub: {
+    en: 'A quick reply helps us plan seating and hospitality.',
+    kn: 'ತ್ವರಿತ ಪ್ರತಿಕ್ರಿಯೆ ನಮಗೆ ಆಸನ ಮತ್ತು ಆತಿಥ್ಯ ಯೋಜನೆಗೆ ಸಹಾಯ.',
+  },
+  attending: { en: "Yes, I'll be there", kn: 'ಹೌದು, ನಾನು ಬರುತ್ತೇನೆ' },
+  notAttending: { en: "Sorry, can't make it", kn: 'ಕ್ಷಮಿಸಿ, ಬರಲಾಗುವುದಿಲ್ಲ' },
+  guests: { en: 'Number of guests', kn: 'ಅತಿಥಿಗಳ ಸಂಖ್ಯೆ' },
+  sendRsvp: { en: 'Send RSVP on WhatsApp', kn: 'WhatsApp ನಲ್ಲಿ RSVP ಕಳುಹಿಸಿ' },
+  addCalendar: { en: 'Add to calendar', kn: 'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ' },
+  getDirections: { en: 'Get directions', kn: 'ದಿಕ್ಕುಗಳನ್ನು ಪಡೆಯಿರಿ' },
+  scrollTop: { en: 'Back to top', kn: 'ಮೇಲಕ್ಕೆ' },
+}

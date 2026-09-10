@@ -1,10 +1,11 @@
-import { copy, events, venue } from '../content'
+import { copy, events, rsvpCopy, venue } from '../content'
 import { useLang } from '../LangContext'
+import { downloadEventIcs } from '../lib/calendar'
 import { Divider } from './Divider'
 import { Reveal, RevealGroup, RevealItem } from './Reveal'
 
 export function Events() {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   return (
     <section className="section events-section" id="events">
       <Reveal variant="fade-up">
@@ -23,6 +24,23 @@ export function Events() {
             <h3>{t(event.title)}</h3>
             <p className="event-when">{t(event.when)}</p>
             <p className="event-place">{t(venue.short)}</p>
+            <div className="event-actions">
+              <button
+                type="button"
+                className="event-action"
+                onClick={() => downloadEventIcs(event, lang)}
+              >
+                {t(rsvpCopy.addCalendar)}
+              </button>
+              <a
+                className="event-action"
+                href={venue.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t(rsvpCopy.getDirections)}
+              </a>
+            </div>
           </RevealItem>
         ))}
       </RevealGroup>

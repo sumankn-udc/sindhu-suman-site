@@ -7,6 +7,8 @@ import { Couple } from './components/Couple'
 import { Gallery } from './components/Gallery'
 import { Countdown } from './components/Countdown'
 import { Events } from './components/Events'
+import { GuestInfo } from './components/GuestInfo'
+import { Rsvp } from './components/Rsvp'
 import { Wishes } from './components/Wishes'
 import { ShareInvite } from './components/ShareInvite'
 import { Closing } from './components/Closing'
@@ -14,6 +16,8 @@ import { FloatingActions } from './components/FloatingActions'
 import { LangToggle } from './components/LangToggle'
 import { OpenCurtain } from './components/OpenCurtain'
 import { ScrollProgress } from './components/ScrollProgress'
+import { ScrollTop } from './components/ScrollTop'
+import { PrefetchPhotos } from './components/PrefetchPhotos'
 import { useAutoTour } from './hooks/useAutoTour'
 import './App.css'
 
@@ -41,6 +45,7 @@ function Invite() {
 
   return (
     <div className="stage">
+      <PrefetchPhotos />
       <div className="phone">
         {phase !== 'loading' ? (
           <div className="phone-top">
@@ -60,11 +65,14 @@ function Invite() {
               <Gallery />
               <Countdown />
               <Events />
+              <GuestInfo />
+              <Rsvp />
               <Wishes />
               <ShareInvite />
               <Closing />
             </main>
             <ScrollProgress scrollerRef={scrollRef} />
+            <ScrollTop scrollerRef={scrollRef} />
             {showCurtain ? (
               <OpenCurtain onDone={() => setShowCurtain(false)} />
             ) : null}

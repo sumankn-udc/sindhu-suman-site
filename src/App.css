@@ -1107,6 +1107,179 @@ button {
   font-style: italic;
 }
 
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 0.95rem;
+}
+
+.event-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.event-action:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+/* —— Guest notes —— */
+.guest-section {
+  background: #140f13;
+  text-align: center;
+}
+
+.guest-title {
+  margin: 0.35rem 0 0;
+}
+
+.guest-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  text-align: left;
+}
+
+.guest-note {
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.guest-note h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.guest-note p {
+  margin: 0;
+  color: rgba(232, 220, 200, 0.82);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* —— RSVP —— */
+.rsvp-section {
+  background: #1a1218;
+  text-align: center;
+}
+
+.rsvp-title {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.55rem, 5.5vw, 1.95rem);
+  font-weight: 500;
+  color: var(--cream-soft);
+}
+
+.rsvp-sub {
+  margin: 0.5rem auto 1.25rem;
+  max-width: 22rem;
+  color: rgba(232, 220, 200, 0.75);
+  font-size: 0.95rem;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.rsvp-form input[type='text'],
+.rsvp-form input[type='number'] {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.95rem 1rem;
+  background: #ece7df;
+  color: #2a1a16;
+}
+
+.rsvp-form input:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.rsvp-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.rsvp-chip {
+  padding: 0.75rem 0.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--cream);
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.rsvp-chip.is-active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #111;
+  font-weight: 600;
+}
+
+.rsvp-guests {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: rgba(232, 220, 200, 0.85);
+  font-size: 0.9rem;
+}
+
+.rsvp-guests input {
+  width: 5rem;
+  text-align: center;
+}
+
+/* —— Scroll to top —— */
+.scroll-top {
+  position: absolute;
+  right: 14px;
+  bottom: max(88px, calc(env(safe-area-inset-bottom) + 72px));
+  z-index: 45;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  background: rgba(10, 10, 10, 0.82);
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.scroll-top:hover {
+  background: var(--gold);
+  color: #111;
+}
+
 /* —— Wishes —— */
 .wishes-section {
   background: #1a1218;
