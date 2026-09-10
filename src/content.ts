@@ -94,16 +94,8 @@ export const copy = {
   },
 }
 
-/** Order matches EventKompany location picker style */
+/** Chronological celebration order */
 export const events = [
-  {
-    id: 'muhurtham',
-    title: { en: 'Wedding Ceremony (Muhurtham)', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
-    when: {
-      en: '18 October 2026 · 6:40 AM – 7:40 AM',
-      kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
-    },
-  },
   {
     id: 'haldi',
     title: { en: 'Haldi', kn: 'ಹಳದಿ' },
@@ -118,6 +110,14 @@ export const events = [
     when: {
       en: '17 October 2026 · 6:30 PM',
       kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಸಂಜೆ ೬:೩೦',
+    },
+  },
+  {
+    id: 'muhurtham',
+    title: { en: 'Wedding Ceremony (Muhurtham)', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
+    when: {
+      en: '18 October 2026 · 6:40 AM – 7:40 AM',
+      kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
     },
   },
 ] as const
