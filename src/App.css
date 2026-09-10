@@ -591,16 +591,6 @@ button {
   color: rgba(232, 220, 200, 0.85);
 }
 
-@keyframes smileBounce {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-5px) scale(1.04);
-  }
-}
-
 @keyframes smileFloat {
   0%,
   100% {
