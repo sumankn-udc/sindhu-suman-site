@@ -30,16 +30,14 @@ export const couple = {
 export const family = {
   bride: {
     parents: {
-      en: 'D/o [Bride Father] & [Bride Mother]',
-      kn: '[ವಧು ತಂದೆ] ಮತ್ತು [ವಧು ತಾಯಿ] ಅವರ ಪುತ್ರಿ',
+      en: 'D/o Shivashankarappa & Sowbaghya',
+      kn: 'ಶಿವಶಂಕರಪ್ಪ ಮತ್ತು ಸೌಭಾಗ್ಯ ಅವರ ಪುತ್ರಿ',
     },
-    // Optional extras:
-    // grandparents, nativePlace, gotra, houseName
   },
   groom: {
     parents: {
-      en: 'S/o [Groom Father] & [Groom Mother]',
-      kn: '[ವರ ತಂದೆ] ಮತ್ತು [ವರ ತಾಯಿ] ಅವರ ಪುತ್ರ',
+      en: 'S/o Nanjappa & Kamalamma',
+      kn: 'ನಂಜಪ್ಪ ಮತ್ತು ಕಮಲಮ್ಮ ಅವರ ಪುತ್ರ',
     },
   },
   hosts: {
@@ -65,7 +63,17 @@ export const venue = {
     'https://www.google.com/maps/search/?api=1&query=Sri+Kanaka+Convention+Hall+Ganagalu+Road+Hoskote+Bengaluru+562114',
 }
 
-export const rsvpWhatsApp = '919999999999'
+export const rsvpWhatsApp = '919738019508'
+
+/** Hrudayavu Kelade (From "Cult") — plays via official YouTube embed */
+export const weddingMusic = {
+  youtubeId: 'GWqgOEFZOXA',
+  title: {
+    en: 'Hrudayavu Kelade (From "Cult")',
+    kn: 'ಹೃದಯವು ಕೇಳದೆ (Cult)',
+  },
+  listenUrl: 'https://www.youtube.com/watch?v=GWqgOEFZOXA',
+}
 
 export const muhurthamAt = new Date('2026-10-18T06:40:00+05:30')
 

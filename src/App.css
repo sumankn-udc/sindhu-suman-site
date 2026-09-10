@@ -697,6 +697,19 @@ button {
   background: var(--gold);
 }
 
+/* Hidden official YouTube embed used as background music */
+.yt-bg-music {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0.01;
+  pointer-events: none;
+  border: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
 /* —— Location modal —— */
 .location-overlay {
   position: absolute;

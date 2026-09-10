@@ -1,5 +1,5 @@
 import { useEffect, useId, useState } from 'react'
-import { copy, events, venue } from '../content'
+import { copy, events, venue, weddingMusic } from '../content'
 import { useLang } from '../LangContext'
 
 function PinIcon({ className = '' }: { className?: string }) {
@@ -34,16 +34,18 @@ export function FloatingActions() {
     return () => window.removeEventListener('keydown', onKey)
   }, [locationOpen])
 
+  const ytSrc = `https://www.youtube.com/embed/${weddingMusic.youtubeId}?autoplay=1&loop=1&playlist=${weddingMusic.youtubeId}&controls=0&modestbranding=1&playsinline=1&rel=0`
+
   return (
     <>
       <div className="fab-row">
         <button
           type="button"
           className={`fab ${musicOn ? 'is-on' : ''}`}
-          aria-label={t({ en: 'Toggle music', kn: 'ಸಂಗೀತ' })}
+          aria-label={`${t(copy.music)} — ${t(weddingMusic.title)}`}
           aria-pressed={musicOn}
           onClick={() => setMusicOn((v) => !v)}
-          title={t(copy.music)}
+          title={`${t(copy.music)}: ${t(weddingMusic.title)}`}
         >
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path
@@ -64,6 +66,16 @@ export function FloatingActions() {
           <PinIcon />
         </button>
       </div>
+
+      {musicOn ? (
+        <iframe
+          className="yt-bg-music"
+          src={ytSrc}
+          title={t(weddingMusic.title)}
+          allow="autoplay; encrypted-media"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      ) : null}
 
       {locationOpen ? (
         <div
