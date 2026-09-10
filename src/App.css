@@ -127,17 +127,31 @@ button {
   place-items: center;
   padding: 4.5rem 1.4rem 5.5rem;
   text-align: center;
-  background:
-    linear-gradient(180deg, rgba(10, 10, 10, 0.35), rgba(10, 10, 10, 0.72)),
-    linear-gradient(115deg, #c4a57b 0%, #8a5a3a 38%, #4a1f2f 70%, #2a121c 100%);
+  overflow: hidden;
+  background: #1a1218;
+}
+
+.cover-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 25%;
+  transform: scale(1.04);
+  filter: saturate(0.92) contrast(1.05);
 }
 
 .cover-veil {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.12), transparent 40%),
-    radial-gradient(circle at 70% 80%, rgba(74, 31, 47, 0.45), transparent 45%);
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.45) 0%,
+      rgba(10, 10, 10, 0.35) 35%,
+      rgba(10, 10, 10, 0.72) 70%,
+      rgba(10, 10, 10, 0.88) 100%
+    ),
+    radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.12), transparent 40%);
   pointer-events: none;
 }
 
@@ -269,6 +283,10 @@ button {
   max-width: 17rem;
 }
 
+.portrait-featured {
+  max-width: 19rem;
+}
+
 .portrait-frame {
   border: 7px solid var(--gold-soft);
   border-radius: 6px;
@@ -276,16 +294,12 @@ button {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
-.portrait-photo {
+.portrait-img {
+  display: block;
+  width: 100%;
   aspect-ratio: 4 / 5;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.18), transparent 55%),
-    linear-gradient(160deg, #5a3040, #2a121c 70%);
-  font-family: var(--font-display);
-  font-size: 3.4rem;
-  color: var(--gold);
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .portrait-name {
@@ -342,23 +356,12 @@ button {
   transform: rotate(0.7deg);
 }
 
-.polaroid-photo {
+.polaroid-img {
+  display: block;
+  width: 100%;
   aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  background:
-    linear-gradient(145deg, #6b3a4a, #2a121c);
-  color: var(--gold);
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-}
-
-.gallery-note {
-  margin: 1rem 0 0;
-  font-size: 0.78rem;
-  opacity: 0.65;
-  letter-spacing: 0.04em;
+  object-fit: cover;
+  object-position: center 25%;
 }
 
 /* —— Countdown —— */

@@ -13,6 +13,12 @@ export function Cover({
 
   return (
     <section className={`cover ${showCta ? 'is-intro' : ''}`}>
+      <div
+        className="cover-photo"
+        style={{ backgroundImage: "url('/photos/couple-cover.jpg')" }}
+        role="img"
+        aria-label={`${couple.bride.en} and ${couple.groom.en}`}
+      />
       <div className="cover-veil" />
       <div className="cover-inner">
         <p className="cover-kicker">{t(copy.together)}</p>
