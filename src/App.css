@@ -357,7 +357,8 @@ button {
   will-change: transform, opacity;
   transition:
     opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.75s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay);
 }
 
@@ -376,9 +377,26 @@ button {
   transform: scale(0.96);
 }
 
+.reveal--slide-left {
+  opacity: 0;
+  transform: translate3d(-28px, 8px, 0);
+}
+
+.reveal--slide-right {
+  opacity: 0;
+  transform: translate3d(28px, 8px, 0);
+}
+
+.reveal--zoom {
+  opacity: 0;
+  transform: scale(0.88);
+  filter: blur(4px);
+}
+
 .reveal.is-inview {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
 .reveal-group {
@@ -391,7 +409,8 @@ button {
   opacity: 0;
   transition:
     opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: calc(var(--i) * var(--reveal-stagger));
 }
 
@@ -403,9 +422,23 @@ button {
   transform: scale(0.96);
 }
 
+.reveal-item--slide-left {
+  transform: translate3d(-24px, 6px, 0);
+}
+
+.reveal-item--slide-right {
+  transform: translate3d(24px, 6px, 0);
+}
+
+.reveal-item--zoom {
+  transform: scale(0.9);
+  filter: blur(3px);
+}
+
 .reveal-group.is-inview > .reveal-item {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
 /* Cover content entrance when invite is opened (scroll mode) */
@@ -429,7 +462,12 @@ button {
   .loading-logo,
   .cover-logo,
   .caricature-img,
-  .cover.is-scroll .cover-inner {
+  .cover.is-scroll .cover-inner,
+  .scroll-hint-chevron,
+  .divider-shimmer .divider-line::after,
+  .open-curtain-panel,
+  .open-curtain-burst span,
+  .open-curtain-seal {
     animation: none !important;
   }
 
@@ -437,7 +475,240 @@ button {
   .reveal-item {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
     transition: none !important;
+  }
+
+  .open-curtain {
+    display: none !important;
+  }
+}
+
+/* —— Guided open curtain —— */
+.open-curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.open-curtain-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 52%;
+  background:
+    linear-gradient(180deg, #1a1218 0%, #0a0a0a 55%, #1a1218 100%),
+    radial-gradient(circle at 50% 40%, rgba(212, 175, 55, 0.22), transparent 55%);
+}
+
+.open-curtain-panel--left {
+  left: 0;
+  border-right: 1px solid rgba(212, 175, 55, 0.35);
+  animation: curtainLeft 1.25s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.open-curtain-panel--right {
+  right: 0;
+  border-left: 1px solid rgba(212, 175, 55, 0.35);
+  animation: curtainRight 1.25s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes curtainLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-105%, 0, 0);
+  }
+}
+
+@keyframes curtainRight {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(105%, 0, 0);
+  }
+}
+
+.open-curtain-seal {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.45);
+  animation: sealFade 1.15s ease forwards;
+}
+
+@keyframes sealFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -42%) scale(1.08);
+  }
+}
+
+.open-curtain-burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.open-curtain-burst span {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0;
+  animation: sparkBurst 1.1s ease-out forwards;
+}
+
+.open-curtain-burst span:nth-child(1) {
+  --dx: -70px;
+  --dy: -40px;
+  animation-delay: 0.05s;
+}
+.open-curtain-burst span:nth-child(2) {
+  --dx: 80px;
+  --dy: -30px;
+  animation-delay: 0.08s;
+}
+.open-curtain-burst span:nth-child(3) {
+  --dx: -40px;
+  --dy: 55px;
+  animation-delay: 0.12s;
+}
+.open-curtain-burst span:nth-child(4) {
+  --dx: 55px;
+  --dy: 50px;
+  animation-delay: 0.15s;
+}
+.open-curtain-burst span:nth-child(5) {
+  --dx: 0px;
+  --dy: -70px;
+  animation-delay: 0.1s;
+}
+.open-curtain-burst span:nth-child(6) {
+  --dx: -90px;
+  --dy: 10px;
+  animation-delay: 0.18s;
+}
+
+@keyframes sparkBurst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+      scale(0.2);
+  }
+}
+
+/* —— Scroll progress rail —— */
+.scroll-progress {
+  position: absolute;
+  top: 18%;
+  right: 6px;
+  bottom: 18%;
+  width: 2px;
+  z-index: 40;
+  border-radius: 999px;
+  background: rgba(232, 220, 200, 0.12);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scroll-progress-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  transform-origin: top center;
+  transform: scaleY(0);
+  background: linear-gradient(180deg, var(--gold), var(--gold-soft));
+  will-change: transform;
+}
+
+/* —— Cover scroll hint —— */
+.scroll-hint {
+  margin-top: 1.35rem;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-hint-chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 1.5px solid var(--gold-soft);
+  border-bottom: 1.5px solid var(--gold-soft);
+  transform: rotate(45deg);
+  opacity: 0.85;
+  animation: hintBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes hintBounce {
+  0%,
+  100% {
+    transform: rotate(45deg) translate3d(0, 0, 0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: rotate(45deg) translate3d(4px, 4px, 0);
+    opacity: 1;
+  }
+}
+
+/* —— Divider gold shimmer —— */
+.divider-shimmer .divider-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.divider-shimmer .divider-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 240, 232, 0.65),
+    transparent
+  );
+  transform: translate3d(-120%, 0, 0);
+  animation: lineShimmer 2.8s ease-in-out infinite;
+}
+
+@keyframes lineShimmer {
+  0%,
+  40% {
+    transform: translate3d(-120%, 0, 0);
+  }
+  70%,
+  100% {
+    transform: translate3d(120%, 0, 0);
   }
 }
 

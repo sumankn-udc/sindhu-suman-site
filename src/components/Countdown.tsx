@@ -35,7 +35,7 @@ export function Countdown() {
   ]
 
   return (
-    <section className="section countdown-section">
+    <section className="section countdown-section" id="countdown">
       <div className="sparkles" aria-hidden="true" />
       <Reveal variant="fade-up">
         <p className="section-eyebrow">{t(copy.countdownTitle)}</p>

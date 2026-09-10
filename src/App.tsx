@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { LangProvider } from './LangContext'
 import { AnimatedFavicon } from './components/AnimatedFavicon'
 import { LoadingScreen } from './components/LoadingScreen'
@@ -12,6 +12,9 @@ import { ShareInvite } from './components/ShareInvite'
 import { Closing } from './components/Closing'
 import { FloatingActions } from './components/FloatingActions'
 import { LangToggle } from './components/LangToggle'
+import { OpenCurtain } from './components/OpenCurtain'
+import { ScrollProgress } from './components/ScrollProgress'
+import { useAutoTour } from './hooks/useAutoTour'
 import './App.css'
 
 type Phase = 'loading' | 'cover' | 'opened'
@@ -19,14 +22,22 @@ type Phase = 'loading' | 'cover' | 'opened'
 function Invite() {
   const [phase, setPhase] = useState<Phase>('loading')
   const [musicOn, setMusicOn] = useState(false)
+  const [showCurtain, setShowCurtain] = useState(false)
+  const [tourOn, setTourOn] = useState(false)
+  const scrollRef = useRef<HTMLElement | null>(null)
+
   const finishLoading = useCallback(() => setPhase('cover'), [])
   const toggleMusic = useCallback(() => setMusicOn((v) => !v), [])
 
   const openInvite = useCallback(() => {
     // User gesture: mount YouTube embed with autoplay so music starts unmuted.
     setMusicOn(true)
+    setShowCurtain(true)
     setPhase('opened')
+    setTourOn(true)
   }, [])
+
+  useAutoTour({ enabled: tourOn && phase === 'opened', scrollerRef: scrollRef })
 
   return (
     <div className="stage">
@@ -42,16 +53,22 @@ function Invite() {
         ) : phase === 'cover' ? (
           <Cover showCta onOpen={openInvite} />
         ) : (
-          <main className="invite-scroll">
-            <Cover />
-            <Couple />
-            <Gallery />
-            <Countdown />
-            <Events />
-            <Wishes />
-            <ShareInvite />
-            <Closing />
-          </main>
+          <>
+            <main className="invite-scroll" ref={scrollRef}>
+              <Cover />
+              <Couple />
+              <Gallery />
+              <Countdown />
+              <Events />
+              <Wishes />
+              <ShareInvite />
+              <Closing />
+            </main>
+            <ScrollProgress scrollerRef={scrollRef} />
+            {showCurtain ? (
+              <OpenCurtain onDone={() => setShowCurtain(false)} />
+            ) : null}
+          </>
         )}
 
         {phase !== 'loading' ? (

@@ -13,7 +13,13 @@ export function Events() {
       </Reveal>
       <RevealGroup className="event-stack" stagger={110}>
         {events.map((event, i) => (
-          <RevealItem key={event.id} variant="fade-up" index={i} as="article" className="event-card">
+          <RevealItem
+            key={event.id}
+            variant={i % 2 === 0 ? 'slide-left' : 'slide-right'}
+            index={i}
+            as="article"
+            className="event-card"
+          >
             <h3>{t(event.title)}</h3>
             <p className="event-when">{t(event.when)}</p>
             <p className="event-place">{t(venue.short)}</p>

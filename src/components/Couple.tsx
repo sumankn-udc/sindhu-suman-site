@@ -36,7 +36,7 @@ function Portrait({
 export function Couple() {
   const { t, lang } = useLang()
   return (
-    <section className="section couple-section">
+    <section className="section couple-section" id="couple">
       <Reveal variant="fade-up" className="couple-heading">
         <p className="section-eyebrow">{t(copy.theCouple)}</p>
         <Divider />

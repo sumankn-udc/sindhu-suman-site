@@ -7,7 +7,7 @@ import { Reveal, RevealGroup, RevealItem } from './Reveal'
 export function Gallery() {
   const { t } = useLang()
   return (
-    <section className="section gallery-section">
+    <section className="section gallery-section" id="gallery">
       <Reveal variant="fade-up">
         <p className="section-eyebrow">{t(copy.ourGallery)}</p>
         <h2 className="section-title">{t(copy.galleryTitle)}</h2>
@@ -15,7 +15,11 @@ export function Gallery() {
       </Reveal>
       <RevealGroup className="gallery-grid" stagger={100}>
         {placeholders.gallery.map((item, i) => (
-          <RevealItem key={item.src} variant="pop" index={i}>
+          <RevealItem
+            key={item.src}
+            variant={i % 2 === 0 ? 'zoom' : 'pop'}
+            index={i}
+          >
             <div className="polaroid">
               <AnimatedPhoto
                 src={item.src}

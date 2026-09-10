@@ -13,7 +13,7 @@ export function Cover({
   const { t, lang } = useLang()
 
   return (
-    <section className={`cover ${showCta ? 'is-intro' : 'is-scroll'}`}>
+    <section className={`cover ${showCta ? 'is-intro' : 'is-scroll'}`} id="cover">
       <AnimatedPhoto
         src={placeholders.cover}
         alt=""
@@ -46,7 +46,11 @@ export function Cover({
           <button type="button" className="btn-outline cover-cta" onClick={onOpen}>
             {t(copy.openInvite)}
           </button>
-        ) : null}
+        ) : (
+          <div className="scroll-hint" aria-hidden="true">
+            <span className="scroll-hint-chevron" />
+          </div>
+        )}
       </div>
     </section>
   )

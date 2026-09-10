@@ -5,7 +5,7 @@ import {
 } from 'react'
 import { useInView } from '../hooks/useInView'
 
-type Variant = 'fade-up' | 'pop' | 'fade'
+type Variant = 'fade-up' | 'pop' | 'fade' | 'slide-left' | 'slide-right' | 'zoom'
 
 type RevealProps = {
   children: ReactNode
@@ -80,7 +80,7 @@ type RevealItemProps = {
   className?: string
   /** Stagger index (0-based) */
   index?: number
-  variant?: 'fade-up' | 'pop'
+  variant?: 'fade-up' | 'pop' | 'slide-left' | 'slide-right' | 'zoom'
   as?: ElementType
 }
 
