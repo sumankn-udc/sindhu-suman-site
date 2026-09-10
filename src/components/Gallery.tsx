@@ -1,13 +1,6 @@
-import { copy, couple } from '../content'
+import { copy, couple, placeholders } from '../content'
 import { useLang } from '../LangContext'
 import { Divider } from './Divider'
-
-const frames = [
-  { src: '/photos/couple-square.jpg', alt: 'Sindhu & Suman' },
-  { src: '/photos/couple.jpg', alt: 'Sindhu & Suman portrait' },
-  { src: '/photos/couple-cover.jpg', alt: 'Sindhu & Suman outdoors' },
-  { src: '/photos/couple-square.jpg', alt: 'Together' },
-]
 
 export function Gallery() {
   const { t } = useLang()
@@ -17,17 +10,18 @@ export function Gallery() {
       <h2 className="section-title">{t(copy.galleryTitle)}</h2>
       <Divider />
       <div className="gallery-grid">
-        {frames.map((frame, i) => (
-          <div key={`${frame.src}-${i}`} className="polaroid">
+        {placeholders.gallery.map((src, i) => (
+          <div key={src} className="polaroid">
             <img
               className="polaroid-img"
-              src={frame.src}
-              alt={frame.alt || `${couple.bride.en} & ${couple.groom.en}`}
+              src={src}
+              alt={`${couple.bride.en} & ${couple.groom.en} placeholder ${i + 1}`}
               loading="lazy"
             />
           </div>
         ))}
       </div>
+      <p className="gallery-note">{t(copy.galleryNote)}</p>
     </section>
   )
 }

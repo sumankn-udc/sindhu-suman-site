@@ -1,8 +1,51 @@
+/**
+ * Placeholder media map — animated caricature references until final photos are added.
+ * Swap these paths with real photo URLs when ready.
+ */
+export const placeholders = {
+  cover: '/photos/placeholders/cover.gif',
+  couple: '/photos/placeholders/couple.gif',
+  bride: '/photos/placeholders/bride.gif',
+  groom: '/photos/placeholders/groom.gif',
+  caricature: '/photos/caricature.png',
+  gallery: [
+    '/photos/placeholders/gallery-1.gif',
+    '/photos/placeholders/gallery-2.gif',
+    '/photos/placeholders/gallery-3.gif',
+    '/photos/placeholders/gallery-4.gif',
+  ],
+} as const
+
 export type Lang = 'en' | 'kn'
 
 export const couple = {
   bride: { en: 'Sindhu', kn: 'ಸಿಂಧು' },
   groom: { en: 'Suman', kn: 'ಸುಮನ್' },
+}
+
+/**
+ * Family details — fill these in (EN + KN).
+ * Required for a complete South Indian wedding invite.
+ */
+export const family = {
+  bride: {
+    parents: {
+      en: 'D/o [Bride Father] & [Bride Mother]',
+      kn: '[ವಧು ತಂದೆ] ಮತ್ತು [ವಧು ತಾಯಿ] ಅವರ ಪುತ್ರಿ',
+    },
+    // Optional extras:
+    // grandparents, nativePlace, gotra, houseName
+  },
+  groom: {
+    parents: {
+      en: 'S/o [Groom Father] & [Groom Mother]',
+      kn: '[ವರ ತಂದೆ] ಮತ್ತು [ವರ ತಾಯಿ] ಅವರ ಪುತ್ರ',
+    },
+  },
+  hosts: {
+    en: 'With the blessings of both families',
+    kn: 'ಎರಡೂ ಕುಟುಂಬಗಳ ಆಶೀರ್ವಾದದೊಂದಿಗೆ',
+  },
 }
 
 export const venue = {
@@ -47,6 +90,10 @@ export const copy = {
     en: 'Capturing Our Moments',
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
+  galleryNote: {
+    en: 'Animated placeholders — replace with your photos',
+    kn: 'ಆನಿಮೇಟೆಡ್ ಪ್ಲೇಸ್‌ಹೋಲ್ಡರ್ — ನಿಮ್ಮ ಫೋಟೋಗಳನ್ನು ಸೇರಿಸಿ',
+  },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',
     kn: 'ಕೌಂಟ್‌ಡೌನ್ ಪ್ರಾರಂಭ',
@@ -84,14 +131,6 @@ export const copy = {
     kn: 'ಆಮಂತ್ರಣ ಲೋಡ್ ಆಗುತ್ತಿದೆ',
   },
   amp: { en: '&', kn: '&' },
-  brideParents: {
-    en: 'Daughter of the family',
-    kn: 'ಕುಟುಂಬದ ಪುತ್ರಿ',
-  },
-  groomParents: {
-    en: 'Son of the family',
-    kn: 'ಕುಟುಂಬದ ಪುತ್ರ',
-  },
 }
 
 /** Chronological celebration order */

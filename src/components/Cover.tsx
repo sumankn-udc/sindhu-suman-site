@@ -1,4 +1,4 @@
-import { copy, couple, venue } from '../content'
+import { copy, couple, placeholders, venue } from '../content'
 import { useLang } from '../LangContext'
 import { Divider } from './Divider'
 
@@ -13,11 +13,11 @@ export function Cover({
 
   return (
     <section className={`cover ${showCta ? 'is-intro' : ''}`}>
-      <div
-        className="cover-photo"
-        style={{ backgroundImage: "url('/photos/couple-cover.jpg')" }}
-        role="img"
-        aria-label={`${couple.bride.en} and ${couple.groom.en}`}
+      <img
+        className="cover-photo cover-photo-img"
+        src={placeholders.cover}
+        alt=""
+        aria-hidden="true"
       />
       <div className="cover-veil" />
       <div className="cover-inner">

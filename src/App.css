@@ -225,6 +225,15 @@ button {
   filter: saturate(0.92) contrast(1.05);
 }
 
+.cover-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: none;
+  filter: saturate(1) contrast(1.02);
+}
+
 .cover-veil {
   position: absolute;
   inset: 0;
@@ -483,12 +492,11 @@ button {
   transform: rotate(0.7deg);
 }
 
-.polaroid-img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  object-position: center 25%;
+.gallery-note {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  opacity: 0.65;
+  letter-spacing: 0.04em;
 }
 
 /* —— Countdown —— */
