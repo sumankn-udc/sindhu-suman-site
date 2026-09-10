@@ -1,6 +1,6 @@
 # Sindhu & Suman — Wedding Invitation
 
-A Canva-style e-wedding invitation for a Hindu South Indian wedding in Hoskote, Bengaluru.
+EventKompany-style digital wedding invite (dark / gold, mobile-first card).
 
 ## Events
 
@@ -19,15 +19,8 @@ npm install
 npm run dev
 ```
 
-## Build
-
-```bash
-npm run build
-npm run preview
-```
-
 ## Customize
 
-- Edit copy, schedule, and Kannada/English strings in `src/content.ts`
-- Set your WhatsApp number in `rsvpWhatsApp` (digits only, with country code)
-- Theme colors live in `src/index.css` (`--maroon`, `--gold`, `--cream`, …)
+- Copy & Kannada strings: `src/content.ts`
+- WhatsApp number: `rsvpWhatsApp` in `src/content.ts`
+- Replace portrait/gallery placeholders with real photos in `Couple` / `Gallery`

@@ -1,31 +1,50 @@
+import { useState } from 'react'
 import { LangProvider } from './LangContext'
-import { TopBar } from './components/TopBar'
-import { Hero } from './components/Hero'
+import { Cover } from './components/Cover'
+import { Couple } from './components/Couple'
+import { Gallery } from './components/Gallery'
+import { Countdown } from './components/Countdown'
 import { Events } from './components/Events'
-import { Rituals } from './components/Rituals'
-import { Vows } from './components/Vows'
-import { Venue } from './components/Venue'
-import { Rsvp } from './components/Rsvp'
-import { Footer } from './components/Footer'
+import { Wishes } from './components/Wishes'
+import { Closing } from './components/Closing'
+import { FloatingActions } from './components/FloatingActions'
+import { LangToggle } from './components/LangToggle'
 import './App.css'
 
-function App() {
+function Invite() {
+  const [opened, setOpened] = useState(false)
+
   return (
-    <LangProvider>
-      <div className="page">
-        <TopBar />
-        <Hero />
-        <main>
-          <Events />
-          <Rituals />
-          <Vows />
-          <Venue />
-          <Rsvp />
-        </main>
-        <Footer />
+    <div className="stage">
+      <div className="phone">
+        <div className="phone-top">
+          <LangToggle />
+        </div>
+
+        {!opened ? (
+          <Cover showCta onOpen={() => setOpened(true)} />
+        ) : (
+          <main className="invite-scroll">
+            <Cover />
+            <Couple />
+            <Gallery />
+            <Countdown />
+            <Events />
+            <Wishes />
+            <Closing />
+          </main>
+        )}
+
+        <FloatingActions />
       </div>
-    </LangProvider>
+    </div>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <LangProvider>
+      <Invite />
+    </LangProvider>
+  )
+}

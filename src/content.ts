@@ -14,139 +14,100 @@ export const venue = {
     en: 'Ganagalu Road, Hoskote, Bengaluru Rural — 562114',
     kn: 'ಗಣಗಲು ರೋಡ್, ಹೊಸಕೋಟೆ, ಬೆಂಗಳೂರು ಗ್ರಾಮಾಂತರ — 562114',
   },
+  short: {
+    en: 'Sri Kanaka Convention Hall, Hoskote, Bengaluru',
+    kn: 'ಶ್ರೀ ಕನಕ ಕನ್ವೆನ್ಷನ್ ಹಾಲ್, ಹೊಸಕೋಟೆ, ಬೆಂಗಳೂರು',
+  },
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Sri+Kanaka+Convention+Hall+Ganagalu+Road+Hoskote+Bengaluru+562114',
 }
 
-/** Update this number before sharing (country code + number, no + or spaces). */
 export const rsvpWhatsApp = '919999999999'
 
+export const muhurthamAt = new Date('2026-10-18T06:40:00+05:30')
+
 export const copy = {
-  tagline: {
-    en: 'With the blessings of elders, we invite you to celebrate our wedding',
-    kn: 'ಹಿರಿಯರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ, ನಮ್ಮ ವಿವಾಹೋತ್ಸವಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆಮಂತ್ರಿಸುತ್ತೇವೆ',
+  together: {
+    en: 'Together with their families, we cordially invite you to attend the wedding of',
+    kn: 'ತಮ್ಮ ಕುಟುಂಬಗಳೊಂದಿಗೆ, ನಾವು ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ವಿವಾಹಕ್ಕೆ ಆಮಂತ್ರಿಸುತ್ತೇವೆ',
   },
-  invitation: {
-    en: 'You are cordially invited',
-    kn: 'ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ಆಮಂತ್ರಿಸಲಾಗಿದೆ',
+  and: { en: 'AND', kn: 'ಮತ್ತು' },
+  weddingDate: {
+    en: '17 – 18 OCTOBER 2026',
+    kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬',
   },
-  weds: { en: '&', kn: 'ಮತ್ತು' },
-  scroll: { en: 'Scroll to open', kn: 'ತೆರೆಯಲು ಸ್ಕ್ರಾಲ್ ಮಾಡಿ' },
-  eventsTitle: { en: 'Celebrations', kn: 'ಸಂಭ್ರಮಗಳು' },
-  eventsSub: {
-    en: 'Two days of colour, ritual, and togetherness in Hoskote',
-    kn: 'ಹೊಸಕೋಟೆಯಲ್ಲಿ ಬಣ್ಣ, ಸಂಪ್ರದಾಯ ಮತ್ತು ಒಡನಾಟದ ಎರಡು ದಿನಗಳು',
+  theCouple: { en: 'THE COUPLE', kn: 'ದಂಪತಿಗಳು' },
+  celebrateWith: {
+    en: 'CELEBRATE THIS AUSPICIOUS EVENT WITH',
+    kn: 'ಈ ಶುಭ ಸಂದರ್ಭವನ್ನು ನಮ್ಮೊಂದಿಗೆ',
   },
-  vowsTitle: { en: 'The Seven Steps', kn: 'ಸಪ್ತಪದಿ' },
-  vowsSub: {
-    en: 'Promises we take with each footprint around the sacred fire',
-    kn: 'ಪವಿತ್ರ ಅಗ್ನಿಯ ಸುತ್ತಲೂ ಪ್ರತಿ ಹೆಜ್ಜೆಯೊಂದಿಗೆ ನಾವು ಕೊಡುವ ಭರವಸೆಗಳು',
+  us: { en: 'US', kn: 'ಆಚರಿಸಿ' },
+  ourGallery: { en: 'OUR GALLERY', kn: 'ನಮ್ಮ ಗ್ಯಾಲರಿ' },
+  galleryTitle: {
+    en: 'Capturing Our Moments',
+    kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
-  ritualsTitle: { en: 'Sacred Rituals', kn: 'ಪವಿತ್ರ ವಿಧಿಗಳು' },
-  ritualsSub: {
-    en: 'Moments that make a South Indian Hindu wedding',
-    kn: 'ದಕ್ಷಿಣ ಭಾರತೀಯ ಹಿಂದೂ ವಿವಾಹವನ್ನು ರೂಪಿಸುವ ಕ್ಷಣಗಳು',
+  countdownTitle: {
+    en: 'THE COUNTDOWN BEGINS',
+    kn: 'ಕೌಂಟ್‌ಡೌನ್ ಪ್ರಾರಂಭ',
   },
-  venueTitle: { en: 'Venue', kn: 'ಸ್ಥಳ' },
-  venueSub: {
-    en: 'Join us under one roof for every celebration',
-    kn: 'ಎಲ್ಲಾ ಸಂಭ್ರಮಗಳಿಗೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ಸೇರಿ',
+  days: { en: 'DAYS', kn: 'ದಿನ' },
+  hours: { en: 'HOURS', kn: 'ಗಂಟೆ' },
+  minutes: { en: 'MINS', kn: 'ನಿಮಿಷ' },
+  seconds: { en: 'SECS', kn: 'ಸೆಕೆಂಡ್' },
+  events: { en: 'EVENTS', kn: 'ಕಾರ್ಯಕ್ರಮಗಳು' },
+  wishesTitle: {
+    en: 'Send Us Your Wishes',
+    kn: 'ನಿಮ್ಮ ಶುಭಾಶಯಗಳನ್ನು ಕಳುಹಿಸಿ',
   },
-  directions: { en: 'Open in Google Maps', kn: 'Google Maps ನಲ್ಲಿ ತೆರೆಯಿರಿ' },
-  rsvpTitle: { en: 'Will you join us?', kn: 'ನೀವು ಬರುತ್ತೀರಾ?' },
-  rsvpSub: {
-    en: 'A quick note helps us welcome you with open arms',
-    kn: 'ನಿಮ್ಮ ಉತ್ತರ ನಮಗೆ ನಿಮ್ಮನ್ನು ಸ್ವಾಗತಿಸಲು ಸಹಾಯವಾಗುತ್ತದೆ',
+  wishesSub: {
+    en: 'Your blessings mean the world to us.',
+    kn: 'ನಿಮ್ಮ ಆಶೀರ್ವಾದ ನಮಗೆ ಅಮೂಲ್ಯ.',
   },
-  rsvpCta: { en: 'RSVP on WhatsApp', kn: 'WhatsApp ನಲ್ಲಿ RSVP' },
-  countdownLabel: { en: 'Until Muhurtham', kn: 'ಮುಹೂರ್ತದವರೆಗೆ' },
-  days: { en: 'Days', kn: 'ದಿನ' },
-  hours: { en: 'Hours', kn: 'ಗಂಟೆ' },
-  minutes: { en: 'Mins', kn: 'ನಿಮಿಷ' },
-  seconds: { en: 'Secs', kn: 'ಸೆಕೆಂಡ್' },
-  footerBlessing: {
-    en: 'Come share in our joy',
-    kn: 'ನಮ್ಮ ಸಂತೋಷದಲ್ಲಿ ಪಾಲುಗೊಳ್ಳಿ',
+  yourName: { en: 'Your Name', kn: 'ನಿಮ್ಮ ಹೆಸರು' },
+  yourMessage: { en: 'Your Message...', kn: 'ನಿಮ್ಮ ಸಂದೇಶ...' },
+  sendWishes: { en: 'Send Wishes', kn: 'ಕಳುಹಿಸಿ' },
+  withLove: { en: 'WITH LOVE', kn: 'ಪ್ರೀತಿಯಿಂದ' },
+  closing: {
+    en: 'Your presence and blessings are the greatest gift we could ask for. Thank you for being part of our beautiful beginning.',
+    kn: 'ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ ಮತ್ತು ಆಶೀರ್ವಾದವೇ ನಮಗೆ ದೊರೆತ ಅತ್ಯಂತ ದೊಡ್ಡ ಉಡುಗೊರೆ. ನಮ್ಮ ಹೊಸ ಆರಂಭದ ಭಾಗವಾಗಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.',
   },
-  from: { en: 'With love', kn: 'ಪ್ರೀತಿಯಿಂದ' },
-  families: {
-    en: 'The families of Sindhu & Suman',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಕುಟುಂಬಗಳು',
+  openInvite: { en: 'Open Invitation', kn: 'ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ' },
+  music: { en: 'Music', kn: 'ಸಂಗೀತ' },
+  location: { en: 'Location', kn: 'ಸ್ಥಳ' },
+  brideParents: {
+    en: 'Daughter of the family',
+    kn: 'ಕುಟುಂಬದ ಪುತ್ರಿ',
+  },
+  groomParents: {
+    en: 'Son of the family',
+    kn: 'ಕುಟುಂಬದ ಪುತ್ರ',
   },
 }
 
 export const events = [
   {
     id: 'haldi',
-    date: { en: 'Friday, 17 October 2026', kn: 'ಶುಕ್ರವಾರ, ೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬' },
-    time: { en: '10:00 AM', kn: 'ಬೆಳಿಗ್ಗೆ ೧೦:೦೦' },
-    title: { en: 'Haldi', kn: 'ಹಳದಿ' },
-    desc: {
-      en: 'Turmeric blessings to glow into the wedding weekend',
-      kn: 'ವಿವಾಹ ವಾರಾಂತ್ಯಕ್ಕೆ ಅರಿಶಿನದ ಆಶೀರ್ವಾದ',
+    title: { en: 'HALDI', kn: 'ಹಳದಿ' },
+    when: {
+      en: '17 October 2026 · 10:00 AM',
+      kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೧೦:೦೦',
     },
   },
   {
     id: 'reception',
-    date: { en: 'Friday, 17 October 2026', kn: 'ಶುಕ್ರವಾರ, ೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬' },
-    time: { en: '6:30 PM', kn: 'ಸಂಜೆ ೬:೩೦' },
-    title: { en: 'Reception', kn: 'ಸ್ವಾಗತ ಸಮಾರಂಭ' },
-    desc: {
-      en: 'An evening of music, dinner, and warm welcomes',
-      kn: 'ಸಂಗೀತ, ಊಟ ಮತ್ತು ಆತ್ಮೀಯ ಸ್ವಾಗತದ ಸಂಜೆ',
+    title: { en: 'RECEPTION', kn: 'ಸ್ವಾಗತ ಸಮಾರಂಭ' },
+    when: {
+      en: '17 October 2026 · 6:30 PM',
+      kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಸಂಜೆ ೬:೩೦',
     },
   },
   {
     id: 'muhurtham',
-    date: { en: 'Saturday, 18 October 2026', kn: 'ಶನಿವಾರ, ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬' },
-    time: { en: '6:40 AM – 7:40 AM', kn: 'ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦' },
-    title: { en: 'Muhurtham', kn: 'ಮುಹೂರ್ತ' },
-    desc: {
-      en: 'The auspicious hour of our wedding rites',
-      kn: 'ನಮ್ಮ ವಿವಾಹ ವಿಧಿಗಳ ಪವಿತ್ರ ಘಳಿಗೆ',
+    title: { en: 'WEDDING CEREMONY (MUHURTHAM)', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
+    when: {
+      en: '18 October 2026 · 6:40 AM – 7:40 AM',
+      kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
     },
   },
 ] as const
-
-export const vows = [
-  {
-    en: 'To be together forever',
-    kn: 'ಯಾವಾಗಲೂ ಒಟ್ಟಿಗೆ ಇರಲು',
-  },
-  {
-    en: 'To nourish each other',
-    kn: 'ಪರಸ್ಪರ ಪೋಷಿಸಲು',
-  },
-  {
-    en: 'To remain friends lifelong',
-    kn: 'ಜೀವನಪರ್ಯಂತ ಸ್ನೇಹಿತರಾಗಿರಲು',
-  },
-  {
-    en: 'To grow together in strength',
-    kn: 'ಒಟ್ಟಿಗೆ ಬಲಗೊಳ್ಳಲು',
-  },
-  {
-    en: 'To preserve our wealth',
-    kn: 'ನಮ್ಮ ಸಂಪತ್ತನ್ನು ಕಾಪಾಡಲು',
-  },
-  {
-    en: 'To share our joys & sorrows',
-    kn: 'ಸಂತೋಷ-ದುಃಖಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು',
-  },
-  {
-    en: 'To care for our children',
-    kn: 'ನಮ್ಮ ಮಕ್ಕಳನ್ನು ಪೋಷಿಸಲು',
-  },
-] as const
-
-export const rituals = [
-  { en: 'Gauri Puja', kn: 'ಗೌರಿ ಪೂಜೆ' },
-  { en: 'Jeelakarra Bellam', kn: 'ಜೀಲಕರ್ರ ಬೆಲ್ಲಂ' },
-  { en: 'Mangalyadharanam', kn: 'ಮಾಂಗಲ್ಯಧಾರಣ' },
-  { en: 'Saptapadi', kn: 'ಸಪ್ತಪದಿ' },
-  { en: 'Talambralu', kn: 'ತಲಂಬ್ರಾಲು' },
-  { en: 'Kanyadanam', kn: 'ಕನ್ಯಾದಾನ' },
-] as const
-
-/** Muhurtham start — used for countdown */
-export const muhurthamAt = new Date('2026-10-18T06:40:00+05:30')
