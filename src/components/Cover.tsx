@@ -1,5 +1,6 @@
 import { copy, couple, placeholders, venue } from '../content'
 import { useLang } from '../LangContext'
+import { AnimatedPhoto } from './AnimatedPhoto'
 import { Divider } from './Divider'
 
 export function Cover({
@@ -13,11 +14,12 @@ export function Cover({
 
   return (
     <section className={`cover ${showCta ? 'is-intro' : ''}`}>
-      <img
-        className="cover-photo cover-photo-img"
+      <AnimatedPhoto
         src={placeholders.cover}
         alt=""
-        aria-hidden="true"
+        motion="kenburns"
+        className="cover-photo cover-photo-anim"
+        imgClassName="cover-photo-img"
       />
       <div className="cover-veil" />
       <div className="cover-inner">

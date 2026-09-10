@@ -1,18 +1,34 @@
 /**
- * Placeholder media map — animated caricature references until final photos are added.
- * Swap these paths with real photo URLs when ready.
+ * Unique generated placeholders per slot (do not reuse the same file).
+ * Replace with real photos later by changing these paths.
  */
 export const placeholders = {
-  cover: '/photos/placeholders/cover.gif',
-  couple: '/photos/placeholders/couple.gif',
-  bride: '/photos/placeholders/bride.gif',
-  groom: '/photos/placeholders/groom.gif',
+  cover: '/photos/placeholders/cover.jpg',
+  couple: '/photos/placeholders/couple.jpg',
+  bride: '/photos/placeholders/bride.jpg',
+  groom: '/photos/placeholders/groom.jpg',
   caricature: '/photos/caricature.png',
   gallery: [
-    '/photos/placeholders/gallery-1.gif',
-    '/photos/placeholders/gallery-2.gif',
-    '/photos/placeholders/gallery-3.gif',
-    '/photos/placeholders/gallery-4.gif',
+    {
+      src: '/photos/placeholders/gallery-1.jpg',
+      motion: 'kenburns' as const,
+      alt: 'Close romantic moment',
+    },
+    {
+      src: '/photos/placeholders/gallery-2.jpg',
+      motion: 'float' as const,
+      alt: 'Playful outdoor pose',
+    },
+    {
+      src: '/photos/placeholders/gallery-3.jpg',
+      motion: 'pan-left' as const,
+      alt: 'Wedding caricature moment',
+    },
+    {
+      src: '/photos/placeholders/gallery-4.jpg',
+      motion: 'pulse' as const,
+      alt: 'Evening lights together',
+    },
   ],
 } as const
 
@@ -99,8 +115,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Animated placeholders — replace with your photos',
-    kn: 'ಆನಿಮೇಟೆಡ್ ಪ್ಲೇಸ್‌ಹೋಲ್ಡರ್ — ನಿಮ್ಮ ಫೋಟೋಗಳನ್ನು ಸೇರಿಸಿ',
+    en: 'Unique generated placeholders — replace with your photos anytime',
+    kn: 'ವಿಶಿಷ್ಟ ಪ್ಲೇಸ್‌ಹೋಲ್ಡರ್ — ನಿಮ್ಮ ಫೋಟೋಗಳನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಸೇರಿಸಿ',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',

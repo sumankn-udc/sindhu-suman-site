@@ -1,20 +1,28 @@
 import { copy, couple, family, placeholders } from '../content'
 import { useLang } from '../LangContext'
+import { AnimatedPhoto } from './AnimatedPhoto'
 import { Divider } from './Divider'
 
 function Portrait({
   src,
   name,
   parents,
+  motion,
 }: {
   src: string
   name: string
   parents: string
+  motion: 'float' | 'kenburns' | 'kenburns-out'
 }) {
   return (
     <figure className="portrait">
       <div className="portrait-frame">
-        <img className="portrait-img" src={src} alt={name} loading="lazy" />
+        <AnimatedPhoto
+          src={src}
+          alt={name}
+          motion={motion}
+          imgClassName="portrait-img"
+        />
       </div>
       <figcaption>
         <p className="portrait-name">{name}</p>
@@ -35,20 +43,22 @@ export function Couple() {
         src={placeholders.bride}
         name={t(couple.bride)}
         parents={t(family.bride.parents)}
+        motion="float"
       />
       <Portrait
         src={placeholders.groom}
         name={t(couple.groom)}
         parents={t(family.groom.parents)}
+        motion="kenburns"
       />
 
       <figure className="portrait portrait-featured">
         <div className="portrait-frame">
-          <img
-            className="portrait-img"
+          <AnimatedPhoto
             src={placeholders.couple}
             alt={`${couple.bride.en} & ${couple.groom.en}`}
-            loading="lazy"
+            motion="kenburns-out"
+            imgClassName="portrait-img"
           />
         </div>
         <figcaption>
@@ -71,8 +81,8 @@ export function Couple() {
         />
         <figcaption className="caricature-caption">
           {t({
-            en: 'Animated placeholders for reference',
-            kn: 'ಉಲ್ಲೇಖಕ್ಕಾಗಿ ಆನಿಮೇಟೆಡ್ ಪ್ಲೇಸ್‌ಹೋಲ್ಡರ್',
+            en: 'Same smiles. Same spark.',
+            kn: 'ಅದೇ ನಗು. ಅದೇ ಕಾಂತಿ.',
           })}
         </figcaption>
       </figure>

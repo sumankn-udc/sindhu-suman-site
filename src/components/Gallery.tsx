@@ -1,5 +1,6 @@
-import { copy, couple, placeholders } from '../content'
+import { copy, placeholders } from '../content'
 import { useLang } from '../LangContext'
+import { AnimatedPhoto } from './AnimatedPhoto'
 import { Divider } from './Divider'
 
 export function Gallery() {
@@ -10,13 +11,13 @@ export function Gallery() {
       <h2 className="section-title">{t(copy.galleryTitle)}</h2>
       <Divider />
       <div className="gallery-grid">
-        {placeholders.gallery.map((src, i) => (
-          <div key={src} className="polaroid">
-            <img
-              className="polaroid-img"
-              src={src}
-              alt={`${couple.bride.en} & ${couple.groom.en} placeholder ${i + 1}`}
-              loading="lazy"
+        {placeholders.gallery.map((item) => (
+          <div key={item.src} className="polaroid">
+            <AnimatedPhoto
+              src={item.src}
+              alt={item.alt}
+              motion={item.motion}
+              imgClassName="polaroid-img"
             />
           </div>
         ))}
