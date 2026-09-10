@@ -75,7 +75,8 @@ button {
 .phone {
   position: relative;
   width: min(420px, 100%);
-  min-height: min(92svh, 860px);
+  height: min(100svh, 900px);
+  max-height: 100svh;
   background: var(--black);
   border: 1px solid rgba(197, 160, 82, 0.35);
   border-radius: 18px;
@@ -116,7 +117,8 @@ button {
 /* —— Loading invitation splash —— */
 .loading-screen {
   flex: 1;
-  min-height: min(92svh, 860px);
+  min-height: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,14 +196,18 @@ button {
 
 .invite-scroll {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  padding-bottom: 5.5rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* —— Cover —— */
 .cover {
   position: relative;
-  min-height: min(92svh, 860px);
+  min-height: 100%;
   display: grid;
   place-items: center;
   padding: 4.5rem 1.4rem 5.5rem;
@@ -641,13 +647,13 @@ button {
   color: rgba(232, 220, 200, 0.9);
 }
 
-/* —— FABs —— */
+/* —— FABs (pinned to phone frame, not scroll content) —— */
 .fab-row {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 18px;
-  z-index: 30;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 50;
   display: flex;
   justify-content: space-between;
   padding: 0 18px;
@@ -679,7 +685,7 @@ button {
 .location-overlay {
   position: absolute;
   inset: 0;
-  z-index: 40;
+  z-index: 60;
   display: grid;
   place-items: center;
   padding: 1.25rem;
@@ -791,7 +797,8 @@ button {
 
   .phone {
     width: 100%;
-    min-height: 100svh;
+    height: 100svh;
+    max-height: 100svh;
     border-radius: 0;
     border: none;
   }
