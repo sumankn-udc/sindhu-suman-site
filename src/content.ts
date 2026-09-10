@@ -81,6 +81,39 @@ export const venue = {
 
 export const rsvpWhatsApp = '919738019508'
 
+/** Public site URL used for WhatsApp / social link previews */
+export const siteUrl = 'https://thesianchronicles.blog'
+
+/** WhatsApp-style share text + Open Graph wording */
+export const shareInvite = {
+  eyebrow: { en: 'SHARE INVITE', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿಕೊಳ್ಳಿ' },
+  title: {
+    en: 'Share this invitation',
+    kn: 'ಈ ಆಮಂತ್ರಣವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ',
+  },
+  sub: {
+    en: 'Send the link on WhatsApp — guests see our photo and invitation preview.',
+    kn: 'WhatsApp ನಲ್ಲಿ ಲಿಂಕ್ ಕಳುಹಿಸಿ — ಅತಿಥಿಗಳಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ಆಮಂತ್ರಣ ಪೂರ್ವವೀಕ್ಷಣೆ ಕಾಣುತ್ತದೆ.',
+  },
+  shareBtn: { en: 'Share Invite', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿ' },
+  headline: {
+    en: "We're getting Married ✨💍.",
+    kn: 'ನಾವು ಮದುವೆಯಾಗುತ್ತಿದ್ದೇವೆ ✨💍.',
+  },
+  body: {
+    en: 'You are warmly invited to our wedding. Click the link below for more details. 👇',
+    kn: 'ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ಆಮಂತ್ರಿಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
+  },
+  ogTitle: {
+    en: "We're getting Married ✨💍",
+    kn: 'ನಾವು ಮದುವೆಯಾಗುತ್ತಿದ್ದೇವೆ ✨💍',
+  },
+  ogDescription: {
+    en: 'You are warmly invited to our wedding. Click the link for more details.',
+    kn: 'ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ಆಮಂತ್ರಿಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಲಿಂಕ್ ತೆರೆಯಿರಿ.',
+  },
+}
+
 /** Hrudayavu Kelade (From "Cult") — plays via official YouTube embed */
 export const weddingMusic = {
   youtubeId: 'GWqgOEFZOXA',
@@ -155,6 +188,8 @@ export const copy = {
     kn: 'ಆಮಂತ್ರಣ ಲೋಡ್ ಆಗುತ್ತಿದೆ',
   },
   amp: { en: '&', kn: '&' },
+  copyLink: { en: 'Copy link', kn: 'ಲಿಂಕ್ ನಕಲಿಸಿ' },
+  copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
 }
 
 /** Chronological celebration order */

@@ -8,6 +8,7 @@ import { Gallery } from './components/Gallery'
 import { Countdown } from './components/Countdown'
 import { Events } from './components/Events'
 import { Wishes } from './components/Wishes'
+import { ShareInvite } from './components/ShareInvite'
 import { Closing } from './components/Closing'
 import { FloatingActions } from './components/FloatingActions'
 import { LangToggle } from './components/LangToggle'
@@ -40,6 +41,7 @@ function Invite() {
             <Countdown />
             <Events />
             <Wishes />
+            <ShareInvite />
             <Closing />
           </main>
         )}
