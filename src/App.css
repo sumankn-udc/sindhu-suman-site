@@ -554,6 +554,108 @@ button {
   background: var(--gold);
 }
 
+/* —— Location modal —— */
+.location-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.location-modal {
+  width: min(100%, 320px);
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.location-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.05rem 1.1rem 0.85rem;
+}
+
+.location-modal-head h2 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.location-close {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.45rem;
+  line-height: 1;
+  color: #9a9a9a;
+}
+
+.location-close:hover {
+  color: #333;
+  background: #f2f2f2;
+}
+
+.location-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.35rem;
+}
+
+.location-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.95rem 1.1rem;
+  border-top: 1px solid #ececec;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.location-item:hover {
+  background: #faf7f2;
+}
+
+.location-item-icon {
+  color: #222;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.location-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.location-item-title {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.location-item-when {
+  font-size: 0.86rem;
+  color: #666;
+}
+
+.location-item-place {
+  font-size: 0.78rem;
+  color: #8a8a8a;
+  font-style: italic;
+}
+
 @media (min-width: 720px) {
   .countdown-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));

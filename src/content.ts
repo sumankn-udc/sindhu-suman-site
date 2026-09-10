@@ -75,6 +75,9 @@ export const copy = {
   openInvite: { en: 'Open Invitation', kn: 'ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ' },
   music: { en: 'Music', kn: 'ಸಂಗೀತ' },
   location: { en: 'Location', kn: 'ಸ್ಥಳ' },
+  selectLocation: { en: 'Select Location', kn: 'ಸ್ಥಳವನ್ನು ಆಯ್ಕೆಮಾಡಿ' },
+  close: { en: 'Close', kn: 'ಮುಚ್ಚಿ' },
+  openMaps: { en: 'Open in Maps', kn: 'ನಕ್ಷೆಯಲ್ಲಿ ತೆರೆಯಿರಿ' },
   brideParents: {
     en: 'Daughter of the family',
     kn: 'ಕುಟುಂಬದ ಪುತ್ರಿ',
@@ -85,10 +88,19 @@ export const copy = {
   },
 }
 
+/** Order matches EventKompany location picker style */
 export const events = [
   {
+    id: 'muhurtham',
+    title: { en: 'Wedding Ceremony (Muhurtham)', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
+    when: {
+      en: '18 October 2026 · 6:40 AM – 7:40 AM',
+      kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
+    },
+  },
+  {
     id: 'haldi',
-    title: { en: 'HALDI', kn: 'ಹಳದಿ' },
+    title: { en: 'Haldi', kn: 'ಹಳದಿ' },
     when: {
       en: '17 October 2026 · 10:00 AM',
       kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೧೦:೦೦',
@@ -96,18 +108,10 @@ export const events = [
   },
   {
     id: 'reception',
-    title: { en: 'RECEPTION', kn: 'ಸ್ವಾಗತ ಸಮಾರಂಭ' },
+    title: { en: 'Reception', kn: 'ಸ್ವಾಗತ ಸಮಾರಂಭ' },
     when: {
       en: '17 October 2026 · 6:30 PM',
       kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಸಂಜೆ ೬:೩೦',
-    },
-  },
-  {
-    id: 'muhurtham',
-    title: { en: 'WEDDING CEREMONY (MUHURTHAM)', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
-    when: {
-      en: '18 October 2026 · 6:40 AM – 7:40 AM',
-      kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
     },
   },
 ] as const
