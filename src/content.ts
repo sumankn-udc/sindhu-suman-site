@@ -92,8 +92,8 @@ export const shareInvite = {
     kn: 'ಈ ಆಮಂತ್ರಣವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ',
   },
   sub: {
-    en: 'Send the link on WhatsApp — guests see our photo and invitation preview.',
-    kn: 'WhatsApp ನಲ್ಲಿ ಲಿಂಕ್ ಕಳುಹಿಸಿ — ಅತಿಥಿಗಳಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ಆಮಂತ್ರಣ ಪೂರ್ವವೀಕ್ಷಣೆ ಕಾಣುತ್ತದೆ.',
+    en: 'Share on WhatsApp with a ready-made invite message — guests see our photo and preview.',
+    kn: 'WhatsApp ನಲ್ಲಿ ಸಿದ್ಧ ಆಮಂತ್ರಣ ಸಂದೇಶದೊಂದಿಗೆ ಹಂಚಿ — ಅತಿಥಿಗಳಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ಪೂರ್ವವೀಕ್ಷಣೆ ಕಾಣುತ್ತದೆ.',
   },
   shareBtn: { en: 'Share Invite', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿ' },
   headline: {
@@ -189,6 +189,7 @@ export const copy = {
   },
   amp: { en: '&', kn: '&' },
   copyLink: { en: 'Copy link', kn: 'ಲಿಂಕ್ ನಕಲಿಸಿ' },
+  copyInvite: { en: 'Copy invite', kn: 'ಆಮಂತ್ರಣ ನಕಲಿಸಿ' },
   copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
 }
 
