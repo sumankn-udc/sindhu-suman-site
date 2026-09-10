@@ -113,6 +113,75 @@ button {
   color: #111;
 }
 
+/* —— Loading invitation splash —— */
+.loading-screen {
+  flex: 1;
+  min-height: min(92svh, 860px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  background: #f7f3ec;
+  color: #1a1a1a;
+}
+
+.loading-label {
+  margin: 0 0 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #b0aaa2;
+  font-family: var(--font-body);
+}
+
+.loading-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 9vw, 2.75rem);
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.loading-name.kn {
+  font-family: var(--font-kn);
+  font-weight: 600;
+}
+
+.loading-amp {
+  margin: 0.35rem 0;
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  color: #b0aaa2;
+  font-weight: 400;
+}
+
+.loading-status {
+  margin: 1.6rem 0 0.85rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #b0aaa2;
+}
+
+.loading-track {
+  width: min(11rem, 55%);
+  height: 1.5px;
+  background: #ddd7ce;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.loading-bar {
+  display: block;
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: inherit;
+  transition: width 40ms linear;
+}
+
 .invite-scroll {
   flex: 1;
   overflow-y: auto;

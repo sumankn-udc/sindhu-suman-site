@@ -78,6 +78,12 @@ export const copy = {
   selectLocation: { en: 'Select Location', kn: 'ಸ್ಥಳವನ್ನು ಆಯ್ಕೆಮಾಡಿ' },
   close: { en: 'Close', kn: 'ಮುಚ್ಚಿ' },
   openMaps: { en: 'Open in Maps', kn: 'ನಕ್ಷೆಯಲ್ಲಿ ತೆರೆಯಿರಿ' },
+  weddingLabel: { en: 'WEDDING', kn: 'ವಿವಾಹ' },
+  loadingInvitation: {
+    en: 'LOADING INVITATION',
+    kn: 'ಆಮಂತ್ರಣ ಲೋಡ್ ಆಗುತ್ತಿದೆ',
+  },
+  amp: { en: '&', kn: '&' },
   brideParents: {
     en: 'Daughter of the family',
     kn: 'ಕುಟುಂಬದ ಪುತ್ರಿ',

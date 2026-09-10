@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { LangProvider } from './LangContext'
+import { LoadingScreen } from './components/LoadingScreen'
 import { Cover } from './components/Cover'
 import { Couple } from './components/Couple'
 import { Gallery } from './components/Gallery'
@@ -11,18 +12,25 @@ import { FloatingActions } from './components/FloatingActions'
 import { LangToggle } from './components/LangToggle'
 import './App.css'
 
+type Phase = 'loading' | 'cover' | 'opened'
+
 function Invite() {
-  const [opened, setOpened] = useState(false)
+  const [phase, setPhase] = useState<Phase>('loading')
+  const finishLoading = useCallback(() => setPhase('cover'), [])
 
   return (
     <div className="stage">
       <div className="phone">
-        <div className="phone-top">
-          <LangToggle />
-        </div>
+        {phase !== 'loading' ? (
+          <div className="phone-top">
+            <LangToggle />
+          </div>
+        ) : null}
 
-        {!opened ? (
-          <Cover showCta onOpen={() => setOpened(true)} />
+        {phase === 'loading' ? (
+          <LoadingScreen onDone={finishLoading} />
+        ) : phase === 'cover' ? (
+          <Cover showCta onOpen={() => setPhase('opened')} />
         ) : (
           <main className="invite-scroll">
             <Cover />
@@ -35,7 +43,7 @@ function Invite() {
           </main>
         )}
 
-        <FloatingActions />
+        {phase !== 'loading' ? <FloatingActions /> : null}
       </div>
     </div>
   )
