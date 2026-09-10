@@ -18,7 +18,15 @@ type Phase = 'loading' | 'cover' | 'opened'
 
 function Invite() {
   const [phase, setPhase] = useState<Phase>('loading')
+  const [musicOn, setMusicOn] = useState(false)
   const finishLoading = useCallback(() => setPhase('cover'), [])
+  const toggleMusic = useCallback(() => setMusicOn((v) => !v), [])
+
+  const openInvite = useCallback(() => {
+    // User gesture: mount YouTube embed with autoplay so music starts unmuted.
+    setMusicOn(true)
+    setPhase('opened')
+  }, [])
 
   return (
     <div className="stage">
@@ -32,7 +40,7 @@ function Invite() {
         {phase === 'loading' ? (
           <LoadingScreen onDone={finishLoading} />
         ) : phase === 'cover' ? (
-          <Cover showCta onOpen={() => setPhase('opened')} />
+          <Cover showCta onOpen={openInvite} />
         ) : (
           <main className="invite-scroll">
             <Cover />
@@ -46,7 +54,9 @@ function Invite() {
           </main>
         )}
 
-        {phase !== 'loading' ? <FloatingActions /> : null}
+        {phase !== 'loading' ? (
+          <FloatingActions musicOn={musicOn} onToggleMusic={toggleMusic} />
+        ) : null}
       </div>
     </div>
   )

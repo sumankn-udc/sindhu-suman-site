@@ -19,9 +19,14 @@ function PinIcon({ className = '' }: { className?: string }) {
   )
 }
 
-export function FloatingActions() {
+export function FloatingActions({
+  musicOn,
+  onToggleMusic,
+}: {
+  musicOn: boolean
+  onToggleMusic: () => void
+}) {
   const { t } = useLang()
-  const [musicOn, setMusicOn] = useState(false)
   const [locationOpen, setLocationOpen] = useState(false)
   const titleId = useId()
 
@@ -34,6 +39,9 @@ export function FloatingActions() {
     return () => window.removeEventListener('keydown', onKey)
   }, [locationOpen])
 
+  // Unmuted autoplay is allowed when this iframe mounts in response to a user
+  // gesture (Open Invitation or Music FAB). Silent autoplay before any tap is
+  // blocked by browsers.
   const ytSrc = `https://www.youtube.com/embed/${weddingMusic.youtubeId}?autoplay=1&loop=1&playlist=${weddingMusic.youtubeId}&controls=0&modestbranding=1&playsinline=1&rel=0`
 
   return (
@@ -44,7 +52,7 @@ export function FloatingActions() {
           className={`fab ${musicOn ? 'is-on' : ''}`}
           aria-label={`${t(copy.music)} — ${t(weddingMusic.title)}`}
           aria-pressed={musicOn}
-          onClick={() => setMusicOn((v) => !v)}
+          onClick={onToggleMusic}
           title={`${t(copy.music)}: ${t(weddingMusic.title)}`}
         >
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
