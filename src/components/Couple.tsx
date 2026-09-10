@@ -74,15 +74,15 @@ export function Couple() {
           className="caricature-img"
           src={placeholders.caricature}
           alt={t({
-            en: 'Joyful caricature of Sindhu & Suman',
-            kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಸಂತೋಷದ ಚಿತ್ರ',
+            en: 'Anime wedding portrait of Sindhu & Suman',
+            kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಅನಿಮೆ ವಿವಾಹ ಚಿತ್ರ',
           })}
           loading="lazy"
         />
         <figcaption className="caricature-caption">
           {t({
-            en: 'Same smiles. Same spark.',
-            kn: 'ಅದೇ ನಗು. ಅದೇ ಕಾಂತಿ.',
+            en: 'Drawn with love — same spark.',
+            kn: 'ಪ್ರೀತಿಯಿಂದ ಚಿತ್ರಿಸಿದ್ದು — ಅದೇ ಕಾಂತಿ.',
           })}
         </figcaption>
       </figure>

@@ -1,6 +1,6 @@
 /**
- * Unique generated placeholders per slot (do not reuse the same file).
- * Replace with real photos later by changing these paths.
+ * Unique anime-style illustrations per slot (do not reuse the same file).
+ * Swap paths later if you add real photos.
  */
 export const placeholders = {
   cover: '/photos/placeholders/cover.jpg',
@@ -12,22 +12,22 @@ export const placeholders = {
     {
       src: '/photos/placeholders/gallery-1.jpg',
       motion: 'kenburns' as const,
-      alt: 'Close romantic moment',
+      alt: 'Anime close-up of the couple',
     },
     {
       src: '/photos/placeholders/gallery-2.jpg',
       motion: 'float' as const,
-      alt: 'Playful outdoor pose',
+      alt: 'Playful anime garden moment',
     },
     {
       src: '/photos/placeholders/gallery-3.jpg',
       motion: 'pan-left' as const,
-      alt: 'Wedding caricature moment',
+      alt: 'Anime wedding garland portrait',
     },
     {
       src: '/photos/placeholders/gallery-4.jpg',
       motion: 'pulse' as const,
-      alt: 'Evening lights together',
+      alt: 'Anime evening lights together',
     },
   ],
 } as const
@@ -148,8 +148,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Unique generated placeholders — replace with your photos anytime',
-    kn: 'ವಿಶಿಷ್ಟ ಪ್ಲೇಸ್‌ಹೋಲ್ಡರ್ — ನಿಮ್ಮ ಫೋಟೋಗಳನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಸೇರಿಸಿ',
+    en: 'Anime illustrations made for Sindhu & Suman',
+    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್‌ಗಾಗಿ ರಚಿಸಿದ ಅನಿಮೆ ಚಿತ್ರಗಳು',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',
