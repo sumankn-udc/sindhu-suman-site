@@ -1,14 +1,15 @@
 import { copy } from '../content'
 import { useLang } from '../LangContext'
 import { Divider } from './Divider'
+import { Reveal } from './Reveal'
 
 export function Closing() {
   const { t } = useLang()
   return (
-    <section className="section closing-section">
+    <Reveal as="section" variant="fade-up" className="section closing-section">
       <p className="section-eyebrow">{t(copy.withLove)}</p>
       <Divider />
       <p className="closing-text">{t(copy.closing)}</p>
-    </section>
+    </Reveal>
   )
 }

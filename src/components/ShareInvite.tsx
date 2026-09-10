@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { copy, shareInvite, siteUrl } from '../content'
 import { useLang } from '../LangContext'
+import { Reveal } from './Reveal'
 
 /** Canonical invite URL — no trailing slash (avoids OG / share duplication quirks). */
 const inviteUrl = siteUrl.replace(/\/$/, '')
@@ -36,7 +37,7 @@ export function ShareInvite() {
     }
   }, [lang, t])
   return (
-    <section className="section share-section" id="share">
+    <Reveal as="section" variant="fade-up" className="section share-section" id="share">
       <p className="section-eyebrow">{t(shareInvite.eyebrow)}</p>
       <h2 className="share-title">{t(shareInvite.title)}</h2>
       <p className="share-sub">{t(shareInvite.sub)}</p>
@@ -58,6 +59,6 @@ export function ShareInvite() {
           {copied ? t(copy.copied) : t(copy.copyInvite)}
         </button>
       </div>
-    </section>
+    </Reveal>
   )
 }

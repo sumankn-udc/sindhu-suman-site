@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { copy, couple, rsvpWhatsApp } from '../content'
 import { useLang } from '../LangContext'
+import { Reveal } from './Reveal'
 
 export function Wishes() {
   const { t, lang } = useLang()
@@ -21,7 +22,7 @@ export function Wishes() {
   }
 
   return (
-    <section className="section wishes-section" id="wishes">
+    <Reveal as="section" variant="fade-up" className="section wishes-section" id="wishes">
       <h2 className="wishes-title">{t(copy.wishesTitle)}</h2>
       <p className="wishes-sub">{t(copy.wishesSub)}</p>
       <form className="wishes-form" onSubmit={onSubmit}>
@@ -45,6 +46,6 @@ export function Wishes() {
           {t(copy.sendWishes)}
         </button>
       </form>
-    </section>
+    </Reveal>
   )
 }

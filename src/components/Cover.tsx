@@ -13,7 +13,7 @@ export function Cover({
   const { t, lang } = useLang()
 
   return (
-    <section className={`cover ${showCta ? 'is-intro' : ''}`}>
+    <section className={`cover ${showCta ? 'is-intro' : 'is-scroll'}`}>
       <AnimatedPhoto
         src={placeholders.cover}
         alt=""

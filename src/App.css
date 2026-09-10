@@ -351,11 +351,93 @@ button {
   }
 }
 
+/* —— Scroll reveals & soft pops (transform/opacity only) —— */
+.reveal {
+  --reveal-delay: 0ms;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay);
+}
+
+.reveal--fade-up {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+}
+
+.reveal--fade {
+  opacity: 0;
+  transform: none;
+}
+
+.reveal--pop {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-group {
+  --reveal-stagger: 90ms;
+}
+
+.reveal-item {
+  --i: 0;
+  will-change: transform, opacity;
+  opacity: 0;
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i) * var(--reveal-stagger));
+}
+
+.reveal-item--fade-up {
+  transform: translate3d(0, 18px, 0);
+}
+
+.reveal-item--pop {
+  transform: scale(0.96);
+}
+
+.reveal-group.is-inview > .reveal-item {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cover content entrance when invite is opened (scroll mode) */
+.cover.is-scroll .cover-inner {
+  animation: coverScrollIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+@keyframes coverScrollIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .anim-photo img,
   .loading-logo,
-  .cover-logo {
+  .cover-logo,
+  .caricature-img,
+  .cover.is-scroll .cover-inner {
     animation: none !important;
+  }
+
+  .reveal,
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 
