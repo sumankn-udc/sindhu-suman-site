@@ -114,14 +114,14 @@ export const shareInvite = {
   },
 }
 
-/** Hrudayavu Kelade (From "Cult") — plays via official YouTube embed */
+/** Hrudayavu Kelade Lyrical Song (From "Cult") — plays via official YouTube embed */
 export const weddingMusic = {
-  youtubeId: 'GWqgOEFZOXA',
+  youtubeId: 'vUa7dx_BbHQ',
   title: {
     en: 'Hrudayavu Kelade (From "Cult")',
     kn: 'ಹೃದಯವು ಕೇಳದೆ (Cult)',
   },
-  listenUrl: 'https://www.youtube.com/watch?v=GWqgOEFZOXA',
+  listenUrl: 'https://www.youtube.com/watch?v=vUa7dx_BbHQ',
 }
 
 export const muhurthamAt = new Date('2026-10-18T06:40:00+05:30')
