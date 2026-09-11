@@ -21,9 +21,12 @@ function PinIcon({ className = '' }: { className?: string }) {
 
 export function FloatingActions({
   musicOn,
+  muted = false,
   onToggleMusic,
 }: {
   musicOn: boolean
+  /** Browsers allow muted autoplay on load; unmute after first gesture. */
+  muted?: boolean
   onToggleMusic: () => void
 }) {
   const { t } = useLang()
@@ -39,19 +42,20 @@ export function FloatingActions({
     return () => window.removeEventListener('keydown', onKey)
   }, [locationOpen])
 
-  // Unmuted autoplay is allowed when this iframe mounts in response to a user
-  // gesture (Open Invitation or Music FAB). Silent autoplay before any tap is
-  // blocked by browsers.
-  const ytSrc = `https://www.youtube.com/embed/${weddingMusic.youtubeId}?autoplay=1&loop=1&playlist=${weddingMusic.youtubeId}&controls=0&modestbranding=1&playsinline=1&rel=0`
+  const muteFlag = muted ? 1 : 0
+  const ytSrc =
+    `https://www.youtube.com/embed/${weddingMusic.youtubeId}` +
+    `?autoplay=1&mute=${muteFlag}&loop=1&playlist=${weddingMusic.youtubeId}` +
+    `&controls=0&modestbranding=1&playsinline=1&rel=0`
 
   return (
     <>
       <div className="fab-row">
         <button
           type="button"
-          className={`fab ${musicOn ? 'is-on' : ''}`}
+          className={`fab${musicOn && !muted ? ' is-on' : ''}${musicOn && muted ? ' is-muted' : ''}`}
           aria-label={`${t(copy.music)} — ${t(weddingMusic.title)}`}
-          aria-pressed={musicOn}
+          aria-pressed={musicOn && !muted}
           onClick={onToggleMusic}
           title={`${t(copy.music)}: ${t(weddingMusic.title)}`}
         >
@@ -77,6 +81,7 @@ export function FloatingActions({
 
       {musicOn ? (
         <iframe
+          key={`yt-${muteFlag}`}
           className="yt-bg-music"
           src={ytSrc}
           title={t(weddingMusic.title)}

@@ -1,0 +1,342 @@
+.future-root {
+  --fx-cyan: #5ef0ff;
+  --fx-magenta: #ff4fd8;
+  --fx-violet: #7b5cff;
+  --fx-ink: #05060f;
+  --fx-glass: rgba(12, 16, 32, 0.62);
+  min-height: 100svh;
+  color: #eef7ff;
+  background: var(--fx-ink);
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.future-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(94, 240, 255, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 90% 20%, rgba(255, 79, 216, 0.16), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(123, 92, 255, 0.2), transparent 55%),
+    linear-gradient(180deg, #05060f, #0a1024 50%, #05060f);
+  z-index: 0;
+}
+
+.future-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(94, 240, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 240, 255, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+  animation: futureGrid 18s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes futureGrid {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(42px);
+  }
+}
+
+.future-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.1rem;
+}
+
+.future-back,
+.future-lang {
+  border: 1px solid rgba(94, 240, 255, 0.35);
+  background: rgba(5, 8, 20, 0.7);
+  color: var(--fx-cyan);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+.future-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.5rem 1.15rem 3.5rem;
+  text-align: center;
+}
+
+.future-kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  color: rgba(94, 240, 255, 0.75);
+}
+
+.future-logo {
+  margin: 0.85rem auto 0.4rem;
+  width: 4.2rem;
+  height: 4.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(255, 79, 216, 0.55);
+  background: linear-gradient(135deg, rgba(94, 240, 255, 0.15), rgba(255, 79, 216, 0.12));
+  box-shadow:
+    0 0 24px rgba(94, 240, 255, 0.25),
+    inset 0 0 18px rgba(255, 79, 216, 0.15);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  animation: futurePulse 2.8s ease-in-out infinite;
+}
+
+@keyframes futurePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 24px rgba(94, 240, 255, 0.25),
+      inset 0 0 18px rgba(255, 79, 216, 0.15);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow:
+      0 0 36px rgba(255, 79, 216, 0.35),
+      inset 0 0 22px rgba(94, 240, 255, 0.18);
+  }
+}
+
+.future-names {
+  margin: 0.6rem 0 0;
+  font-size: clamp(2rem, 9vw, 2.7rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #fff, var(--fx-cyan), var(--fx-magenta), #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: futureShine 5s linear infinite;
+}
+
+.future-names.kn {
+  font-family: 'Noto Sans Kannada', sans-serif;
+  text-transform: none;
+}
+
+@keyframes futureShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.future-and {
+  display: block;
+  margin: 0.25rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.55);
+  background: none;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.55);
+}
+
+.future-tag {
+  margin: 0.75rem auto 1.25rem;
+  max-width: 22rem;
+  color: rgba(220, 235, 255, 0.72);
+  font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+.future-hero {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(94, 240, 255, 0.35);
+  box-shadow: 0 0 40px rgba(123, 92, 255, 0.25);
+  aspect-ratio: 4 / 5;
+}
+
+.future-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.future-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(5, 6, 15, 0.75));
+  pointer-events: none;
+}
+
+.future-panel {
+  margin-top: 1.15rem;
+  padding: 1.1rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(94, 240, 255, 0.22);
+  background: var(--fx-glass);
+  backdrop-filter: blur(14px);
+  text-align: left;
+}
+
+.future-panel-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--fx-magenta);
+}
+
+.future-digits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+}
+
+.future-digit {
+  text-align: center;
+  padding: 0.65rem 0.2rem;
+  border-radius: 0.7rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(94, 240, 255, 0.2);
+}
+
+.future-digit strong {
+  display: block;
+  font-size: 1.35rem;
+  color: var(--fx-cyan);
+  font-variant-numeric: tabular-nums;
+}
+
+.future-digit span {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: rgba(220, 235, 255, 0.55);
+}
+
+.future-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.future-events li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(94, 240, 255, 0.12);
+}
+
+.future-events li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.future-events strong {
+  display: block;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.future-events span {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.92rem;
+  color: rgba(220, 235, 255, 0.7);
+}
+
+.future-events a {
+  flex-shrink: 0;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--fx-cyan);
+  color: var(--fx-cyan);
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+
+.future-venue {
+  margin: 0.9rem 0 0;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(220, 235, 255, 0.75);
+  line-height: 1.45;
+}
+
+.future-family p {
+  margin: 0 0 0.45rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.98rem;
+  color: rgba(220, 235, 255, 0.8);
+}
+
+.future-cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.future-cta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.95rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: #05060f;
+  background: linear-gradient(90deg, var(--fx-cyan), var(--fx-magenta));
+  box-shadow: 0 0 28px rgba(94, 240, 255, 0.35);
+}
+
+.future-cta-ghost {
+  color: var(--fx-cyan);
+  background: transparent;
+  border: 1px solid rgba(94, 240, 255, 0.45);
+  box-shadow: none;
+}
+
+.future-foot {
+  margin: 1.5rem auto 0;
+  max-width: 22rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: rgba(220, 235, 255, 0.65);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .future-grid,
+  .future-logo,
+  .future-names {
+    animation: none !important;
+  }
+}

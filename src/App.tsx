@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { LangProvider } from './LangContext'
 import { AnimatedFavicon } from './components/AnimatedFavicon'
 import { LoadingScreen } from './components/LoadingScreen'
@@ -18,28 +18,58 @@ import { OpenCurtain } from './components/OpenCurtain'
 import { ScrollProgress } from './components/ScrollProgress'
 import { ScrollTop } from './components/ScrollTop'
 import { PrefetchPhotos } from './components/PrefetchPhotos'
+import { FutureInvite } from './components/FutureInvite'
 import { useAutoTour } from './hooks/useAutoTour'
 import './App.css'
 
 type Phase = 'loading' | 'cover' | 'opened'
 
-function Invite() {
+function ClassicInvite() {
   const [phase, setPhase] = useState<Phase>('loading')
+  // Start music as soon as the cover is ready (muted for browser autoplay policy).
   const [musicOn, setMusicOn] = useState(false)
+  const [musicMuted, setMusicMuted] = useState(true)
   const [showCurtain, setShowCurtain] = useState(false)
   const [tourOn, setTourOn] = useState(false)
   const scrollRef = useRef<HTMLElement | null>(null)
 
-  const finishLoading = useCallback(() => setPhase('cover'), [])
-  const toggleMusic = useCallback(() => setMusicOn((v) => !v), [])
+  const finishLoading = useCallback(() => {
+    setPhase('cover')
+    setMusicOn(true) // muted autoplay on load
+  }, [])
+
+  const unmute = useCallback(() => setMusicMuted(false), [])
+
+  const toggleMusic = useCallback(() => {
+    setMusicOn((on) => {
+      if (!on) {
+        // Turning back on after user pause — play unmuted.
+        setMusicMuted(false)
+        return true
+      }
+      return false
+    })
+  }, [])
 
   const openInvite = useCallback(() => {
-    // User gesture: mount YouTube embed with autoplay so music starts unmuted.
+    unmute()
     setMusicOn(true)
     setShowCurtain(true)
     setPhase('opened')
     setTourOn(true)
-  }, [])
+  }, [unmute])
+
+  // First tap / key anywhere: unmute so guests hear music without hunting for the FAB.
+  useEffect(() => {
+    if (!musicOn || !musicMuted) return
+    const unlock = () => unmute()
+    window.addEventListener('pointerdown', unlock, { once: true })
+    window.addEventListener('keydown', unlock, { once: true })
+    return () => {
+      window.removeEventListener('pointerdown', unlock)
+      window.removeEventListener('keydown', unlock)
+    }
+  }, [musicOn, musicMuted, unmute])
 
   useAutoTour({ enabled: tourOn && phase === 'opened', scrollerRef: scrollRef })
 
@@ -80,18 +110,29 @@ function Invite() {
         )}
 
         {phase !== 'loading' ? (
-          <FloatingActions musicOn={musicOn} onToggleMusic={toggleMusic} />
+          <FloatingActions
+            musicOn={musicOn}
+            muted={musicMuted}
+            onToggleMusic={toggleMusic}
+          />
         ) : null}
       </div>
     </div>
   )
 }
 
+function pathIsFuture() {
+  if (typeof window === 'undefined') return false
+  return window.location.pathname.replace(/\/+$/, '') === '/future'
+}
+
 export default function App() {
+  const [future] = useState(pathIsFuture)
+
   return (
     <LangProvider>
       <AnimatedFavicon />
-      <Invite />
+      {future ? <FutureInvite /> : <ClassicInvite />}
     </LangProvider>
   )
 }
