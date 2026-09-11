@@ -192,12 +192,12 @@ export const copy = {
   copyInvite: { en: 'Copy invite', kn: 'ಆಮಂತ್ರಣ ನಕಲಿಸಿ' },
   copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
   futureInvite: {
-    en: 'Open the atelier invite →',
-    kn: 'ಅಟೆಲಿಯರ್ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
+    en: 'Open the lagoon invite →',
+    kn: 'ಲಗೂನ್ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
   },
   futureInviteHint: {
-    en: 'Ivory · Indigo · Terracotta',
-    kn: 'ಐವರಿ · ಇಂಡಿಗೋ · ಟೆರಾಕೋಟಾ',
+    en: 'Teal · Coral · Dusk',
+    kn: 'ಟೀಲ್ · ಕೋರಲ್ · ಸಂಜೆ',
   },
 }
 
