@@ -20,13 +20,10 @@ function PinIcon({ className = '' }: { className?: string }) {
 }
 
 export function FloatingActions({
-  musicOn,
-  muted = false,
+  playing,
   onToggleMusic,
 }: {
-  musicOn: boolean
-  /** Browsers allow muted autoplay on load; unmute after first gesture. */
-  muted?: boolean
+  playing: boolean
   onToggleMusic: () => void
 }) {
   const { t } = useLang()
@@ -42,20 +39,14 @@ export function FloatingActions({
     return () => window.removeEventListener('keydown', onKey)
   }, [locationOpen])
 
-  const muteFlag = muted ? 1 : 0
-  const ytSrc =
-    `https://www.youtube.com/embed/${weddingMusic.youtubeId}` +
-    `?autoplay=1&mute=${muteFlag}&loop=1&playlist=${weddingMusic.youtubeId}` +
-    `&controls=0&modestbranding=1&playsinline=1&rel=0`
-
   return (
     <>
       <div className="fab-row">
         <button
           type="button"
-          className={`fab${musicOn && !muted ? ' is-on' : ''}${musicOn && muted ? ' is-muted' : ''}`}
+          className={`fab${playing ? ' is-on' : ''}`}
           aria-label={`${t(copy.music)} — ${t(weddingMusic.title)}`}
-          aria-pressed={musicOn && !muted}
+          aria-pressed={playing}
           onClick={onToggleMusic}
           title={`${t(copy.music)}: ${t(weddingMusic.title)}`}
         >
@@ -78,17 +69,6 @@ export function FloatingActions({
           <PinIcon />
         </button>
       </div>
-
-      {musicOn ? (
-        <iframe
-          key={`yt-${muteFlag}`}
-          className="yt-bg-music"
-          src={ytSrc}
-          title={t(weddingMusic.title)}
-          allow="autoplay; encrypted-media"
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      ) : null}
 
       {locationOpen ? (
         <div

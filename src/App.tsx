@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { LangProvider } from './LangContext'
 import { AnimatedFavicon } from './components/AnimatedFavicon'
 import { LoadingScreen } from './components/LoadingScreen'
@@ -20,62 +20,37 @@ import { ScrollTop } from './components/ScrollTop'
 import { PrefetchPhotos } from './components/PrefetchPhotos'
 import { FutureInvite } from './components/FutureInvite'
 import { useAutoTour } from './hooks/useAutoTour'
+import { useWeddingMusic } from './hooks/useWeddingMusic'
 import './App.css'
 
 type Phase = 'loading' | 'cover' | 'opened'
 
 function ClassicInvite() {
   const [phase, setPhase] = useState<Phase>('loading')
-  // Start music as soon as the cover is ready (muted for browser autoplay policy).
-  const [musicOn, setMusicOn] = useState(false)
-  const [musicMuted, setMusicMuted] = useState(true)
   const [showCurtain, setShowCurtain] = useState(false)
   const [tourOn, setTourOn] = useState(false)
   const scrollRef = useRef<HTMLElement | null>(null)
+  const { play, toggle, playing, setHostRef } = useWeddingMusic()
 
-  const finishLoading = useCallback(() => {
-    setPhase('cover')
-    setMusicOn(true) // muted autoplay on load
-  }, [])
+  const finishLoading = useCallback(() => setPhase('cover'), [])
 
-  const unmute = useCallback(() => setMusicMuted(false), [])
-
-  const toggleMusic = useCallback(() => {
-    setMusicOn((on) => {
-      if (!on) {
-        // Turning back on after user pause — play unmuted.
-        setMusicMuted(false)
-        return true
-      }
-      return false
-    })
-  }, [])
-
+  // iPhone Chrome/Safari: unMute + playVideo MUST run in this click stack.
   const openInvite = useCallback(() => {
-    unmute()
-    setMusicOn(true)
+    play()
     setShowCurtain(true)
     setPhase('opened')
     setTourOn(true)
-  }, [unmute])
-
-  // First tap / key anywhere: unmute so guests hear music without hunting for the FAB.
-  useEffect(() => {
-    if (!musicOn || !musicMuted) return
-    const unlock = () => unmute()
-    window.addEventListener('pointerdown', unlock, { once: true })
-    window.addEventListener('keydown', unlock, { once: true })
-    return () => {
-      window.removeEventListener('pointerdown', unlock)
-      window.removeEventListener('keydown', unlock)
-    }
-  }, [musicOn, musicMuted, unmute])
+  }, [play])
 
   useAutoTour({ enabled: tourOn && phase === 'opened', scrollerRef: scrollRef })
 
   return (
     <div className="stage">
       <PrefetchPhotos />
+      {/* Off-screen but non-tiny host — required for iOS YouTube playback */}
+      <div className="yt-player-host" aria-hidden="true">
+        <div ref={setHostRef} className="yt-player-slot" />
+      </div>
       <div className="phone">
         {phase !== 'loading' ? (
           <div className="phone-top">
@@ -110,11 +85,7 @@ function ClassicInvite() {
         )}
 
         {phase !== 'loading' ? (
-          <FloatingActions
-            musicOn={musicOn}
-            muted={musicMuted}
-            onToggleMusic={toggleMusic}
-          />
+          <FloatingActions playing={playing} onToggleMusic={toggle} />
         ) : null}
       </div>
     </div>
