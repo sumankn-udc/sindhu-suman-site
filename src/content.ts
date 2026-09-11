@@ -192,12 +192,12 @@ export const copy = {
   copyInvite: { en: 'Copy invite', kn: 'ಆಮಂತ್ರಣ ನಕಲಿಸಿ' },
   copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
   futureInvite: {
-    en: 'Open the lagoon invite →',
-    kn: 'ಲಗೂನ್ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
+    en: 'Open the royal invite →',
+    kn: 'ರಾಯಲ್ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
   },
   futureInviteHint: {
-    en: 'Teal · Coral · Dusk',
-    kn: 'ಟೀಲ್ · ಕೋರಲ್ · ಸಂಜೆ',
+    en: 'Maroon · Gold',
+    kn: 'ಮರೂನ್ · ಗೋಲ್ಡ್',
   },
 }
 
@@ -258,10 +258,18 @@ export const guestInfo = {
     },
   },
   stay: {
-    label: { en: 'Stay', kn: 'ತಂಗುವಿಕೆ' },
+    label: { en: 'Accommodation option', kn: 'ತಂಗುವಿಕೆ ಆಯ್ಕೆ' },
     body: {
-      en: 'Hoskote and nearby Whitefield / KR Puram have several hotels. Reach out on WhatsApp if you need stay suggestions.',
-      kn: 'ಹೊಸಕೋಟೆ ಮತ್ತು ಹತ್ತಿರದ ವೈಟ್‌ಫೀಲ್ಡ್ / ಕೆಆರ್ ಪುರಂನಲ್ಲಿ ಹೋಟೆಲ್‌ಗಳಿವೆ. ತಂಗುವಿಕೆ ಸಲಹೆಗೆ WhatsApp ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ.',
+      en: 'If you would like help arranging a stay near the venue, message us on WhatsApp — we are happy to assist. No need to book anything first; just opt in and we will guide you.',
+      kn: 'ವೇದಿಕೆಯ ಹತ್ತಿರ ತಂಗುವಿಕೆಗೆ ಸಹಾಯ ಬೇಕಾದರೆ WhatsApp ನಲ್ಲಿ ಸಂದೇಶ ಕಳುಹಿಸಿ — ನಾವು ಸಂತೋಷದಿಂದ ಸಹಾಯ ಮಾಡುತ್ತೇವೆ. ಮೊದಲು ಬುಕಿಂಗ್ ಮಾಡುವ ಅಗತ್ಯವಿಲ್ಲ; ಆಯ್ಕೆ ಮಾಡಿ ನಮಗೆ ತಿಳಿಸಿ.',
+    },
+    cta: {
+      en: 'Request stay help on WhatsApp',
+      kn: 'WhatsApp ನಲ್ಲಿ ತಂಗುವಿಕೆ ಸಹಾಯ ಕೇಳಿ',
+    },
+    message: {
+      en: "Hi — I'd like help arranging accommodation for Sindhu & Suman's wedding.",
+      kn: 'ನಮಸ್ಕಾರ — ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ವಿವಾಹಕ್ಕೆ ತಂಗುವಿಕೆ ಸಹಾಯ ಬೇಕು.',
     },
   },
   gift: {

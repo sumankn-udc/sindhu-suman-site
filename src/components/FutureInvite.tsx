@@ -35,9 +35,9 @@ function useCountdown(target: Date) {
 }
 
 /**
- * Alternate invite at /future — Lagoon dusk look
- * (deep teal / ink / coral-rose), distinct from classic dark-gold
- * and prior neon / royal / atelier themes.
+ * Alternate invite at /future — Royal chamber look
+ * (deep maroon / burgundy, antique gold, ivory), distinct from
+ * classic charcoal-gold and prior lagoon / neon / atelier themes.
  */
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
@@ -126,17 +126,17 @@ export function FutureInvite() {
   }
 
   return (
-    <div className="lagoon-root">
-      <div className="lagoon-mist" aria-hidden="true" />
-      <div className="lagoon-mist lagoon-mist-b" aria-hidden="true" />
+    <div className="royal-root">
+      <div className="royal-glow" aria-hidden="true" />
+      <div className="royal-glow royal-glow-b" aria-hidden="true" />
 
-      <header className="lagoon-top">
-        <a className="lagoon-chip" href="/">
+      <header className="royal-top">
+        <a className="royal-chip" href="/">
           ← Classic invite
         </a>
         <button
           type="button"
-          className="lagoon-chip"
+          className="royal-chip"
           onClick={() => setLang(lang === 'en' ? 'kn' : 'en')}
         >
           {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
@@ -144,43 +144,44 @@ export function FutureInvite() {
       </header>
 
       {/* Full-bleed cover — brand first, one headline, one line, one CTA */}
-      <section className="lagoon-cover">
-        <div className="lagoon-cover-photo" aria-hidden="true">
+      <section className="royal-cover">
+        <div className="royal-cover-photo" aria-hidden="true">
           <img src={placeholders.cover} alt="" />
         </div>
-        <div className="lagoon-cover-veil" aria-hidden="true" />
-        <div className="lagoon-cover-inner">
-          <h1 className={`lagoon-brand ${lang === 'kn' ? 'kn' : ''}`}>
+        <div className="royal-cover-veil" aria-hidden="true" />
+        <div className="royal-cover-inner">
+          <h1 className={`royal-brand ${lang === 'kn' ? 'kn' : ''}`}>
             <span>{t(couple.bride)}</span>
-            <span className="lagoon-amp">{t(copy.and)}</span>
+            <span className="royal-amp">{t(copy.and)}</span>
             <span>{t(couple.groom)}</span>
           </h1>
-          <p className="lagoon-headline">
+          <p className="royal-headline">
             {lang === 'kn'
-              ? 'ಸಂಜೆಯ ಲಗೂನ್ ಬೆಳಕಿನಲ್ಲಿ ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಸ್ವಾಗತ'
-              : 'Join us at dusk by the lagoon of love'}
+              ? 'ರಾಜಸಂಭ್ರಮದೊಂದಿಗೆ ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಸ್ವಾಗತ'
+              : 'Welcome to our royal celebration of love'}
           </p>
-          <p className="lagoon-support">{t(copy.weddingDate)}</p>
-          <a className="lagoon-cta" href="#lagoon-countdown">
+          <p className="royal-support">{t(copy.weddingDate)}</p>
+          <a className="royal-cta" href="#royal-countdown">
             {lang === 'kn' ? 'ಆಮಂತ್ರಣವನ್ನು ನೋಡಿ' : 'Explore the invite'}
           </a>
         </div>
       </section>
 
-      <main className="lagoon-shell">
-        <p className="lagoon-lede lagoon-reveal">
+      <main className="royal-shell">
+        <div className="royal-ornament royal-reveal" aria-hidden="true" />
+        <p className="royal-lede royal-reveal">
           {lang === 'kn'
             ? 'ಪ್ರೀತಿಯಿಂದ ನಿಮ್ಮನ್ನು ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಆಹ್ವಾನಿಸುತ್ತೇವೆ'
             : 'With affection, we invite you to celebrate our wedding'}
         </p>
-        <p className="lagoon-where lagoon-reveal">{t(venue.short)}</p>
+        <p className="royal-where royal-reveal">{t(venue.short)}</p>
 
         <section
-          className="lagoon-section lagoon-reveal"
-          id="lagoon-countdown"
+          className="royal-section royal-reveal"
+          id="royal-countdown"
         >
           <h2>{t(copy.countdownTitle)}</h2>
-          <div className="lagoon-timer">
+          <div className="royal-timer">
             {(
               [
                 [cd.days, t(copy.days)],
@@ -189,7 +190,7 @@ export function FutureInvite() {
                 [cd.seconds, t(copy.seconds)],
               ] as const
             ).map(([value, label]) => (
-              <div key={label} className="lagoon-tick">
+              <div key={label} className="royal-tick">
                 <strong>{String(value).padStart(2, '0')}</strong>
                 <span>{label}</span>
               </div>
@@ -197,19 +198,19 @@ export function FutureInvite() {
           </div>
         </section>
 
-        <section className="lagoon-section lagoon-reveal">
+        <section className="royal-section royal-reveal">
           <h2>{t(copy.events)}</h2>
-          <ol className="lagoon-timeline">
+          <ol className="royal-timeline">
             {events.map((event) => (
               <li key={event.id}>
-                <div className="lagoon-event-body">
+                <div className="royal-event-body">
                   <strong>{t(event.title)}</strong>
                   <span>{t(event.when)}</span>
                 </div>
-                <div className="lagoon-event-actions">
+                <div className="royal-event-actions">
                   <button
                     type="button"
-                    className="lagoon-link-btn"
+                    className="royal-link-btn"
                     onClick={() => downloadEventIcs(event, lang)}
                   >
                     {t(rsvpCopy.addCalendar)}
@@ -218,7 +219,7 @@ export function FutureInvite() {
                     href={venue.mapsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="lagoon-link-btn"
+                    className="royal-link-btn"
                   >
                     {t(rsvpCopy.getDirections)}
                   </a>
@@ -226,16 +227,16 @@ export function FutureInvite() {
               </li>
             ))}
           </ol>
-          <p className="lagoon-address">
+          <p className="royal-address">
             {t(venue.name)}
             <br />
             {t(venue.address)}
           </p>
         </section>
 
-        <section className="lagoon-section lagoon-reveal">
+        <section className="royal-section royal-reveal">
           <h2>{t(copy.theCouple)}</h2>
-          <div className="lagoon-kin">
+          <div className="royal-kin">
             <article>
               <h3 className={lang === 'kn' ? 'kn' : ''}>{t(couple.bride)}</h3>
               <p>{t(family.bride.parents)}</p>
@@ -245,30 +246,40 @@ export function FutureInvite() {
               <p>{t(family.groom.parents)}</p>
             </article>
           </div>
-          <p className="lagoon-hosts">{t(family.hosts)}</p>
+          <p className="royal-hosts">{t(family.hosts)}</p>
         </section>
 
-        <section className="lagoon-section lagoon-reveal" id="guest-info">
-          <p className="lagoon-eyebrow">{t(guestInfo.eyebrow)}</p>
+        <section className="royal-section royal-reveal" id="guest-info">
+          <p className="royal-eyebrow">{t(guestInfo.eyebrow)}</p>
           <h2>{t(guestInfo.title)}</h2>
-          <div className="lagoon-notes">
+          <div className="royal-notes">
             {GUEST_NOTES.map((key) => {
               const note = guestInfo[key]
               return (
-                <div key={key} className="lagoon-note">
+                <div key={key} className="royal-note">
                   <h3>{t(note.label)}</h3>
                   <p>{t(note.body)}</p>
+                  {key === 'stay' ? (
+                    <a
+                      className="royal-link-btn"
+                      href={`https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(t(guestInfo.stay.message))}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t(guestInfo.stay.cta)}
+                    </a>
+                  ) : null}
                 </div>
               )
             })}
           </div>
         </section>
 
-        <section className="lagoon-section lagoon-reveal" id="rsvp">
-          <p className="lagoon-eyebrow">{t(rsvpCopy.eyebrow)}</p>
+        <section className="royal-section royal-reveal" id="rsvp">
+          <p className="royal-eyebrow">{t(rsvpCopy.eyebrow)}</p>
           <h2>{t(rsvpCopy.title)}</h2>
-          <p className="lagoon-sub">{t(rsvpCopy.sub)}</p>
-          <form className="lagoon-form" onSubmit={onRsvpSubmit}>
+          <p className="royal-sub">{t(rsvpCopy.sub)}</p>
+          <form className="royal-form" onSubmit={onRsvpSubmit}>
             <input
               type="text"
               name="name"
@@ -277,24 +288,24 @@ export function FutureInvite() {
               onChange={(e) => setRsvpName(e.target.value)}
               required
             />
-            <div className="lagoon-choice" role="group" aria-label={t(rsvpCopy.title)}>
+            <div className="royal-choice" role="group" aria-label={t(rsvpCopy.title)}>
               <button
                 type="button"
-                className={`lagoon-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
+                className={`royal-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
                 onClick={() => setAttendance('yes')}
               >
                 {t(rsvpCopy.attending)}
               </button>
               <button
                 type="button"
-                className={`lagoon-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
+                className={`royal-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
                 onClick={() => setAttendance('no')}
               >
                 {t(rsvpCopy.notAttending)}
               </button>
             </div>
             {attendance === 'yes' ? (
-              <label className="lagoon-guests">
+              <label className="royal-guests">
                 <span>{t(rsvpCopy.guests)}</span>
                 <input
                   type="number"
@@ -306,16 +317,16 @@ export function FutureInvite() {
                 />
               </label>
             ) : null}
-            <button type="submit" className="lagoon-btn">
+            <button type="submit" className="royal-btn">
               {t(rsvpCopy.sendRsvp)}
             </button>
           </form>
         </section>
 
-        <section className="lagoon-section lagoon-reveal" id="wishes">
+        <section className="royal-section royal-reveal" id="wishes">
           <h2>{t(copy.wishesTitle)}</h2>
-          <p className="lagoon-sub">{t(copy.wishesSub)}</p>
-          <form className="lagoon-form" onSubmit={onWishSubmit}>
+          <p className="royal-sub">{t(copy.wishesSub)}</p>
+          <form className="royal-form" onSubmit={onWishSubmit}>
             <input
               type="text"
               name="wish-name"
@@ -332,23 +343,23 @@ export function FutureInvite() {
               onChange={(e) => setWishMessage(e.target.value)}
               required
             />
-            <button type="submit" className="lagoon-btn">
+            <button type="submit" className="royal-btn">
               {t(copy.sendWishes)}
             </button>
           </form>
         </section>
 
-        <section className="lagoon-section lagoon-reveal" id="share">
-          <p className="lagoon-eyebrow">{t(shareInvite.eyebrow)}</p>
+        <section className="royal-section royal-reveal" id="share">
+          <p className="royal-eyebrow">{t(shareInvite.eyebrow)}</p>
           <h2>{t(shareInvite.title)}</h2>
-          <p className="lagoon-sub">{t(shareInvite.sub)}</p>
-          <div className="lagoon-share-actions">
-            <button type="button" className="lagoon-btn" onClick={onShare}>
+          <p className="royal-sub">{t(shareInvite.sub)}</p>
+          <div className="royal-share-actions">
+            <button type="button" className="royal-btn" onClick={onShare}>
               {t(shareInvite.shareBtn)}
             </button>
             <button
               type="button"
-              className="lagoon-btn lagoon-btn-ghost"
+              className="royal-btn royal-btn-ghost"
               onClick={onCopyInvite}
             >
               {copied ? t(copy.copied) : t(copy.copyInvite)}
@@ -356,8 +367,8 @@ export function FutureInvite() {
           </div>
         </section>
 
-        <p className="lagoon-note lagoon-reveal">{t(copy.closing)}</p>
-        <p className="lagoon-signoff lagoon-reveal">{t(copy.withLove)}</p>
+        <p className="royal-closing royal-reveal">{t(copy.closing)}</p>
+        <p className="royal-signoff royal-reveal">{t(copy.withLove)}</p>
       </main>
     </div>
   )

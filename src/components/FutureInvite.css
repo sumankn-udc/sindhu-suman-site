@@ -1,55 +1,56 @@
 /*
-  Lagoon dusk — alternate theme for /future
-  Deep teal → ink gradient, aqua mist, coral-rose accent.
-  Fonts: Outfit (display/UI) + Newsreader (body) + Caveat (script).
-  Distinct from classic charcoal/gold and prior neon / royal / atelier looks.
+  Royal chamber — alternate theme for /future
+  Deep maroon / burgundy base, antique brass gold, cream ivory.
+  Fonts: Playfair Display (brand) + Cormorant Garamond (body) + Tangerine (script).
+  Distinct from classic Cinzel/Bodoni/Great Vibes and prior lagoon look.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Tangerine:wght@400;700&display=swap');
 
-.lagoon-root {
-  --lagoon-ink: #06151c;
-  --lagoon-deep: #0a2a36;
-  --lagoon-teal: #134e5e;
-  --lagoon-aqua: #7ec8c3;
-  --lagoon-seafoam: #a8d5ce;
-  --lagoon-mist: rgba(126, 200, 195, 0.14);
-  --lagoon-coral: #e07a6a;
-  --lagoon-coral-deep: #c45d52;
-  --lagoon-foam: #f2faf8;
-  --lagoon-line: rgba(168, 213, 206, 0.22);
+.royal-root {
+  --royal-ink: #1a0a10;
+  --royal-deep: #2a0f18;
+  --royal-maroon: #4a1828;
+  --royal-burgundy: #6b2438;
+  --royal-gold: #c6a04a;
+  --royal-brass: #a8843a;
+  --royal-gold-soft: #e2c878;
+  --royal-ivory: #f7f0e4;
+  --royal-cream: #efe4d2;
+  --royal-mist: rgba(198, 160, 74, 0.12);
+  --royal-line: rgba(198, 160, 74, 0.28);
   min-height: 100svh;
-  color: var(--lagoon-foam);
+  color: var(--royal-ivory);
   background:
-    radial-gradient(ellipse 90% 55% at 15% 10%, rgba(126, 200, 195, 0.18), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 95% 30%, rgba(224, 122, 106, 0.1), transparent 50%),
-    linear-gradient(165deg, #0c3d4a 0%, #0a2a36 38%, #06151c 100%);
-  font-family: 'Newsreader', 'Noto Serif Kannada', Georgia, serif;
+    radial-gradient(ellipse 90% 50% at 20% 8%, rgba(198, 160, 74, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 95% 35%, rgba(107, 36, 56, 0.45), transparent 50%),
+    linear-gradient(165deg, #3a1522 0%, #2a0f18 42%, #1a0a10 100%);
+  font-family: 'Cormorant Garamond', 'Noto Serif Kannada', Georgia, serif;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Soft aqua mist drifting across the page */
-.lagoon-mist {
+/* Soft gold / velvet atmosphere drifting across the page */
+.royal-glow {
   position: fixed;
   width: 55vmax;
   height: 55vmax;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(126, 200, 195, 0.22) 0%,
-    rgba(126, 200, 195, 0.06) 42%,
+    rgba(198, 160, 74, 0.16) 0%,
+    rgba(74, 24, 40, 0.2) 42%,
     transparent 70%
   );
   top: -12%;
   left: -18%;
   z-index: 0;
   pointer-events: none;
-  animation: lagoon-mist-drift 22s ease-in-out infinite alternate;
+  animation: royal-glow-drift 24s ease-in-out infinite alternate;
   filter: blur(2px);
 }
 
-.lagoon-mist-b {
+.royal-glow-b {
   width: 48vmax;
   height: 48vmax;
   top: auto;
@@ -58,15 +59,15 @@
   right: -22%;
   background: radial-gradient(
     circle,
-    rgba(19, 78, 94, 0.55) 0%,
-    rgba(224, 122, 106, 0.08) 45%,
+    rgba(74, 24, 40, 0.65) 0%,
+    rgba(198, 160, 74, 0.08) 45%,
     transparent 70%
   );
-  animation-name: lagoon-mist-drift-b;
-  animation-duration: 28s;
+  animation-name: royal-glow-drift-b;
+  animation-duration: 30s;
 }
 
-@keyframes lagoon-mist-drift {
+@keyframes royal-glow-drift {
   from {
     transform: translate(0, 0) scale(1);
   }
@@ -75,7 +76,7 @@
   }
 }
 
-@keyframes lagoon-mist-drift-b {
+@keyframes royal-glow-drift-b {
   from {
     transform: translate(0, 0) scale(1);
   }
@@ -84,7 +85,7 @@
   }
 }
 
-.lagoon-top {
+.royal-top {
   position: relative;
   z-index: 4;
   display: flex;
@@ -93,24 +94,24 @@
   padding: 1rem 1.15rem;
 }
 
-.lagoon-chip {
-  border: 1px solid var(--lagoon-line);
-  background: rgba(6, 21, 28, 0.45);
-  color: var(--lagoon-seafoam);
-  border-radius: 0.55rem;
+.royal-chip {
+  border: 1px solid var(--royal-line);
+  background: rgba(26, 10, 16, 0.55);
+  color: var(--royal-gold-soft);
+  border-radius: 0.35rem;
   padding: 0.45rem 0.9rem;
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
   font-weight: 500;
   backdrop-filter: blur(10px);
   cursor: pointer;
 }
 
 /* ——— Full-bleed cover ——— */
-.lagoon-cover {
+.royal-cover {
   position: relative;
   z-index: 2;
   min-height: min(100svh, 52rem);
@@ -119,41 +120,42 @@
   justify-content: center;
   padding: 0 1.25rem 3.25rem;
   overflow: hidden;
-  animation: lagoon-cover-reveal 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: royal-cover-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.lagoon-cover-photo {
+.royal-cover-photo {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.lagoon-cover-photo img {
+.royal-cover-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 22%;
-  filter: saturate(0.88) contrast(1.05) brightness(0.72);
+  filter: saturate(0.85) contrast(1.08) brightness(0.62);
   transform: scale(1.04);
+  animation: royal-cover-breathe 18s ease-in-out infinite alternate;
 }
 
-.lagoon-cover-veil {
+.royal-cover-veil {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
     linear-gradient(
       180deg,
-      rgba(6, 21, 28, 0.35) 0%,
-      rgba(10, 42, 54, 0.25) 35%,
-      rgba(6, 21, 28, 0.82) 72%,
-      rgba(6, 21, 28, 0.96) 100%
+      rgba(26, 10, 16, 0.4) 0%,
+      rgba(42, 15, 24, 0.28) 35%,
+      rgba(26, 10, 16, 0.86) 72%,
+      rgba(26, 10, 16, 0.97) 100%
     ),
-    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(126, 200, 195, 0.16), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(198, 160, 74, 0.14), transparent 60%);
   pointer-events: none;
 }
 
-.lagoon-cover-inner {
+.royal-cover-inner {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -161,76 +163,78 @@
   text-align: center;
 }
 
-.lagoon-brand {
+.royal-brand {
   margin: 0;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
   font-weight: 600;
-  font-size: clamp(2.6rem, 12vw, 3.55rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  color: var(--lagoon-foam);
-  text-shadow: 0 2px 24px rgba(6, 21, 28, 0.45);
+  font-size: clamp(2.55rem, 11.5vw, 3.45rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--royal-ivory);
+  text-shadow: 0 2px 28px rgba(26, 10, 16, 0.55);
 }
 
-.lagoon-brand.kn {
-  font-family: 'Noto Sans Kannada', 'Outfit', sans-serif;
+.royal-brand.kn {
+  font-family: 'Noto Serif Kannada', 'Playfair Display', serif;
   letter-spacing: 0;
-  font-size: clamp(2.1rem, 10vw, 2.9rem);
+  font-size: clamp(2.05rem, 9.5vw, 2.85rem);
 }
 
-.lagoon-amp {
+.royal-amp {
   display: block;
-  margin: 0.15rem 0;
-  font-family: 'Caveat', cursive;
-  font-size: 1.65rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--lagoon-coral);
+  margin: 0.2rem 0;
+  font-family: 'Tangerine', cursive;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--royal-gold);
 }
 
-.lagoon-headline {
+.royal-headline {
   margin: 1.15rem auto 0;
   max-width: 20rem;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 400;
+  font-family: 'Cormorant Garamond', 'Noto Serif Kannada', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-style: italic;
   line-height: 1.45;
   letter-spacing: 0.01em;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-cream);
 }
 
-.lagoon-support {
+.royal-support {
   margin: 0.65rem 0 0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.78rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(242, 250, 248, 0.72);
+  color: rgba(247, 240, 228, 0.72);
 }
 
-.lagoon-cta {
+.royal-cta {
   display: inline-flex;
   margin-top: 1.5rem;
   padding: 0.9rem 1.55rem;
-  border-radius: 0.55rem;
+  border-radius: 0.3rem;
   text-decoration: none;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 0.88rem;
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #1a1210;
-  background: linear-gradient(135deg, var(--lagoon-coral), var(--lagoon-coral-deep));
-  box-shadow: 0 10px 28px rgba(196, 93, 82, 0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--royal-ink);
+  background: linear-gradient(135deg, var(--royal-gold-soft), var(--royal-brass));
+  box-shadow: 0 10px 28px rgba(168, 132, 58, 0.32);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.lagoon-cta:hover {
+.royal-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(196, 93, 82, 0.42);
+  box-shadow: 0 14px 32px rgba(168, 132, 58, 0.4);
 }
 
-@keyframes lagoon-cover-reveal {
+@keyframes royal-cover-reveal {
   from {
     opacity: 0;
     clip-path: inset(8% 4% 8% 4%);
@@ -241,8 +245,17 @@
   }
 }
 
+@keyframes royal-cover-breathe {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+
 /* ——— Body shell ——— */
-.lagoon-shell {
+.royal-shell {
   position: relative;
   z-index: 2;
   max-width: 28rem;
@@ -251,89 +264,124 @@
   text-align: center;
 }
 
-.lagoon-lede {
+.royal-ornament {
+  width: 4.5rem;
+  height: 1px;
+  margin: 0 auto 1.35rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--royal-gold),
+    transparent
+  );
+  box-shadow: 0 0 0 1px rgba(198, 160, 74, 0.15);
+  position: relative;
+}
+
+.royal-ornament::before,
+.royal-ornament::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border: 1px solid var(--royal-gold);
+  transform: translateY(-50%) rotate(45deg);
+  background: var(--royal-deep);
+}
+
+.royal-ornament::before {
+  left: -0.15rem;
+}
+
+.royal-ornament::after {
+  right: -0.15rem;
+}
+
+.royal-lede {
   margin: 0 auto;
   max-width: 22rem;
-  font-size: 1.12rem;
+  font-size: 1.18rem;
   font-style: italic;
   line-height: 1.55;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-cream);
 }
 
-.lagoon-where {
+.royal-where {
   margin: 0.55rem 0 0;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 0.9rem;
-  color: rgba(242, 250, 248, 0.7);
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: rgba(247, 240, 228, 0.68);
 }
 
-.lagoon-section {
+.royal-section {
   margin-top: 2.25rem;
   text-align: left;
 }
 
-.lagoon-section h2 {
+.royal-section h2 {
   margin: 0 0 1rem;
   text-align: center;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--lagoon-coral);
-}
-
-.lagoon-eyebrow {
-  margin: 0 0 0.35rem;
-  text-align: center;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--lagoon-aqua);
+  color: var(--royal-gold);
 }
 
-.lagoon-sub {
+.royal-eyebrow {
+  margin: 0 0 0.35rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--royal-gold-soft);
+}
+
+.royal-sub {
   margin: -0.35rem 0 1rem;
   text-align: center;
-  font-size: 0.98rem;
+  font-size: 1.02rem;
   line-height: 1.5;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-cream);
 }
 
-.lagoon-timer {
+.royal-timer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.55rem;
 }
 
-.lagoon-tick {
+.royal-tick {
   text-align: center;
   padding: 0.85rem 0.2rem;
-  border-radius: 0.65rem;
-  background: rgba(19, 78, 94, 0.35);
-  border: 1px solid var(--lagoon-line);
+  border-radius: 0.35rem;
+  background: rgba(74, 24, 40, 0.45);
+  border: 1px solid var(--royal-line);
 }
 
-.lagoon-tick strong {
+.royal-tick strong {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.45rem;
   font-weight: 600;
-  color: var(--lagoon-foam);
+  color: var(--royal-ivory);
   font-variant-numeric: tabular-nums;
 }
 
-.lagoon-tick span {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
+.royal-tick span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-gold-soft);
 }
 
-.lagoon-timeline {
+.royal-timeline {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -342,247 +390,254 @@
   gap: 1.1rem;
 }
 
-.lagoon-timeline li {
+.royal-timeline li {
   padding-bottom: 1.1rem;
-  border-bottom: 1px solid var(--lagoon-line);
+  border-bottom: 1px solid var(--royal-line);
 }
 
-.lagoon-timeline li:last-child {
+.royal-timeline li:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.lagoon-event-body strong {
+.royal-event-body strong {
   display: block;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 1.08rem;
+  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
+  font-size: 1.12rem;
   font-weight: 600;
-  color: var(--lagoon-foam);
+  color: var(--royal-ivory);
 }
 
-.lagoon-event-body span {
+.royal-event-body span {
   display: block;
   margin-top: 0.2rem;
-  font-size: 0.92rem;
-  color: var(--lagoon-seafoam);
+  font-size: 0.98rem;
+  color: var(--royal-cream);
 }
 
-.lagoon-event-actions {
+.royal-event-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem 1rem;
   margin-top: 0.65rem;
 }
 
-.lagoon-link-btn {
+.royal-link-btn {
   appearance: none;
   border: none;
   background: none;
   padding: 0;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--lagoon-coral);
-  border-bottom: 1px solid rgba(224, 122, 106, 0.4);
+  color: var(--royal-gold);
+  border-bottom: 1px solid rgba(198, 160, 74, 0.45);
   padding-bottom: 0.1rem;
   cursor: pointer;
 }
 
-.lagoon-address {
+.royal-address {
   margin: 1.15rem 0 0;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-style: italic;
   line-height: 1.5;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-cream);
 }
 
-.lagoon-kin {
+.royal-kin {
   display: grid;
   gap: 1rem;
 }
 
-.lagoon-kin article {
+.royal-kin article {
   text-align: center;
   padding: 0.25rem 0;
 }
 
-.lagoon-kin h3 {
+.royal-kin h3 {
   margin: 0;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 1.35rem;
+  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--lagoon-foam);
+  color: var(--royal-ivory);
 }
 
-.lagoon-kin h3.kn {
-  font-family: 'Noto Sans Kannada', 'Outfit', sans-serif;
+.royal-kin h3.kn {
+  font-family: 'Noto Serif Kannada', 'Playfair Display', serif;
 }
 
-.lagoon-kin p {
+.royal-kin p {
   margin: 0.35rem 0 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-style: italic;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-cream);
 }
 
-.lagoon-hosts {
+.royal-hosts {
   margin: 1.1rem 0 0;
   text-align: center;
-  font-family: 'Caveat', cursive;
-  font-size: 1.35rem;
-  color: var(--lagoon-aqua);
+  font-family: 'Tangerine', cursive;
+  font-size: 1.85rem;
+  color: var(--royal-gold-soft);
 }
 
-.lagoon-notes {
+.royal-notes {
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
 }
 
-.lagoon-note h3 {
+.royal-note h3 {
   margin: 0;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
+  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--lagoon-aqua);
+  letter-spacing: 0.06em;
+  color: var(--royal-gold);
 }
 
-.lagoon-note p {
+.royal-note p {
   margin: 0.3rem 0 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.55;
-  color: rgba(242, 250, 248, 0.82);
+  color: rgba(247, 240, 228, 0.84);
 }
 
-.lagoon-form {
+.royal-note .royal-link-btn {
+  display: inline-block;
+  margin-top: 0.65rem;
+}
+
+.royal-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.lagoon-form input,
-.lagoon-form textarea {
+.royal-form input,
+.royal-form textarea {
   width: 100%;
   box-sizing: border-box;
   padding: 0.85rem 1rem;
-  border-radius: 0.55rem;
-  border: 1px solid var(--lagoon-line);
-  background: rgba(6, 21, 28, 0.45);
-  color: var(--lagoon-foam);
-  font-family: 'Newsreader', 'Noto Serif Kannada', serif;
-  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--royal-line);
+  background: rgba(26, 10, 16, 0.5);
+  color: var(--royal-ivory);
+  font-family: 'Cormorant Garamond', 'Noto Serif Kannada', serif;
+  font-size: 1.05rem;
   outline: none;
 }
 
-.lagoon-form input::placeholder,
-.lagoon-form textarea::placeholder {
-  color: rgba(168, 213, 206, 0.55);
+.royal-form input::placeholder,
+.royal-form textarea::placeholder {
+  color: rgba(226, 200, 120, 0.45);
 }
 
-.lagoon-form input:focus,
-.lagoon-form textarea:focus {
-  border-color: rgba(224, 122, 106, 0.55);
+.royal-form input:focus,
+.royal-form textarea:focus {
+  border-color: rgba(198, 160, 74, 0.65);
 }
 
-.lagoon-choice {
+.royal-choice {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.55rem;
 }
 
-.lagoon-choice-btn {
+.royal-choice-btn {
   padding: 0.75rem 0.5rem;
-  border-radius: 0.55rem;
-  border: 1px solid var(--lagoon-line);
-  background: rgba(19, 78, 94, 0.25);
-  color: var(--lagoon-seafoam);
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--royal-line);
+  background: rgba(74, 24, 40, 0.35);
+  color: var(--royal-cream);
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
+  font-size: 0.88rem;
   font-weight: 500;
   cursor: pointer;
 }
 
-.lagoon-choice-btn.is-active {
-  border-color: rgba(224, 122, 106, 0.65);
-  background: rgba(224, 122, 106, 0.18);
-  color: var(--lagoon-foam);
+.royal-choice-btn.is-active {
+  border-color: rgba(198, 160, 74, 0.7);
+  background: rgba(198, 160, 74, 0.16);
+  color: var(--royal-ivory);
 }
 
-.lagoon-guests {
+.royal-guests {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 0.88rem;
-  color: var(--lagoon-seafoam);
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
+  font-size: 0.95rem;
+  color: var(--royal-cream);
 }
 
-.lagoon-guests input {
+.royal-guests input {
   width: 4.5rem;
   text-align: center;
 }
 
-.lagoon-btn {
+.royal-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 0.95rem 1rem;
   border: none;
-  border-radius: 0.55rem;
+  border-radius: 0.3rem;
   text-decoration: none;
-  font-family: 'Outfit', 'Noto Sans Kannada', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
-  color: #1a1210;
-  background: linear-gradient(135deg, var(--lagoon-coral), var(--lagoon-coral-deep));
-  box-shadow: 0 10px 24px rgba(196, 93, 82, 0.28);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--royal-ink);
+  background: linear-gradient(135deg, var(--royal-gold-soft), var(--royal-brass));
+  box-shadow: 0 10px 24px rgba(168, 132, 58, 0.26);
   cursor: pointer;
 }
 
-.lagoon-btn-ghost {
-  color: var(--lagoon-seafoam);
+.royal-btn-ghost {
+  color: var(--royal-gold-soft);
   background: transparent;
-  border: 1px solid var(--lagoon-line);
+  border: 1px solid var(--royal-line);
   box-shadow: none;
 }
 
-.lagoon-share-actions {
+.royal-share-actions {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
 }
 
-.lagoon-note {
+.royal-closing {
   margin: 2rem auto 0;
   max-width: 22rem;
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   font-style: italic;
   line-height: 1.55;
-  color: var(--lagoon-seafoam);
+  color: var(--royal-cream);
 }
 
-.lagoon-signoff {
+.royal-signoff {
   margin: 1rem 0 0;
-  font-family: 'Caveat', cursive;
-  font-size: 1.85rem;
-  color: var(--lagoon-coral);
+  font-family: 'Tangerine', cursive;
+  font-size: 2.2rem;
+  color: var(--royal-gold);
 }
 
-/* Soft section fade-up on scroll into view (progressive enhancement) */
-.lagoon-reveal {
-  animation: lagoon-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+/* Soft section fade-up on scroll into view */
+.royal-reveal {
+  animation: royal-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-timeline: view();
   animation-range: entry 0% cover 28%;
 }
 
-@keyframes lagoon-fade-up {
+@keyframes royal-fade-up {
   from {
     opacity: 0;
     transform: translateY(1.25rem);
@@ -594,33 +649,34 @@
 }
 
 @supports not (animation-timeline: view()) {
-  .lagoon-reveal {
-    animation: lagoon-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .royal-reveal {
+    animation: royal-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
-  .lagoon-shell > .lagoon-reveal:nth-child(1) {
+  .royal-shell > .royal-reveal:nth-child(1) {
     animation-delay: 0.05s;
   }
-  .lagoon-shell > .lagoon-reveal:nth-child(2) {
-    animation-delay: 0.12s;
+  .royal-shell > .royal-reveal:nth-child(2) {
+    animation-delay: 0.1s;
   }
-  .lagoon-shell > .lagoon-reveal:nth-child(3) {
-    animation-delay: 0.18s;
+  .royal-shell > .royal-reveal:nth-child(3) {
+    animation-delay: 0.15s;
   }
-  .lagoon-shell > .lagoon-reveal:nth-child(4) {
-    animation-delay: 0.24s;
+  .royal-shell > .royal-reveal:nth-child(4) {
+    animation-delay: 0.2s;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lagoon-mist,
-  .lagoon-mist-b,
-  .lagoon-cover,
-  .lagoon-reveal {
+  .royal-glow,
+  .royal-glow-b,
+  .royal-cover,
+  .royal-cover-photo img,
+  .royal-reveal {
     animation: none;
   }
 
-  .lagoon-cta:hover {
+  .royal-cta:hover {
     transform: none;
   }
 }
