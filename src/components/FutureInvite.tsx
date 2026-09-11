@@ -28,123 +28,143 @@ function useCountdown(target: Date) {
   }
 }
 
-/** Neon / glass futuristic alternate invite at /future */
+/** Traditional rich / royal alternate invite at /future */
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
   const cd = useCountdown(muhurthamAt)
 
   return (
-    <div className="future-root">
-      <div className="future-bg" aria-hidden="true" />
-      <div className="future-grid" aria-hidden="true" />
+    <div className="royal-root">
+      <div className="royal-bg" aria-hidden="true" />
 
-      <header className="future-top">
-        <a className="future-back" href="/">
-          ← Classic invite
+      <header className="royal-top">
+        <a className="royal-back" href="/">
+          ← Main invite
         </a>
         <button
           type="button"
-          className="future-lang"
+          className="royal-lang"
           onClick={() => setLang(lang === 'en' ? 'kn' : 'en')}
         >
           {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
         </button>
       </header>
 
-      <main className="future-shell">
-        <p className="future-kicker">LIVE TRANSMISSION · OCT 2026</p>
-        <div className="future-logo">S × S</div>
-        <h1 className={`future-names ${lang === 'kn' ? 'kn' : ''}`}>
-          <span>{t(couple.bride)}</span>
-          <span className="future-and">{t(copy.and)}</span>
-          <span>{t(couple.groom)}</span>
-        </h1>
-        <p className="future-tag">
-          {lang === 'kn'
-            ? 'ಹೊಸ ಅಧ್ಯಾಯ ಪ್ರಾರಂಭ — ಭವಿಷ್ಯದ ಆಮಂತ್ರಣ, ನಿಜವಾದ ಹೃದಯಗಳು.'
-            : 'A new chapter begins — futuristic invite, real hearts.'}
-        </p>
-
-        <div className="future-hero">
-          <img src={placeholders.cover} alt="" />
-          <div className="future-hero-glow" />
-        </div>
-
-        <section className="future-panel">
-          <p className="future-panel-label">COUNTDOWN TO MUHURTHAM</p>
-          <div className="future-digits">
-            {(
-              [
-                [cd.days, t(copy.days)],
-                [cd.hours, t(copy.hours)],
-                [cd.minutes, t(copy.minutes)],
-                [cd.seconds, t(copy.seconds)],
-              ] as const
-            ).map(([value, label]) => (
-              <div key={label} className="future-digit">
-                <strong>{String(value).padStart(2, '0')}</strong>
-                <span>{label}</span>
-              </div>
-            ))}
+      <main className="royal-shell">
+        <div className="royal-frame">
+          <p className="royal-kicker">{t(copy.weddingLabel)}</p>
+          <div className="royal-monogram" aria-hidden="true">
+            <span>S</span>
+            <i>&</i>
+            <span>S</span>
           </div>
-        </section>
 
-        <section className="future-panel">
-          <p className="future-panel-label">SIGNAL · EVENTS</p>
-          <ul className="future-events">
-            {events.map((event) => (
-              <li key={event.id}>
-                <div>
-                  <strong>{t(event.title)}</strong>
-                  <span>{t(event.when)}</span>
+          <p className="royal-invite-line">
+            {lang === 'kn'
+              ? 'ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದದೊಂದಿಗೆ ನಿಮ್ಮನ್ನು ಆಮಂತ್ರಿಸುತ್ತೇವೆ'
+              : 'With love and blessings, we invite you'}
+          </p>
+
+          <h1 className={`royal-names ${lang === 'kn' ? 'kn' : ''}`}>
+            <span>{t(couple.bride)}</span>
+            <span className="royal-and">{t(copy.and)}</span>
+            <span>{t(couple.groom)}</span>
+          </h1>
+
+          <p className="royal-date">{t(copy.weddingDate)}</p>
+          <p className="royal-venue-short">{t(venue.short)}</p>
+
+          <div className="royal-ornament" aria-hidden="true">
+            <span />
+            <em>◆</em>
+            <span />
+          </div>
+
+          <figure className="royal-portrait">
+            <img src={placeholders.cover} alt="" />
+          </figure>
+
+          <section className="royal-section">
+            <h2>{t(copy.countdownTitle)}</h2>
+            <div className="royal-countdown">
+              {(
+                [
+                  [cd.days, t(copy.days)],
+                  [cd.hours, t(copy.hours)],
+                  [cd.minutes, t(copy.minutes)],
+                  [cd.seconds, t(copy.seconds)],
+                ] as const
+              ).map(([value, label]) => (
+                <div key={label} className="royal-count-box">
+                  <strong>{String(value).padStart(2, '0')}</strong>
+                  <span>{label}</span>
                 </div>
-                <a href={venue.mapsUrl} target="_blank" rel="noreferrer">
-                  NAV
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="future-venue">
-            {t(venue.name)}
-            <br />
-            {t(venue.address)}
-          </p>
-        </section>
+              ))}
+            </div>
+          </section>
 
-        <section className="future-panel future-family">
-          <p className="future-panel-label">ORIGIN</p>
-          <p>
-            {t(couple.bride)} — {t(family.bride.parents)}
-          </p>
-          <p>
-            {t(couple.groom)} — {t(family.groom.parents)}
-          </p>
-        </section>
+          <section className="royal-section">
+            <h2>{t(copy.events)}</h2>
+            <ul className="royal-events">
+              {events.map((event) => (
+                <li key={event.id}>
+                  <div>
+                    <strong>{t(event.title)}</strong>
+                    <span>{t(event.when)}</span>
+                  </div>
+                  <a href={venue.mapsUrl} target="_blank" rel="noreferrer">
+                    {t(copy.openMaps)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="royal-address">
+              {t(venue.name)}
+              <br />
+              {t(venue.address)}
+            </p>
+          </section>
 
-        <div className="future-cta-row">
-          <a
-            className="future-cta"
-            href={`https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(
-              `RSVP — ${couple.bride.en} & ${couple.groom.en}`,
-            )}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            RSVP · WhatsApp
-          </a>
-          <a
-            className="future-cta future-cta-ghost"
-            href={`https://wa.me/?text=${encodeURIComponent(
-              `We're getting Married ✨💍.\n\nYou are warmly invited.\n\n${siteUrl}/future`,
-            )}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Share neon invite
-          </a>
+          <section className="royal-section royal-family">
+            <h2>{t(copy.theCouple)}</h2>
+            <p>
+              {t(couple.bride)}
+              <br />
+              <small>{t(family.bride.parents)}</small>
+            </p>
+            <p>
+              {t(couple.groom)}
+              <br />
+              <small>{t(family.groom.parents)}</small>
+            </p>
+          </section>
+
+          <div className="royal-actions">
+            <a
+              className="royal-btn"
+              href={`https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(
+                `RSVP — ${couple.bride.en} & ${couple.groom.en}`,
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              RSVP · WhatsApp
+            </a>
+            <a
+              className="royal-btn royal-btn-outline"
+              href={`https://wa.me/?text=${encodeURIComponent(
+                `We're getting Married ✨💍.\n\nYou are warmly invited.\n\n${siteUrl}/future`,
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Share this invite
+            </a>
+          </div>
+
+          <p className="royal-closing">{t(copy.closing)}</p>
+          <p className="royal-seal">{t(copy.withLove)}</p>
         </div>
-
-        <p className="future-foot">{t(copy.closing)}</p>
       </main>
     </div>
   )

@@ -192,12 +192,12 @@ export const copy = {
   copyInvite: { en: 'Copy invite', kn: 'ಆಮಂತ್ರಣ ನಕಲಿಸಿ' },
   copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
   futureInvite: {
-    en: 'Open futuristic neon invite →',
-    kn: 'ಭವಿಷ್ಯದ ನಿಯಾನ್ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
+    en: 'Open the royal elegant invite →',
+    kn: 'ರಾಜಸಂಪನ್ನ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
   },
   futureInviteHint: {
-    en: 'Trending 2026 look',
-    kn: '2026 ಟ್ರೆಂಡಿಂಗ್ ಲುಕ್',
+    en: 'Traditional · Rich · Elegant',
+    kn: 'ಸಾಂಪ್ರದಾಯಿಕ · ಶ್ರೀಮಂತ · ಸೊಗಸಾದ',
   },
 }
 
