@@ -35,9 +35,9 @@ function useCountdown(target: Date) {
 }
 
 /**
- * Alternate invite at /future — Royal chamber look
- * (deep maroon / burgundy, antique gold, ivory), distinct from
- * classic charcoal-gold and prior lagoon / neon / atelier themes.
+ * Alternate invite at /future — Monsoon garden look
+ * (soft moss, charcoal ink, parchment wash, lotus blush CTAs),
+ * distinct from classic charcoal-gold and prior neon / lagoon / royal / atelier themes.
  */
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
@@ -126,17 +126,17 @@ export function FutureInvite() {
   }
 
   return (
-    <div className="royal-root">
-      <div className="royal-glow" aria-hidden="true" />
-      <div className="royal-glow royal-glow-b" aria-hidden="true" />
+    <div className="garden-root">
+      <div className="garden-mist" aria-hidden="true" />
+      <div className="garden-mist garden-mist-b" aria-hidden="true" />
 
-      <header className="royal-top">
-        <a className="royal-chip" href="/">
+      <header className="garden-top">
+        <a className="garden-chip" href="/">
           ← Classic invite
         </a>
         <button
           type="button"
-          className="royal-chip"
+          className="garden-chip"
           onClick={() => setLang(lang === 'en' ? 'kn' : 'en')}
         >
           {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
@@ -144,44 +144,44 @@ export function FutureInvite() {
       </header>
 
       {/* Full-bleed cover — brand first, one headline, one line, one CTA */}
-      <section className="royal-cover">
-        <div className="royal-cover-photo" aria-hidden="true">
+      <section className="garden-cover">
+        <div className="garden-cover-photo" aria-hidden="true">
           <img src={placeholders.cover} alt="" />
         </div>
-        <div className="royal-cover-veil" aria-hidden="true" />
-        <div className="royal-cover-inner">
-          <h1 className={`royal-brand ${lang === 'kn' ? 'kn' : ''}`}>
+        <div className="garden-cover-veil" aria-hidden="true" />
+        <div className="garden-cover-inner">
+          <h1 className={`garden-brand ${lang === 'kn' ? 'kn' : ''}`}>
             <span>{t(couple.bride)}</span>
-            <span className="royal-amp">{t(copy.and)}</span>
+            <span className="garden-amp">{t(copy.and)}</span>
             <span>{t(couple.groom)}</span>
           </h1>
-          <p className="royal-headline">
+          <p className="garden-headline">
             {lang === 'kn'
-              ? 'ರಾಜಸಂಭ್ರಮದೊಂದಿಗೆ ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಸ್ವಾಗತ'
-              : 'Welcome to our royal celebration of love'}
+              ? 'ಮಳೆಗಾಲದ ತೋಟದಂತೆ ಮೃದುವಾದ ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಸ್ವಾಗತ'
+              : 'Welcome to our monsoon garden celebration'}
           </p>
-          <p className="royal-support">{t(copy.weddingDate)}</p>
-          <a className="royal-cta" href="#royal-countdown">
+          <p className="garden-support">{t(copy.weddingDate)}</p>
+          <a className="garden-cta" href="#garden-countdown">
             {lang === 'kn' ? 'ಆಮಂತ್ರಣವನ್ನು ನೋಡಿ' : 'Explore the invite'}
           </a>
         </div>
       </section>
 
-      <main className="royal-shell">
-        <div className="royal-ornament royal-reveal" aria-hidden="true" />
-        <p className="royal-lede royal-reveal">
+      <main className="garden-shell">
+        <div className="garden-ornament garden-reveal" aria-hidden="true" />
+        <p className="garden-lede garden-reveal">
           {lang === 'kn'
             ? 'ಪ್ರೀತಿಯಿಂದ ನಿಮ್ಮನ್ನು ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಆಹ್ವಾನಿಸುತ್ತೇವೆ'
             : 'With affection, we invite you to celebrate our wedding'}
         </p>
-        <p className="royal-where royal-reveal">{t(venue.short)}</p>
+        <p className="garden-where garden-reveal">{t(venue.short)}</p>
 
         <section
-          className="royal-section royal-reveal"
-          id="royal-countdown"
+          className="garden-section garden-reveal"
+          id="garden-countdown"
         >
           <h2>{t(copy.countdownTitle)}</h2>
-          <div className="royal-timer">
+          <div className="garden-timer">
             {(
               [
                 [cd.days, t(copy.days)],
@@ -190,7 +190,7 @@ export function FutureInvite() {
                 [cd.seconds, t(copy.seconds)],
               ] as const
             ).map(([value, label]) => (
-              <div key={label} className="royal-tick">
+              <div key={label} className="garden-tick">
                 <strong>{String(value).padStart(2, '0')}</strong>
                 <span>{label}</span>
               </div>
@@ -198,19 +198,19 @@ export function FutureInvite() {
           </div>
         </section>
 
-        <section className="royal-section royal-reveal">
+        <section className="garden-section garden-reveal">
           <h2>{t(copy.events)}</h2>
-          <ol className="royal-timeline">
+          <ol className="garden-timeline">
             {events.map((event) => (
               <li key={event.id}>
-                <div className="royal-event-body">
+                <div className="garden-event-body">
                   <strong>{t(event.title)}</strong>
                   <span>{t(event.when)}</span>
                 </div>
-                <div className="royal-event-actions">
+                <div className="garden-event-actions">
                   <button
                     type="button"
-                    className="royal-link-btn"
+                    className="garden-link-btn"
                     onClick={() => downloadEventIcs(event, lang)}
                   >
                     {t(rsvpCopy.addCalendar)}
@@ -219,7 +219,7 @@ export function FutureInvite() {
                     href={venue.mapsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="royal-link-btn"
+                    className="garden-link-btn"
                   >
                     {t(rsvpCopy.getDirections)}
                   </a>
@@ -227,16 +227,16 @@ export function FutureInvite() {
               </li>
             ))}
           </ol>
-          <p className="royal-address">
+          <p className="garden-address">
             {t(venue.name)}
             <br />
             {t(venue.address)}
           </p>
         </section>
 
-        <section className="royal-section royal-reveal">
+        <section className="garden-section garden-reveal">
           <h2>{t(copy.theCouple)}</h2>
-          <div className="royal-kin">
+          <div className="garden-kin">
             <article>
               <h3 className={lang === 'kn' ? 'kn' : ''}>{t(couple.bride)}</h3>
               <p>{t(family.bride.parents)}</p>
@@ -246,22 +246,22 @@ export function FutureInvite() {
               <p>{t(family.groom.parents)}</p>
             </article>
           </div>
-          <p className="royal-hosts">{t(family.hosts)}</p>
+          <p className="garden-hosts">{t(family.hosts)}</p>
         </section>
 
-        <section className="royal-section royal-reveal" id="guest-info">
-          <p className="royal-eyebrow">{t(guestInfo.eyebrow)}</p>
+        <section className="garden-section garden-reveal" id="guest-info">
+          <p className="garden-eyebrow">{t(guestInfo.eyebrow)}</p>
           <h2>{t(guestInfo.title)}</h2>
-          <div className="royal-notes">
+          <div className="garden-notes">
             {GUEST_NOTES.map((key) => {
               const note = guestInfo[key]
               return (
-                <div key={key} className="royal-note">
+                <div key={key} className="garden-note">
                   <h3>{t(note.label)}</h3>
                   <p>{t(note.body)}</p>
                   {key === 'stay' ? (
                     <a
-                      className="royal-link-btn"
+                      className="garden-link-btn"
                       href={`https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(t(guestInfo.stay.message))}`}
                       target="_blank"
                       rel="noreferrer"
@@ -275,11 +275,11 @@ export function FutureInvite() {
           </div>
         </section>
 
-        <section className="royal-section royal-reveal" id="rsvp">
-          <p className="royal-eyebrow">{t(rsvpCopy.eyebrow)}</p>
+        <section className="garden-section garden-reveal" id="rsvp">
+          <p className="garden-eyebrow">{t(rsvpCopy.eyebrow)}</p>
           <h2>{t(rsvpCopy.title)}</h2>
-          <p className="royal-sub">{t(rsvpCopy.sub)}</p>
-          <form className="royal-form" onSubmit={onRsvpSubmit}>
+          <p className="garden-sub">{t(rsvpCopy.sub)}</p>
+          <form className="garden-form" onSubmit={onRsvpSubmit}>
             <input
               type="text"
               name="name"
@@ -288,24 +288,24 @@ export function FutureInvite() {
               onChange={(e) => setRsvpName(e.target.value)}
               required
             />
-            <div className="royal-choice" role="group" aria-label={t(rsvpCopy.title)}>
+            <div className="garden-choice" role="group" aria-label={t(rsvpCopy.title)}>
               <button
                 type="button"
-                className={`royal-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
+                className={`garden-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
                 onClick={() => setAttendance('yes')}
               >
                 {t(rsvpCopy.attending)}
               </button>
               <button
                 type="button"
-                className={`royal-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
+                className={`garden-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
                 onClick={() => setAttendance('no')}
               >
                 {t(rsvpCopy.notAttending)}
               </button>
             </div>
             {attendance === 'yes' ? (
-              <label className="royal-guests">
+              <label className="garden-guests">
                 <span>{t(rsvpCopy.guests)}</span>
                 <input
                   type="number"
@@ -317,16 +317,16 @@ export function FutureInvite() {
                 />
               </label>
             ) : null}
-            <button type="submit" className="royal-btn">
+            <button type="submit" className="garden-btn">
               {t(rsvpCopy.sendRsvp)}
             </button>
           </form>
         </section>
 
-        <section className="royal-section royal-reveal" id="wishes">
+        <section className="garden-section garden-reveal" id="wishes">
           <h2>{t(copy.wishesTitle)}</h2>
-          <p className="royal-sub">{t(copy.wishesSub)}</p>
-          <form className="royal-form" onSubmit={onWishSubmit}>
+          <p className="garden-sub">{t(copy.wishesSub)}</p>
+          <form className="garden-form" onSubmit={onWishSubmit}>
             <input
               type="text"
               name="wish-name"
@@ -343,23 +343,23 @@ export function FutureInvite() {
               onChange={(e) => setWishMessage(e.target.value)}
               required
             />
-            <button type="submit" className="royal-btn">
+            <button type="submit" className="garden-btn">
               {t(copy.sendWishes)}
             </button>
           </form>
         </section>
 
-        <section className="royal-section royal-reveal" id="share">
-          <p className="royal-eyebrow">{t(shareInvite.eyebrow)}</p>
+        <section className="garden-section garden-reveal" id="share">
+          <p className="garden-eyebrow">{t(shareInvite.eyebrow)}</p>
           <h2>{t(shareInvite.title)}</h2>
-          <p className="royal-sub">{t(shareInvite.sub)}</p>
-          <div className="royal-share-actions">
-            <button type="button" className="royal-btn" onClick={onShare}>
+          <p className="garden-sub">{t(shareInvite.sub)}</p>
+          <div className="garden-share-actions">
+            <button type="button" className="garden-btn" onClick={onShare}>
               {t(shareInvite.shareBtn)}
             </button>
             <button
               type="button"
-              className="royal-btn royal-btn-ghost"
+              className="garden-btn garden-btn-ghost"
               onClick={onCopyInvite}
             >
               {copied ? t(copy.copied) : t(copy.copyInvite)}
@@ -367,8 +367,8 @@ export function FutureInvite() {
           </div>
         </section>
 
-        <p className="royal-closing royal-reveal">{t(copy.closing)}</p>
-        <p className="royal-signoff royal-reveal">{t(copy.withLove)}</p>
+        <p className="garden-closing garden-reveal">{t(copy.closing)}</p>
+        <p className="garden-signoff garden-reveal">{t(copy.withLove)}</p>
       </main>
     </div>
   )

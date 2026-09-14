@@ -1,91 +1,100 @@
 /*
-  Royal chamber — alternate theme for /future
-  Deep maroon / burgundy base, antique brass gold, cream ivory.
-  Fonts: Playfair Display (brand) + Cormorant Garamond (body) + Tangerine (script).
-  Distinct from classic Cinzel/Bodoni/Great Vibes and prior lagoon look.
+  Monsoon garden — alternate theme for /future
+  Soft moss green, charcoal ink, warm parchment wash.
+  Accent: lotus blush for CTAs only (not gold-heavy, not purple glow).
+  Fonts: Syne (display) + Source Serif 4 (body) + Oooh Baby (script).
+  Distinct from classic Cinzel/Bodoni/Great Vibes and prior neon / lagoon / royal / atelier themes.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@500;600&family=Oooh+Baby&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Syne:wght@500;600;700&display=swap');
 
-.royal-root {
-  --royal-ink: #1a0a10;
-  --royal-deep: #2a0f18;
-  --royal-maroon: #4a1828;
-  --royal-burgundy: #6b2438;
-  --royal-gold: #c6a04a;
-  --royal-brass: #a8843a;
-  --royal-gold-soft: #e2c878;
-  --royal-ivory: #f7f0e4;
-  --royal-cream: #efe4d2;
-  --royal-mist: rgba(198, 160, 74, 0.12);
-  --royal-line: rgba(198, 160, 74, 0.28);
+.garden-root {
+  --garden-ink: #1c2420;
+  --garden-deep: #24302a;
+  --garden-moss: #4a6b52;
+  --garden-moss-soft: #6a8f72;
+  --garden-leaf: #8fad8a;
+  --garden-parchment: #f3ebe0;
+  --garden-parchment-warm: #e8ddd0;
+  --garden-blush: #d4a0a8;
+  --garden-blush-deep: #c07884;
+  --garden-mist: rgba(143, 173, 138, 0.18);
+  --garden-line: rgba(74, 107, 82, 0.28);
   min-height: 100svh;
-  color: var(--royal-ivory);
+  color: var(--garden-ink);
   background:
-    radial-gradient(ellipse 90% 50% at 20% 8%, rgba(198, 160, 74, 0.14), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 95% 35%, rgba(107, 36, 56, 0.45), transparent 50%),
-    linear-gradient(165deg, #3a1522 0%, #2a0f18 42%, #1a0a10 100%);
-  font-family: 'Cormorant Garamond', 'Noto Serif Kannada', Georgia, serif;
+    radial-gradient(ellipse 85% 55% at 12% 0%, rgba(143, 173, 138, 0.28), transparent 58%),
+    radial-gradient(ellipse 70% 45% at 100% 18%, rgba(232, 221, 208, 0.9), transparent 52%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(74, 107, 82, 0.12), transparent 55%),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 11px,
+      rgba(74, 107, 82, 0.025) 11px,
+      rgba(74, 107, 82, 0.025) 12px
+    ),
+    linear-gradient(168deg, #f6f0e6 0%, #e7efe6 38%, #dce6d8 72%, #cfdccf 100%);
+  font-family: 'Source Serif 4', 'Noto Serif Kannada', Georgia, serif;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Soft gold / velvet atmosphere drifting across the page */
-.royal-glow {
+/* Soft mist / leaf atmosphere drifting across the page */
+.garden-mist {
   position: fixed;
-  width: 55vmax;
-  height: 55vmax;
+  width: 58vmax;
+  height: 58vmax;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(198, 160, 74, 0.16) 0%,
-    rgba(74, 24, 40, 0.2) 42%,
+    rgba(143, 173, 138, 0.22) 0%,
+    rgba(212, 160, 168, 0.08) 38%,
     transparent 70%
   );
-  top: -12%;
-  left: -18%;
+  top: -14%;
+  left: -20%;
   z-index: 0;
   pointer-events: none;
-  animation: royal-glow-drift 24s ease-in-out infinite alternate;
-  filter: blur(2px);
+  animation: garden-mist-drift 26s ease-in-out infinite alternate;
+  filter: blur(4px);
 }
 
-.royal-glow-b {
-  width: 48vmax;
-  height: 48vmax;
+.garden-mist-b {
+  width: 50vmax;
+  height: 50vmax;
   top: auto;
-  bottom: -20%;
+  bottom: -22%;
   left: auto;
-  right: -22%;
+  right: -24%;
   background: radial-gradient(
     circle,
-    rgba(74, 24, 40, 0.65) 0%,
-    rgba(198, 160, 74, 0.08) 45%,
+    rgba(74, 107, 82, 0.2) 0%,
+    rgba(243, 235, 224, 0.35) 42%,
     transparent 70%
   );
-  animation-name: royal-glow-drift-b;
-  animation-duration: 30s;
+  animation-name: garden-mist-drift-b;
+  animation-duration: 32s;
 }
 
-@keyframes royal-glow-drift {
+@keyframes garden-mist-drift {
   from {
     transform: translate(0, 0) scale(1);
   }
   to {
-    transform: translate(8%, 12%) scale(1.08);
+    transform: translate(7%, 10%) scale(1.07);
   }
 }
 
-@keyframes royal-glow-drift-b {
+@keyframes garden-mist-drift-b {
   from {
     transform: translate(0, 0) scale(1);
   }
   to {
-    transform: translate(-10%, -8%) scale(1.12);
+    transform: translate(-9%, -7%) scale(1.1);
   }
 }
 
-.royal-top {
+.garden-top {
   position: relative;
   z-index: 4;
   display: flex;
@@ -94,24 +103,24 @@
   padding: 1rem 1.15rem;
 }
 
-.royal-chip {
-  border: 1px solid var(--royal-line);
-  background: rgba(26, 10, 16, 0.55);
-  color: var(--royal-gold-soft);
+.garden-chip {
+  border: 1px solid var(--garden-line);
+  background: rgba(243, 235, 224, 0.72);
+  color: var(--garden-moss);
   border-radius: 0.35rem;
   padding: 0.45rem 0.9rem;
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-weight: 500;
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-weight: 600;
   backdrop-filter: blur(10px);
   cursor: pointer;
 }
 
 /* ——— Full-bleed cover ——— */
-.royal-cover {
+.garden-cover {
   position: relative;
   z-index: 2;
   min-height: min(100svh, 52rem);
@@ -120,42 +129,42 @@
   justify-content: center;
   padding: 0 1.25rem 3.25rem;
   overflow: hidden;
-  animation: royal-cover-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: garden-cover-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.royal-cover-photo {
+.garden-cover-photo {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.royal-cover-photo img {
+.garden-cover-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 22%;
-  filter: saturate(0.85) contrast(1.08) brightness(0.62);
+  filter: saturate(0.9) contrast(1.05) brightness(0.68);
   transform: scale(1.04);
-  animation: royal-cover-breathe 18s ease-in-out infinite alternate;
+  animation: garden-cover-breathe 18s ease-in-out infinite alternate;
 }
 
-.royal-cover-veil {
+.garden-cover-veil {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
     linear-gradient(
       180deg,
-      rgba(26, 10, 16, 0.4) 0%,
-      rgba(42, 15, 24, 0.28) 35%,
-      rgba(26, 10, 16, 0.86) 72%,
-      rgba(26, 10, 16, 0.97) 100%
+      rgba(28, 36, 32, 0.35) 0%,
+      rgba(36, 48, 42, 0.22) 32%,
+      rgba(28, 36, 32, 0.78) 70%,
+      rgba(28, 36, 32, 0.94) 100%
     ),
-    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(198, 160, 74, 0.14), transparent 60%);
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(143, 173, 138, 0.18), transparent 60%);
   pointer-events: none;
 }
 
-.royal-cover-inner {
+.garden-cover-inner {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -163,78 +172,78 @@
   text-align: center;
 }
 
-.royal-brand {
+.garden-brand {
   margin: 0;
-  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
-  font-weight: 600;
+  font-family: 'Syne', 'Noto Serif Kannada', sans-serif;
+  font-weight: 700;
   font-size: clamp(2.55rem, 11.5vw, 3.45rem);
   line-height: 1.05;
-  letter-spacing: 0.02em;
-  color: var(--royal-ivory);
-  text-shadow: 0 2px 28px rgba(26, 10, 16, 0.55);
+  letter-spacing: -0.02em;
+  color: var(--garden-parchment);
+  text-shadow: 0 2px 28px rgba(28, 36, 32, 0.55);
 }
 
-.royal-brand.kn {
-  font-family: 'Noto Serif Kannada', 'Playfair Display', serif;
+.garden-brand.kn {
+  font-family: 'Noto Serif Kannada', 'Syne', serif;
   letter-spacing: 0;
   font-size: clamp(2.05rem, 9.5vw, 2.85rem);
 }
 
-.royal-amp {
+.garden-amp {
   display: block;
-  margin: 0.2rem 0;
-  font-family: 'Tangerine', cursive;
-  font-size: 2.1rem;
-  font-weight: 700;
+  margin: 0.15rem 0;
+  font-family: 'Oooh Baby', cursive;
+  font-size: 2rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
-  color: var(--royal-gold);
+  color: var(--garden-leaf);
 }
 
-.royal-headline {
+.garden-headline {
   margin: 1.15rem auto 0;
   max-width: 20rem;
-  font-family: 'Cormorant Garamond', 'Noto Serif Kannada', serif;
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-family: 'Source Serif 4', 'Noto Serif Kannada', serif;
+  font-size: 1.12rem;
+  font-weight: 400;
   font-style: italic;
   line-height: 1.45;
   letter-spacing: 0.01em;
-  color: var(--royal-cream);
+  color: var(--garden-parchment-warm);
 }
 
-.royal-support {
+.garden-support {
   margin: 0.65rem 0 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(247, 240, 228, 0.72);
+  color: rgba(243, 235, 224, 0.72);
 }
 
-.royal-cta {
+.garden-cta {
   display: inline-flex;
   margin-top: 1.5rem;
   padding: 0.9rem 1.55rem;
   border-radius: 0.3rem;
   text-decoration: none;
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--royal-ink);
-  background: linear-gradient(135deg, var(--royal-gold-soft), var(--royal-brass));
-  box-shadow: 0 10px 28px rgba(168, 132, 58, 0.32);
+  color: #fff8f7;
+  background: linear-gradient(135deg, var(--garden-blush), var(--garden-blush-deep));
+  box-shadow: 0 10px 28px rgba(192, 120, 132, 0.28);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.royal-cta:hover {
+.garden-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(168, 132, 58, 0.4);
+  box-shadow: 0 14px 32px rgba(192, 120, 132, 0.36);
 }
 
-@keyframes royal-cover-reveal {
+@keyframes garden-cover-reveal {
   from {
     opacity: 0;
     clip-path: inset(8% 4% 8% 4%);
@@ -245,7 +254,7 @@
   }
 }
 
-@keyframes royal-cover-breathe {
+@keyframes garden-cover-breathe {
   from {
     transform: scale(1.04);
   }
@@ -255,7 +264,7 @@
 }
 
 /* ——— Body shell ——— */
-.royal-shell {
+.garden-shell {
   position: relative;
   z-index: 2;
   max-width: 28rem;
@@ -264,124 +273,125 @@
   text-align: center;
 }
 
-.royal-ornament {
+.garden-ornament {
   width: 4.5rem;
   height: 1px;
   margin: 0 auto 1.35rem;
   background: linear-gradient(
     90deg,
     transparent,
-    var(--royal-gold),
+    var(--garden-moss-soft),
     transparent
   );
-  box-shadow: 0 0 0 1px rgba(198, 160, 74, 0.15);
   position: relative;
 }
 
-.royal-ornament::before,
-.royal-ornament::after {
+.garden-ornament::before,
+.garden-ornament::after {
   content: '';
   position: absolute;
   top: 50%;
-  width: 5px;
-  height: 5px;
-  border: 1px solid var(--royal-gold);
-  transform: translateY(-50%) rotate(45deg);
-  background: var(--royal-deep);
+  width: 6px;
+  height: 6px;
+  border-radius: 50% 0 50% 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  background: var(--garden-moss);
+  opacity: 0.7;
 }
 
-.royal-ornament::before {
-  left: -0.15rem;
+.garden-ornament::before {
+  left: -0.2rem;
 }
 
-.royal-ornament::after {
-  right: -0.15rem;
+.garden-ornament::after {
+  right: -0.2rem;
+  transform: translateY(-50%) rotate(135deg);
 }
 
-.royal-lede {
+.garden-lede {
   margin: 0 auto;
   max-width: 22rem;
   font-size: 1.18rem;
   font-style: italic;
   line-height: 1.55;
-  color: var(--royal-cream);
+  color: var(--garden-deep);
 }
 
-.royal-where {
+.garden-where {
   margin: 0.55rem 0 0;
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  color: rgba(247, 240, 228, 0.68);
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: rgba(28, 36, 32, 0.62);
 }
 
-.royal-section {
+.garden-section {
   margin-top: 2.25rem;
   text-align: left;
 }
 
-.royal-section h2 {
+.garden-section h2 {
   margin: 0 0 1rem;
   text-align: center;
-  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
+  font-family: 'Syne', 'Noto Serif Kannada', sans-serif;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--royal-gold);
+  color: var(--garden-moss);
 }
 
-.royal-eyebrow {
+.garden-eyebrow {
   margin: 0 0 0.35rem;
   text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--royal-gold-soft);
+  color: var(--garden-moss-soft);
 }
 
-.royal-sub {
+.garden-sub {
   margin: -0.35rem 0 1rem;
   text-align: center;
   font-size: 1.02rem;
   line-height: 1.5;
-  color: var(--royal-cream);
+  color: var(--garden-deep);
 }
 
-.royal-timer {
+.garden-timer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.55rem;
 }
 
-.royal-tick {
+.garden-tick {
   text-align: center;
   padding: 0.85rem 0.2rem;
   border-radius: 0.35rem;
-  background: rgba(74, 24, 40, 0.45);
-  border: 1px solid var(--royal-line);
+  background: rgba(243, 235, 224, 0.72);
+  border: 1px solid var(--garden-line);
 }
 
-.royal-tick strong {
+.garden-tick strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Syne', sans-serif;
   font-size: 1.45rem;
-  font-weight: 600;
-  color: var(--royal-ivory);
+  font-weight: 700;
+  color: var(--garden-ink);
   font-variant-numeric: tabular-nums;
 }
 
-.royal-tick span {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.62rem;
+.garden-tick span {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--royal-gold-soft);
+  color: var(--garden-moss);
 }
 
-.royal-timeline {
+.garden-timeline {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -390,198 +400,198 @@
   gap: 1.1rem;
 }
 
-.royal-timeline li {
+.garden-timeline li {
   padding-bottom: 1.1rem;
-  border-bottom: 1px solid var(--royal-line);
+  border-bottom: 1px solid var(--garden-line);
 }
 
-.royal-timeline li:last-child {
+.garden-timeline li:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.royal-event-body strong {
+.garden-event-body strong {
   display: block;
-  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
+  font-family: 'Syne', 'Noto Serif Kannada', sans-serif;
   font-size: 1.12rem;
-  font-weight: 600;
-  color: var(--royal-ivory);
+  font-weight: 700;
+  color: var(--garden-ink);
 }
 
-.royal-event-body span {
+.garden-event-body span {
   display: block;
   margin-top: 0.2rem;
   font-size: 0.98rem;
-  color: var(--royal-cream);
+  color: var(--garden-deep);
 }
 
-.royal-event-actions {
+.garden-event-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem 1rem;
   margin-top: 0.65rem;
 }
 
-.royal-link-btn {
+.garden-link-btn {
   appearance: none;
   border: none;
   background: none;
   padding: 0;
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--royal-gold);
-  border-bottom: 1px solid rgba(198, 160, 74, 0.45);
+  color: var(--garden-moss);
+  border-bottom: 1px solid rgba(74, 107, 82, 0.4);
   padding-bottom: 0.1rem;
   cursor: pointer;
 }
 
-.royal-address {
+.garden-address {
   margin: 1.15rem 0 0;
   text-align: center;
   font-size: 1rem;
   font-style: italic;
   line-height: 1.5;
-  color: var(--royal-cream);
+  color: var(--garden-deep);
 }
 
-.royal-kin {
+.garden-kin {
   display: grid;
   gap: 1rem;
 }
 
-.royal-kin article {
+.garden-kin article {
   text-align: center;
   padding: 0.25rem 0;
 }
 
-.royal-kin h3 {
+.garden-kin h3 {
   margin: 0;
-  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
+  font-family: 'Syne', 'Noto Serif Kannada', sans-serif;
   font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--royal-ivory);
+  font-weight: 700;
+  color: var(--garden-ink);
 }
 
-.royal-kin h3.kn {
-  font-family: 'Noto Serif Kannada', 'Playfair Display', serif;
+.garden-kin h3.kn {
+  font-family: 'Noto Serif Kannada', 'Syne', serif;
 }
 
-.royal-kin p {
+.garden-kin p {
   margin: 0.35rem 0 0;
   font-size: 1rem;
   font-style: italic;
-  color: var(--royal-cream);
+  color: var(--garden-deep);
 }
 
-.royal-hosts {
+.garden-hosts {
   margin: 1.1rem 0 0;
   text-align: center;
-  font-family: 'Tangerine', cursive;
+  font-family: 'Oooh Baby', cursive;
   font-size: 1.85rem;
-  color: var(--royal-gold-soft);
+  color: var(--garden-moss);
 }
 
-.royal-notes {
+.garden-notes {
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
 }
 
-.royal-note h3 {
+.garden-note h3 {
   margin: 0;
-  font-family: 'Playfair Display', 'Noto Serif Kannada', serif;
+  font-family: 'Syne', 'Noto Serif Kannada', sans-serif;
   font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--royal-gold);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--garden-moss);
 }
 
-.royal-note p {
+.garden-note p {
   margin: 0.3rem 0 0;
   font-size: 1rem;
   line-height: 1.55;
-  color: rgba(247, 240, 228, 0.84);
+  color: rgba(28, 36, 32, 0.84);
 }
 
-.royal-note .royal-link-btn {
+.garden-note .garden-link-btn {
   display: inline-block;
   margin-top: 0.65rem;
 }
 
-.royal-form {
+.garden-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.royal-form input,
-.royal-form textarea {
+.garden-form input,
+.garden-form textarea {
   width: 100%;
   box-sizing: border-box;
   padding: 0.85rem 1rem;
   border-radius: 0.3rem;
-  border: 1px solid var(--royal-line);
-  background: rgba(26, 10, 16, 0.5);
-  color: var(--royal-ivory);
-  font-family: 'Cormorant Garamond', 'Noto Serif Kannada', serif;
+  border: 1px solid var(--garden-line);
+  background: rgba(255, 252, 247, 0.78);
+  color: var(--garden-ink);
+  font-family: 'Source Serif 4', 'Noto Serif Kannada', serif;
   font-size: 1.05rem;
   outline: none;
 }
 
-.royal-form input::placeholder,
-.royal-form textarea::placeholder {
-  color: rgba(226, 200, 120, 0.45);
+.garden-form input::placeholder,
+.garden-form textarea::placeholder {
+  color: rgba(74, 107, 82, 0.45);
 }
 
-.royal-form input:focus,
-.royal-form textarea:focus {
-  border-color: rgba(198, 160, 74, 0.65);
+.garden-form input:focus,
+.garden-form textarea:focus {
+  border-color: rgba(74, 107, 82, 0.65);
 }
 
-.royal-choice {
+.garden-choice {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.55rem;
 }
 
-.royal-choice-btn {
+.garden-choice-btn {
   padding: 0.75rem 0.5rem;
   border-radius: 0.3rem;
-  border: 1px solid var(--royal-line);
-  background: rgba(74, 24, 40, 0.35);
-  color: var(--royal-cream);
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-size: 0.88rem;
-  font-weight: 500;
+  border: 1px solid var(--garden-line);
+  background: rgba(243, 235, 224, 0.55);
+  color: var(--garden-deep);
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.royal-choice-btn.is-active {
-  border-color: rgba(198, 160, 74, 0.7);
-  background: rgba(198, 160, 74, 0.16);
-  color: var(--royal-ivory);
+.garden-choice-btn.is-active {
+  border-color: rgba(192, 120, 132, 0.55);
+  background: rgba(212, 160, 168, 0.22);
+  color: var(--garden-ink);
 }
 
-.royal-guests {
+.garden-guests {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-size: 0.95rem;
-  color: var(--royal-cream);
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-size: 0.88rem;
+  color: var(--garden-deep);
 }
 
-.royal-guests input {
+.garden-guests input {
   width: 4.5rem;
   text-align: center;
 }
 
-.royal-btn {
+.garden-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -590,54 +600,54 @@
   border: none;
   border-radius: 0.3rem;
   text-decoration: none;
-  font-family: 'Cormorant Garamond', 'Noto Sans Kannada', serif;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: 'Syne', 'Noto Sans Kannada', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--royal-ink);
-  background: linear-gradient(135deg, var(--royal-gold-soft), var(--royal-brass));
-  box-shadow: 0 10px 24px rgba(168, 132, 58, 0.26);
+  color: #fff8f7;
+  background: linear-gradient(135deg, var(--garden-blush), var(--garden-blush-deep));
+  box-shadow: 0 10px 24px rgba(192, 120, 132, 0.22);
   cursor: pointer;
 }
 
-.royal-btn-ghost {
-  color: var(--royal-gold-soft);
+.garden-btn-ghost {
+  color: var(--garden-moss);
   background: transparent;
-  border: 1px solid var(--royal-line);
+  border: 1px solid var(--garden-line);
   box-shadow: none;
 }
 
-.royal-share-actions {
+.garden-share-actions {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
 }
 
-.royal-closing {
+.garden-closing {
   margin: 2rem auto 0;
   max-width: 22rem;
   font-size: 1.08rem;
   font-style: italic;
   line-height: 1.55;
-  color: var(--royal-cream);
+  color: var(--garden-deep);
 }
 
-.royal-signoff {
+.garden-signoff {
   margin: 1rem 0 0;
-  font-family: 'Tangerine', cursive;
+  font-family: 'Oooh Baby', cursive;
   font-size: 2.2rem;
-  color: var(--royal-gold);
+  color: var(--garden-moss);
 }
 
 /* Soft section fade-up on scroll into view */
-.royal-reveal {
-  animation: royal-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+.garden-reveal {
+  animation: garden-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-timeline: view();
   animation-range: entry 0% cover 28%;
 }
 
-@keyframes royal-fade-up {
+@keyframes garden-fade-up {
   from {
     opacity: 0;
     transform: translateY(1.25rem);
@@ -649,34 +659,34 @@
 }
 
 @supports not (animation-timeline: view()) {
-  .royal-reveal {
-    animation: royal-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .garden-reveal {
+    animation: garden-fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
-  .royal-shell > .royal-reveal:nth-child(1) {
+  .garden-shell > .garden-reveal:nth-child(1) {
     animation-delay: 0.05s;
   }
-  .royal-shell > .royal-reveal:nth-child(2) {
+  .garden-shell > .garden-reveal:nth-child(2) {
     animation-delay: 0.1s;
   }
-  .royal-shell > .royal-reveal:nth-child(3) {
+  .garden-shell > .garden-reveal:nth-child(3) {
     animation-delay: 0.15s;
   }
-  .royal-shell > .royal-reveal:nth-child(4) {
+  .garden-shell > .garden-reveal:nth-child(4) {
     animation-delay: 0.2s;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .royal-glow,
-  .royal-glow-b,
-  .royal-cover,
-  .royal-cover-photo img,
-  .royal-reveal {
+  .garden-mist,
+  .garden-mist-b,
+  .garden-cover,
+  .garden-cover-photo img,
+  .garden-reveal {
     animation: none;
   }
 
-  .royal-cta:hover {
+  .garden-cta:hover {
     transform: none;
   }
 }

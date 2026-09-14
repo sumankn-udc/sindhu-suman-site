@@ -10,10 +10,6 @@ export function Closing() {
       <p className="section-eyebrow">{t(copy.withLove)}</p>
       <Divider />
       <p className="closing-text">{t(copy.closing)}</p>
-      <a className="future-link" href="/future">
-        <span className="future-link-hint">{t(copy.futureInviteHint)}</span>
-        <span className="future-link-main">{t(copy.futureInvite)}</span>
-      </a>
     </Reveal>
   )
 }

@@ -1448,39 +1448,6 @@ button {
   color: rgba(232, 220, 200, 0.9);
 }
 
-.future-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-  margin: 1.5rem auto 0;
-  max-width: 18rem;
-  padding: 0.85rem 1.1rem;
-  border-radius: 14px;
-  border: 1px solid rgba(184, 92, 56, 0.35);
-  background: linear-gradient(135deg, rgba(243, 238, 228, 0.12), rgba(184, 92, 56, 0.12));
-  text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.future-link:hover {
-  transform: translateY(-2px);
-  border-color: rgba(184, 92, 56, 0.6);
-}
-
-.future-link-hint {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(226, 200, 160, 0.9);
-}
-
-.future-link-main {
-  font-size: 0.92rem;
-  color: #f7f0e4;
-  letter-spacing: 0.04em;
-}
-
 /* —— FABs (pinned to phone frame, not scroll content) —— */
 .fab-row {
   position: absolute;

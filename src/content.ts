@@ -191,14 +191,6 @@ export const copy = {
   copyLink: { en: 'Copy link', kn: 'ಲಿಂಕ್ ನಕಲಿಸಿ' },
   copyInvite: { en: 'Copy invite', kn: 'ಆಮಂತ್ರಣ ನಕಲಿಸಿ' },
   copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
-  futureInvite: {
-    en: 'Open the royal invite →',
-    kn: 'ರಾಯಲ್ ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ →',
-  },
-  futureInviteHint: {
-    en: 'Maroon · Gold',
-    kn: 'ಮರೂನ್ · ಗೋಲ್ಡ್',
-  },
 }
 
 /** Chronological celebration order */
