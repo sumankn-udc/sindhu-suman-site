@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useState, type FormEvent } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type CSSProperties,
+  type FormEvent,
+} from 'react'
 import {
   copy,
   couple,
@@ -6,7 +13,8 @@ import {
   family,
   guestInfo,
   muhurthamAt,
-  placeholders,
+  photoSets,
+  type PhotoSetId,
   rsvpCopy,
   rsvpWhatsApp,
   shareInvite,
@@ -18,6 +26,18 @@ import { downloadEventIcs } from '../lib/calendar'
 import './FutureInvite.css'
 
 const GUEST_NOTES = ['dress', 'travel', 'stay', 'gift'] as const
+const PHOTO_SET_IDS = Object.keys(photoSets) as PhotoSetId[]
+
+const CHAPTERS = [
+  { id: 'story-cover', en: 'Cover', kn: 'ಕವರ್' },
+  { id: 'story-when', en: 'When', kn: 'ಯಾವಾಗ' },
+  { id: 'story-events', en: 'Events', kn: 'ಕಾರ್ಯ' },
+  { id: 'story-photos', en: 'Photos', kn: 'ಫೋಟೋ' },
+  { id: 'story-us', en: 'Us', kn: 'ನಾವು' },
+  { id: 'story-guests', en: 'Guests', kn: 'ಅತಿಥಿ' },
+  { id: 'story-rsvp', en: 'RSVP', kn: 'RSVP' },
+  { id: 'story-wishes', en: 'Wish', kn: 'ಆಶಿ' },
+] as const
 
 function useCountdown(target: Date) {
   const [now, setNow] = useState(() => Date.now())
@@ -34,10 +54,20 @@ function useCountdown(target: Date) {
   }
 }
 
+function readSavedPhotoSet(): PhotoSetId {
+  try {
+    const raw = localStorage.getItem('future-photo-set')
+    if (raw && raw in photoSets) return raw as PhotoSetId
+  } catch {
+    /* ignore */
+  }
+  return 'photos'
+}
+
 /**
- * Alternate invite at /future — Monsoon garden look
- * (soft moss, charcoal ink, parchment wash, lotus blush CTAs),
- * distinct from classic charcoal-gold and prior neon / lagoon / royal / atelier themes.
+ * Alternate invite at /future — vertical story-reel format (snap chapters,
+ * horizontal event strip, photo-pack switcher). Distinct layout from the
+ * classic stacked phone invite.
  */
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
@@ -48,6 +78,45 @@ export function FutureInvite() {
   const [attendance, setAttendance] = useState<'yes' | 'no'>('yes')
   const [guests, setGuests] = useState(1)
   const [copied, setCopied] = useState(false)
+  const [photoSet, setPhotoSet] = useState<PhotoSetId>(readSavedPhotoSet)
+  const [lightbox, setLightbox] = useState<string | null>(null)
+  const [activeChapter, setActiveChapter] = useState(0)
+  const [coverIndex, setCoverIndex] = useState(0)
+
+  const pack = photoSets[photoSet]
+  const coverStack = useMemo(
+    () => [pack.cover, pack.couple, pack.bride, pack.groom],
+    [pack],
+  )
+
+  useEffect(() => {
+    setCoverIndex(0)
+    try {
+      localStorage.setItem('future-photo-set', photoSet)
+    } catch {
+      /* ignore */
+    }
+  }, [photoSet])
+
+  useEffect(() => {
+    const nodes = CHAPTERS.map((c) => document.getElementById(c.id)).filter(
+      Boolean,
+    ) as HTMLElement[]
+    if (!nodes.length) return
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (!visible) return
+        const idx = CHAPTERS.findIndex((c) => c.id === visible.target.id)
+        if (idx >= 0) setActiveChapter(idx)
+      },
+      { threshold: [0.45, 0.6] },
+    )
+    nodes.forEach((n) => obs.observe(n))
+    return () => obs.disconnect()
+  }, [])
 
   const futureUrl = `${siteUrl.replace(/\/$/, '')}/future`
 
@@ -126,62 +195,107 @@ export function FutureInvite() {
   }
 
   return (
-    <div className="garden-root">
-      <div className="garden-mist" aria-hidden="true" />
-      <div className="garden-mist garden-mist-b" aria-hidden="true" />
+    <div className="reel-root">
+      <div className="reel-grain" aria-hidden="true" />
 
-      <header className="garden-top">
-        <a className="garden-chip" href="/">
-          ← Classic invite
+      <header className="reel-chrome">
+        <a className="reel-chip" href="/">
+          ← Classic
         </a>
+        <div
+          className="reel-photo-switch"
+          role="group"
+          aria-label={lang === 'kn' ? 'ಫೋಟೋ ಆಯ್ಕೆ' : 'Photo options'}
+        >
+          {PHOTO_SET_IDS.map((id) => (
+            <button
+              key={id}
+              type="button"
+              className={`reel-photo-opt${photoSet === id ? ' is-on' : ''}`}
+              onClick={() => setPhotoSet(id)}
+              aria-pressed={photoSet === id}
+            >
+              {t(photoSets[id].label)}
+            </button>
+          ))}
+        </div>
         <button
           type="button"
-          className="garden-chip"
+          className="reel-chip"
           onClick={() => setLang(lang === 'en' ? 'kn' : 'en')}
         >
           {lang === 'en' ? 'ಕನ್ನಡ' : 'EN'}
         </button>
       </header>
 
-      {/* Full-bleed cover — brand first, one headline, one line, one CTA */}
-      <section className="garden-cover">
-        <div className="garden-cover-photo" aria-hidden="true">
-          <img src={placeholders.cover} alt="" />
-        </div>
-        <div className="garden-cover-veil" aria-hidden="true" />
-        <div className="garden-cover-inner">
-          <h1 className={`garden-brand ${lang === 'kn' ? 'kn' : ''}`}>
-            <span>{t(couple.bride)}</span>
-            <span className="garden-amp">{t(copy.and)}</span>
-            <span>{t(couple.groom)}</span>
-          </h1>
-          <p className="garden-headline">
-            {lang === 'kn'
-              ? 'ಮಳೆಗಾಲದ ತೋಟದಂತೆ ಮೃದುವಾದ ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಸ್ವಾಗತ'
-              : 'Welcome to our monsoon garden celebration'}
-          </p>
-          <p className="garden-support">{t(copy.weddingDate)}</p>
-          <a className="garden-cta" href="#garden-countdown">
-            {lang === 'kn' ? 'ಆಮಂತ್ರಣವನ್ನು ನೋಡಿ' : 'Explore the invite'}
-          </a>
-        </div>
-      </section>
+      <nav className="reel-rail" aria-label="Chapters">
+        {CHAPTERS.map((ch, i) => (
+          <a
+            key={ch.id}
+            href={`#${ch.id}`}
+            className={`reel-dot${activeChapter === i ? ' is-on' : ''}`}
+            aria-label={lang === 'kn' ? ch.kn : ch.en}
+            title={lang === 'kn' ? ch.kn : ch.en}
+          />
+        ))}
+      </nav>
 
-      <main className="garden-shell">
-        <div className="garden-ornament garden-reveal" aria-hidden="true" />
-        <p className="garden-lede garden-reveal">
-          {lang === 'kn'
-            ? 'ಪ್ರೀತಿಯಿಂದ ನಿಮ್ಮನ್ನು ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಆಹ್ವಾನಿಸುತ್ತೇವೆ'
-            : 'With affection, we invite you to celebrate our wedding'}
-        </p>
-        <p className="garden-where garden-reveal">{t(venue.short)}</p>
+      <div className="reel-scroller">
+        {/* Chapter 1 — Cover story */}
+        <section className="reel-slide reel-cover" id="story-cover">
+          <div className="reel-cover-stack">
+            {coverStack.map((src, i) => (
+              <button
+                key={`${photoSet}-${src}-${i}`}
+                type="button"
+                className={`reel-cover-frame${coverIndex === i ? ' is-front' : ''}`}
+                style={{ '--i': i } as CSSProperties}
+                onClick={() => {
+                  setCoverIndex(i)
+                  setLightbox(src)
+                }}
+                aria-label={lang === 'kn' ? 'ಫೋಟೋ ತೆರೆ' : 'Open photo'}
+              >
+                <img src={src} alt="" />
+              </button>
+            ))}
+          </div>
+          <div className="reel-cover-copy">
+            <p className="reel-kicker">{t(photoSets[photoSet].hint)}</p>
+            <h1 className={`reel-brand ${lang === 'kn' ? 'kn' : ''}`}>
+              <span>{t(couple.bride)}</span>
+              <span className="reel-amp">{t(copy.amp)}</span>
+              <span>{t(couple.groom)}</span>
+            </h1>
+            <p className="reel-date">{t(copy.weddingDate)}</p>
+            <p className="reel-line">{t(venue.short)}</p>
+            <div className="reel-cover-thumbs" role="tablist">
+              {coverStack.map((src, i) => (
+                <button
+                  key={`thumb-${i}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={coverIndex === i}
+                  className={`reel-thumb${coverIndex === i ? ' is-on' : ''}`}
+                  onClick={() => setCoverIndex(i)}
+                >
+                  <img src={src} alt="" />
+                </button>
+              ))}
+            </div>
+            <a className="reel-cta" href="#story-when">
+              {lang === 'kn' ? 'ಸ್ವೈಪ್ ಮಾಡಿ →' : 'Swipe the story →'}
+            </a>
+          </div>
+        </section>
 
-        <section
-          className="garden-section garden-reveal"
-          id="garden-countdown"
-        >
-          <h2>{t(copy.countdownTitle)}</h2>
-          <div className="garden-timer">
+        {/* Chapter 2 — Countdown */}
+        <section className="reel-slide reel-when" id="story-when">
+          <p className="reel-kicker">{t(copy.countdownTitle)}</p>
+          <h2 className="reel-big">
+            {lang === 'kn' ? 'ಮುಹೂರ್ತಕ್ಕೆ' : 'Until muhurtham'}
+          </h2>
+          <div className="reel-timer">
             {(
               [
                 [cd.days, t(copy.days)],
@@ -190,27 +304,31 @@ export function FutureInvite() {
                 [cd.seconds, t(copy.seconds)],
               ] as const
             ).map(([value, label]) => (
-              <div key={label} className="garden-tick">
+              <div key={label} className="reel-tick">
                 <strong>{String(value).padStart(2, '0')}</strong>
                 <span>{label}</span>
               </div>
             ))}
           </div>
+          <p className="reel-support">{t(copy.together)}</p>
         </section>
 
-        <section className="garden-section garden-reveal">
-          <h2>{t(copy.events)}</h2>
-          <ol className="garden-timeline">
-            {events.map((event) => (
-              <li key={event.id}>
-                <div className="garden-event-body">
-                  <strong>{t(event.title)}</strong>
-                  <span>{t(event.when)}</span>
-                </div>
-                <div className="garden-event-actions">
+        {/* Chapter 3 — Horizontal events strip */}
+        <section className="reel-slide reel-events" id="story-events">
+          <p className="reel-kicker">{t(copy.events)}</p>
+          <h2 className="reel-big">
+            {lang === 'kn' ? 'ಹಬ್ಬದ ರೀಲ್' : 'Celebration reel'}
+          </h2>
+          <div className="reel-hstrip" tabIndex={0}>
+            {events.map((event, i) => (
+              <article key={event.id} className="reel-event-card">
+                <span className="reel-event-num">0{i + 1}</span>
+                <strong>{t(event.title)}</strong>
+                <span>{t(event.when)}</span>
+                <div className="reel-event-actions">
                   <button
                     type="button"
-                    className="garden-link-btn"
+                    className="reel-link"
                     onClick={() => downloadEventIcs(event, lang)}
                   >
                     {t(rsvpCopy.addCalendar)}
@@ -219,49 +337,89 @@ export function FutureInvite() {
                     href={venue.mapsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="garden-link-btn"
+                    className="reel-link"
                   >
                     {t(rsvpCopy.getDirections)}
                   </a>
                 </div>
-              </li>
+              </article>
             ))}
-          </ol>
-          <p className="garden-address">
-            {t(venue.name)}
-            <br />
-            {t(venue.address)}
+            <article className="reel-event-card reel-event-venue">
+              <strong>{t(venue.name)}</strong>
+              <span>{t(venue.address)}</span>
+            </article>
+          </div>
+          <p className="reel-hint">
+            {lang === 'kn' ? '← ಸ್ಲೈಡ್ ಮಾಡಿ →' : '← slide for more →'}
           </p>
         </section>
 
-        <section className="garden-section garden-reveal">
-          <h2>{t(copy.theCouple)}</h2>
-          <div className="garden-kin">
+        {/* Chapter 4 — Bento photos */}
+        <section className="reel-slide reel-photos" id="story-photos">
+          <div className="reel-photos-head">
+            <div>
+              <p className="reel-kicker">{t(copy.ourGallery)}</p>
+              <h2 className="reel-big">{t(copy.galleryTitle)}</h2>
+            </div>
+            <p className="reel-pack-label">{t(photoSets[photoSet].hint)}</p>
+          </div>
+          <div className="reel-bento">
+            <button
+              type="button"
+              className="reel-bento-hero"
+              onClick={() => setLightbox(pack.couple)}
+            >
+              <img src={pack.couple} alt="" />
+            </button>
+            {pack.gallery.map((item, i) => (
+              <button
+                key={`${photoSet}-g-${i}`}
+                type="button"
+                className={`reel-bento-cell reel-bento-${i + 1}`}
+                onClick={() => setLightbox(item.src)}
+              >
+                <img src={item.src} alt={item.alt} />
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Chapter 5 — Couple */}
+        <section className="reel-slide reel-us" id="story-us">
+          <p className="reel-kicker">{t(copy.theCouple)}</p>
+          <div className="reel-pair">
             <article>
+              <button type="button" onClick={() => setLightbox(pack.bride)}>
+                <img src={pack.bride} alt="" />
+              </button>
               <h3 className={lang === 'kn' ? 'kn' : ''}>{t(couple.bride)}</h3>
               <p>{t(family.bride.parents)}</p>
             </article>
             <article>
+              <button type="button" onClick={() => setLightbox(pack.groom)}>
+                <img src={pack.groom} alt="" />
+              </button>
               <h3 className={lang === 'kn' ? 'kn' : ''}>{t(couple.groom)}</h3>
               <p>{t(family.groom.parents)}</p>
             </article>
           </div>
-          <p className="garden-hosts">{t(family.hosts)}</p>
+          <p className="reel-hosts">{t(family.hosts)}</p>
         </section>
 
-        <section className="garden-section garden-reveal" id="guest-info">
-          <p className="garden-eyebrow">{t(guestInfo.eyebrow)}</p>
-          <h2>{t(guestInfo.title)}</h2>
-          <div className="garden-notes">
+        {/* Chapter 6 — Guest notes */}
+        <section className="reel-slide reel-guests" id="story-guests">
+          <p className="reel-kicker">{t(guestInfo.eyebrow)}</p>
+          <h2 className="reel-big">{t(guestInfo.title)}</h2>
+          <div className="reel-notes">
             {GUEST_NOTES.map((key) => {
               const note = guestInfo[key]
               return (
-                <div key={key} className="garden-note">
+                <div key={key} className="reel-note">
                   <h3>{t(note.label)}</h3>
                   <p>{t(note.body)}</p>
                   {key === 'stay' ? (
                     <a
-                      className="garden-link-btn"
+                      className="reel-link"
                       href={`https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(t(guestInfo.stay.message))}`}
                       target="_blank"
                       rel="noreferrer"
@@ -275,11 +433,12 @@ export function FutureInvite() {
           </div>
         </section>
 
-        <section className="garden-section garden-reveal" id="rsvp">
-          <p className="garden-eyebrow">{t(rsvpCopy.eyebrow)}</p>
-          <h2>{t(rsvpCopy.title)}</h2>
-          <p className="garden-sub">{t(rsvpCopy.sub)}</p>
-          <form className="garden-form" onSubmit={onRsvpSubmit}>
+        {/* Chapter 7 — RSVP */}
+        <section className="reel-slide reel-form-slide" id="story-rsvp">
+          <p className="reel-kicker">{t(rsvpCopy.eyebrow)}</p>
+          <h2 className="reel-big">{t(rsvpCopy.title)}</h2>
+          <p className="reel-support">{t(rsvpCopy.sub)}</p>
+          <form className="reel-form" onSubmit={onRsvpSubmit}>
             <input
               type="text"
               name="name"
@@ -288,24 +447,24 @@ export function FutureInvite() {
               onChange={(e) => setRsvpName(e.target.value)}
               required
             />
-            <div className="garden-choice" role="group" aria-label={t(rsvpCopy.title)}>
+            <div className="reel-choice" role="group">
               <button
                 type="button"
-                className={`garden-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
+                className={`reel-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
                 onClick={() => setAttendance('yes')}
               >
                 {t(rsvpCopy.attending)}
               </button>
               <button
                 type="button"
-                className={`garden-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
+                className={`reel-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
                 onClick={() => setAttendance('no')}
               >
                 {t(rsvpCopy.notAttending)}
               </button>
             </div>
             {attendance === 'yes' ? (
-              <label className="garden-guests">
+              <label className="reel-guests-count">
                 <span>{t(rsvpCopy.guests)}</span>
                 <input
                   type="number"
@@ -317,16 +476,18 @@ export function FutureInvite() {
                 />
               </label>
             ) : null}
-            <button type="submit" className="garden-btn">
+            <button type="submit" className="reel-cta solid">
               {t(rsvpCopy.sendRsvp)}
             </button>
           </form>
         </section>
 
-        <section className="garden-section garden-reveal" id="wishes">
-          <h2>{t(copy.wishesTitle)}</h2>
-          <p className="garden-sub">{t(copy.wishesSub)}</p>
-          <form className="garden-form" onSubmit={onWishSubmit}>
+        {/* Chapter 8 — Wishes + share */}
+        <section className="reel-slide reel-form-slide" id="story-wishes">
+          <p className="reel-kicker">{t(copy.wishesTitle)}</p>
+          <h2 className="reel-big">{t(copy.withLove)}</h2>
+          <p className="reel-support">{t(copy.wishesSub)}</p>
+          <form className="reel-form" onSubmit={onWishSubmit}>
             <input
               type="text"
               name="wish-name"
@@ -338,38 +499,44 @@ export function FutureInvite() {
             <textarea
               name="wish-message"
               placeholder={t(copy.yourMessage)}
-              rows={4}
+              rows={3}
               value={wishMessage}
               onChange={(e) => setWishMessage(e.target.value)}
               required
             />
-            <button type="submit" className="garden-btn">
+            <button type="submit" className="reel-cta solid">
               {t(copy.sendWishes)}
             </button>
           </form>
-        </section>
-
-        <section className="garden-section garden-reveal" id="share">
-          <p className="garden-eyebrow">{t(shareInvite.eyebrow)}</p>
-          <h2>{t(shareInvite.title)}</h2>
-          <p className="garden-sub">{t(shareInvite.sub)}</p>
-          <div className="garden-share-actions">
-            <button type="button" className="garden-btn" onClick={onShare}>
+          <div className="reel-share-row">
+            <button type="button" className="reel-link" onClick={onShare}>
               {t(shareInvite.shareBtn)}
             </button>
-            <button
-              type="button"
-              className="garden-btn garden-btn-ghost"
-              onClick={onCopyInvite}
-            >
+            <button type="button" className="reel-link" onClick={onCopyInvite}>
               {copied ? t(copy.copied) : t(copy.copyInvite)}
             </button>
           </div>
+          <p className="reel-closing">{t(copy.closing)}</p>
         </section>
+      </div>
 
-        <p className="garden-closing garden-reveal">{t(copy.closing)}</p>
-        <p className="garden-signoff garden-reveal">{t(copy.withLove)}</p>
-      </main>
+      {lightbox ? (
+        <div
+          className="reel-lightbox"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            className="reel-lightbox-close"
+            onClick={() => setLightbox(null)}
+          >
+            {t(copy.close)}
+          </button>
+          <img src={lightbox} alt="" onClick={(e) => e.stopPropagation()} />
+        </div>
+      ) : null}
     </div>
   )
 }

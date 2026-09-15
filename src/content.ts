@@ -32,6 +32,60 @@ export const placeholders = {
   ],
 } as const
 
+/** Photo packs for the /future story invite — guests can switch looks */
+export type PhotoSetId = 'photos' | 'art' | 'studio'
+
+export const photoSets: Record<
+  PhotoSetId,
+  {
+    label: { en: string; kn: string }
+    hint: { en: string; kn: string }
+    cover: string
+    couple: string
+    bride: string
+    groom: string
+    gallery: { src: string; alt: string }[]
+  }
+> = {
+  photos: {
+    label: { en: 'Photos', kn: 'ಫೋಟೋ' },
+    hint: { en: 'Real moments', kn: 'ನಿಜವಾದ ಕ್ಷಣಗಳು' },
+    cover: '/photos/couple-cover.jpg',
+    couple: '/photos/couple.jpg',
+    bride: '/photos/couple-square.jpg',
+    groom: '/photos/couple.jpg',
+    gallery: [
+      { src: '/photos/couple-cover.jpg', alt: 'Cover portrait' },
+      { src: '/photos/couple.jpg', alt: 'Together' },
+      { src: '/photos/couple-square.jpg', alt: 'Portrait' },
+      { src: '/photos/caricature.png', alt: 'Caricature keepsake' },
+    ],
+  },
+  art: {
+    label: { en: 'Art', kn: 'ಆರ್ಟ್' },
+    hint: { en: 'Illustrated set', kn: 'ಚಿತ್ರಿತ ಸೆಟ್' },
+    cover: placeholders.cover,
+    couple: placeholders.couple,
+    bride: placeholders.bride,
+    groom: placeholders.groom,
+    gallery: placeholders.gallery.map((g) => ({ src: g.src, alt: g.alt })),
+  },
+  studio: {
+    label: { en: 'Studio', kn: 'ಸ್ಟುಡಿಯೋ' },
+    hint: { en: 'Generated portraits', kn: 'ಸ್ಟುಡಿಯೋ ಭಾವಚಿತ್ರಗಳು' },
+    cover: '/photos/generated/slot-cover.png',
+    couple: '/photos/generated/slot-couple.png',
+    bride: '/photos/generated/slot-bride.png',
+    groom: '/photos/generated/slot-groom.png',
+    gallery: [
+      { src: '/photos/generated/slot-gallery-1.png', alt: 'Studio gallery 1' },
+      { src: '/photos/generated/slot-gallery-2.png', alt: 'Studio gallery 2' },
+      { src: '/photos/generated/slot-gallery-3.png', alt: 'Studio gallery 3' },
+      { src: '/photos/generated/slot-gallery-4.png', alt: 'Studio gallery 4' },
+    ],
+  },
+}
+
 export type Lang = 'en' | 'kn'
 
 export const couple = {
