@@ -8,7 +8,7 @@ export const placeholders = {
   groom: '/photos/placeholders/groom.jpg',
   caricature: '/photos/caricature.jpg',
   weddingPhotos: [
-    '/photos/real/wedding-ss.jpg',
+    '/photos/anime/wedding-ss.jpg',
   ] as const,
   gallery: [
     {
