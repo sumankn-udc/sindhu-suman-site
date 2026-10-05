@@ -9,19 +9,19 @@ export const placeholders = {
   caricature: '/photos/caricature.jpg',
   gallery: [
     {
-      src: '/photos/anime/fort-dance.jpg',
+      src: '/photos/real/wedding-ss.jpg',
       motion: 'kenburns' as const,
-      alt: 'Anime Sindhu and Suman dancing near the fort',
+      alt: 'Sindhu and Suman at their wedding',
     },
     {
-      src: '/photos/anime/ceremony-namaste.jpg',
+      src: '/photos/real/wedding-rings.jpg',
       motion: 'float' as const,
-      alt: 'Anime Sindhu and Suman in a blessing moment',
+      alt: 'Sindhu and Suman showing their wedding rings',
     },
     {
-      src: '/photos/anime/quarry-walk.jpg',
+      src: '/photos/anime/fort-dance.jpg',
       motion: 'pan-left' as const,
-      alt: 'Anime Sindhu and Suman walking together',
+      alt: 'Anime Sindhu and Suman dancing near the fort',
     },
     {
       src: '/photos/anime/bike-dusk.jpg',
@@ -201,8 +201,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'New moments from Sindhu & Suman',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಹೊಸ ಕ್ಷಣಗಳು',
+    en: 'Our wedding moments',
+    kn: 'ನಮ್ಮ ವಿವಾಹ ಕ್ಷಣಗಳು',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',

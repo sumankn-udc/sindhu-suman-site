@@ -83,8 +83,8 @@ export function Couple() {
               <AnimatedPhoto
                 src={placeholders.caricature}
                 alt={t({
-                  en: 'Anime wedding portrait of Sindhu & Suman',
-                  kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಅನಿಮೆ ವಿವಾಹ ಚಿತ್ರ',
+                  en: 'Sindhu & Suman on their wedding day',
+                  kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ವಿವಾಹದ ದಿನ',
                 })}
                 motion="float"
                 imgClassName="caricature-img"
@@ -92,7 +92,7 @@ export function Couple() {
             </div>
             <figcaption className="caricature-caption">
               {t({
-                en: 'Drawn with love — same spark.',
+                en: 'With love — forever ours.',
                 kn: 'ಪ್ರೀತಿಯಿಂದ ಚಿತ್ರಿಸಿದ್ದು — ಅದೇ ಕಾಂತಿ.',
               })}
             </figcaption>
