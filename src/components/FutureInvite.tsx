@@ -1,5 +1,4 @@
 import {
-  useCallback,
   useEffect,
   useMemo,
   useState,
@@ -14,8 +13,6 @@ import {
   photoSets,
   type PhotoSetId,
   rsvpCopy,
-  shareInvite,
-  siteUrl,
   venue,
 } from '../content'
 import { useLang } from '../LangContext'
@@ -66,7 +63,6 @@ function readSavedPhotoSet(): PhotoSetId {
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
   const cd = useCountdown(muhurthamAt)
-  const [copied, setCopied] = useState(false)
   const [photoSet, setPhotoSet] = useState<PhotoSetId>(readSavedPhotoSet)
   const [lightbox, setLightbox] = useState<string | null>(null)
   const [activeChapter, setActiveChapter] = useState(0)
@@ -106,33 +102,6 @@ export function FutureInvite() {
     nodes.forEach((n) => obs.observe(n))
     return () => obs.disconnect()
   }, [])
-
-  const futureUrl = `${siteUrl.replace(/\/$/, '')}/future`
-
-  const shareText = useCallback(() => {
-    const headline = t(shareInvite.headline)
-    const body = t(shareInvite.body)
-    return [headline, '', body, '', futureUrl].join('\n')
-  }, [t, futureUrl])
-
-  function onShare() {
-    window.open(
-      `https://wa.me/?text=${encodeURIComponent(shareText())}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
-  }
-
-  async function onCopyInvite() {
-    const text = shareText()
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 2000)
-    } catch {
-      window.prompt(t(copy.copyInvite), text)
-    }
-  }
 
   return (
     <div className="reel-root">
@@ -346,18 +315,20 @@ export function FutureInvite() {
           <p className="reel-hosts">{t(family.hosts)}</p>
         </section>
 
-        {/* Chapter — Share */}
+        {/* Chapter — Share (dedicated /share page) */}
         <section className="reel-slide reel-form-slide" id="story-share">
-          <p className="reel-kicker">{t(shareInvite.eyebrow)}</p>
-          <h2 className="reel-big">{t(shareInvite.title)}</h2>
-          <p className="reel-support">{t(shareInvite.sub)}</p>
+          <p className="reel-kicker">{t({ en: 'SHARE INVITE', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿಕೊಳ್ಳಿ' })}</p>
+          <h2 className="reel-big">{t({ en: 'Share this invitation', kn: 'ಈ ಆಮಂತ್ರಣವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ' })}</h2>
+          <p className="reel-support">
+            {t({
+              en: 'Open the share page to send the invite on WhatsApp with our photo preview.',
+              kn: 'ಫೋಟೋ ಪೂರ್ವವೀಕ್ಷಣೆಯೊಂದಿಗೆ WhatsApp ನಲ್ಲಿ ಹಂಚಲು share ಪುಟ ತೆರೆಯಿರಿ.',
+            })}
+          </p>
           <div className="reel-share-row">
-            <button type="button" className="reel-cta solid" onClick={onShare}>
-              {t(shareInvite.shareBtn)}
-            </button>
-            <button type="button" className="reel-link" onClick={onCopyInvite}>
-              {copied ? t(copy.copied) : t(copy.copyInvite)}
-            </button>
+            <a className="reel-cta solid" href="/share">
+              {t({ en: 'Open share page', kn: 'ಹಂಚಿಕೆ ಪುಟ ತೆರೆಯಿರಿ' })}
+            </a>
           </div>
           <p className="reel-closing">{t(copy.closing)}</p>
         </section>

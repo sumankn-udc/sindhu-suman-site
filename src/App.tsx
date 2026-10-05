@@ -7,7 +7,6 @@ import { Couple } from './components/Couple'
 import { Gallery } from './components/Gallery'
 import { Countdown } from './components/Countdown'
 import { Events } from './components/Events'
-import { ShareInvite } from './components/ShareInvite'
 import { Closing } from './components/Closing'
 import { FloatingActions } from './components/FloatingActions'
 import { LangToggle } from './components/LangToggle'
@@ -16,6 +15,7 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { ScrollTop } from './components/ScrollTop'
 import { PrefetchPhotos } from './components/PrefetchPhotos'
 import { FutureInvite } from './components/FutureInvite'
+import { SharePage } from './components/SharePage'
 import { useAutoTour } from './hooks/useAutoTour'
 import { useWeddingMusic } from './hooks/useWeddingMusic'
 import { trackInviteOpen } from './lib/analytics'
@@ -69,7 +69,6 @@ function ClassicInvite() {
               <Gallery />
               <Countdown />
               <Events />
-              <ShareInvite />
               <Closing />
             </main>
             <ScrollProgress scrollerRef={scrollRef} />
@@ -88,18 +87,24 @@ function ClassicInvite() {
   )
 }
 
-function pathIsFuture() {
-  if (typeof window === 'undefined') return false
-  return window.location.pathname.replace(/\/+$/, '') === '/future'
+function pathName() {
+  if (typeof window === 'undefined') return '/'
+  return window.location.pathname.replace(/\/+$/, '') || '/'
 }
 
 export default function App() {
-  const [future] = useState(pathIsFuture)
+  const [route] = useState(pathName)
 
   return (
     <LangProvider>
       <AnimatedFavicon />
-      {future ? <FutureInvite /> : <ClassicInvite />}
+      {route === '/future' ? (
+        <FutureInvite />
+      ) : route === '/share' ? (
+        <SharePage />
+      ) : (
+        <ClassicInvite />
+      )}
     </LangProvider>
   )
 }

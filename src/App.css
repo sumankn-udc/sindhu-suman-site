@@ -1502,6 +1502,42 @@ button {
   opacity: 1;
 }
 
+/* —— /share page —— */
+.share-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.share-page-back {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0 1.25rem 1rem;
+  color: var(--gold-soft);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+.share-page-back:hover {
+  color: var(--gold);
+}
+
+.share-page .share-section {
+  flex: 0 0 auto;
+  background: transparent;
+}
+
+.share-page-note {
+  margin: 0.5rem 1.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(232, 220, 200, 0.55);
+  line-height: 1.45;
+}
+
 /* —— Closing —— */
 .closing-section {
   padding-bottom: 6.5rem;
