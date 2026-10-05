@@ -948,16 +948,8 @@ button {
   font-size: 0.95rem;
 }
 
-.wedding-photo-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  margin: 0.5rem auto 2rem;
-  max-width: 17.5rem;
-}
-
 .caricature-card {
-  margin: 0;
+  margin: 0.5rem auto 2rem;
   max-width: 17.5rem;
 }
 
