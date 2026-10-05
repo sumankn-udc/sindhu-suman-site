@@ -11,7 +11,6 @@ import {
   couple,
   events,
   family,
-  guestInfo,
   muhurthamAt,
   photoSets,
   type PhotoSetId,
@@ -25,7 +24,6 @@ import { useLang } from '../LangContext'
 import { downloadEventIcs } from '../lib/calendar'
 import './FutureInvite.css'
 
-const GUEST_NOTES = ['dress', 'travel', 'stay', 'gift'] as const
 const PHOTO_SET_IDS = Object.keys(photoSets) as PhotoSetId[]
 
 const CHAPTERS = [
@@ -34,7 +32,6 @@ const CHAPTERS = [
   { id: 'story-events', en: 'Events', kn: 'ಕಾರ್ಯ' },
   { id: 'story-photos', en: 'Photos', kn: 'ಫೋಟೋ' },
   { id: 'story-us', en: 'Us', kn: 'ನಾವು' },
-  { id: 'story-guests', en: 'Guests', kn: 'ಅತಿಥಿ' },
   { id: 'story-rsvp', en: 'RSVP', kn: 'RSVP' },
   { id: 'story-wishes', en: 'Wish', kn: 'ಆಶಿ' },
 ] as const
@@ -404,33 +401,6 @@ export function FutureInvite() {
             </article>
           </div>
           <p className="reel-hosts">{t(family.hosts)}</p>
-        </section>
-
-        {/* Chapter 6 — Guest notes */}
-        <section className="reel-slide reel-guests" id="story-guests">
-          <p className="reel-kicker">{t(guestInfo.eyebrow)}</p>
-          <h2 className="reel-big">{t(guestInfo.title)}</h2>
-          <div className="reel-notes">
-            {GUEST_NOTES.map((key) => {
-              const note = guestInfo[key]
-              return (
-                <div key={key} className="reel-note">
-                  <h3>{t(note.label)}</h3>
-                  <p>{t(note.body)}</p>
-                  {key === 'stay' ? (
-                    <a
-                      className="reel-link"
-                      href={`https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(t(guestInfo.stay.message))}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {t(guestInfo.stay.cta)}
-                    </a>
-                  ) : null}
-                </div>
-              )
-            })}
-          </div>
         </section>
 
         {/* Chapter 7 — RSVP */}
