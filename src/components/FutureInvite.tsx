@@ -4,7 +4,6 @@ import {
   useMemo,
   useState,
   type CSSProperties,
-  type FormEvent,
 } from 'react'
 import {
   copy,
@@ -15,7 +14,6 @@ import {
   photoSets,
   type PhotoSetId,
   rsvpCopy,
-  rsvpWhatsApp,
   shareInvite,
   siteUrl,
   venue,
@@ -32,7 +30,7 @@ const CHAPTERS = [
   { id: 'story-events', en: 'Events', kn: 'ಕಾರ್ಯ' },
   { id: 'story-photos', en: 'Photos', kn: 'ಫೋಟೋ' },
   { id: 'story-us', en: 'Us', kn: 'ನಾವು' },
-  { id: 'story-wishes', en: 'Wish', kn: 'ಆಶಿ' },
+  { id: 'story-share', en: 'Share', kn: 'ಹಂಚು' },
 ] as const
 
 function useCountdown(target: Date) {
@@ -68,8 +66,6 @@ function readSavedPhotoSet(): PhotoSetId {
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
   const cd = useCountdown(muhurthamAt)
-  const [wishName, setWishName] = useState('')
-  const [wishMessage, setWishMessage] = useState('')
   const [copied, setCopied] = useState(false)
   const [photoSet, setPhotoSet] = useState<PhotoSetId>(readSavedPhotoSet)
   const [lightbox, setLightbox] = useState<string | null>(null)
@@ -118,19 +114,6 @@ export function FutureInvite() {
     const body = t(shareInvite.body)
     return [headline, '', body, '', futureUrl].join('\n')
   }, [t, futureUrl])
-
-  function onWishSubmit(e: FormEvent) {
-    e.preventDefault()
-    const text =
-      lang === 'kn'
-        ? `ಶುಭಾಶಯ — ${wishName || 'Guest'}\n${wishMessage}\n\n(${t(couple.bride)} & ${t(couple.groom)} ವಿವಾಹ)`
-        : `Wedding wishes from ${wishName || 'Guest'}\n${wishMessage}\n\n(${couple.bride.en} & ${couple.groom.en})`
-    window.open(
-      `https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(text)}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
-  }
 
   function onShare() {
     window.open(
@@ -363,34 +346,13 @@ export function FutureInvite() {
           <p className="reel-hosts">{t(family.hosts)}</p>
         </section>
 
-        {/* Chapter — Wishes + share */}
-        <section className="reel-slide reel-form-slide" id="story-wishes">
-          <p className="reel-kicker">{t(copy.wishesTitle)}</p>
-          <h2 className="reel-big">{t(copy.withLove)}</h2>
-          <p className="reel-support">{t(copy.wishesSub)}</p>
-          <form className="reel-form" onSubmit={onWishSubmit}>
-            <input
-              type="text"
-              name="wish-name"
-              placeholder={t(copy.yourName)}
-              value={wishName}
-              onChange={(e) => setWishName(e.target.value)}
-              required
-            />
-            <textarea
-              name="wish-message"
-              placeholder={t(copy.yourMessage)}
-              rows={3}
-              value={wishMessage}
-              onChange={(e) => setWishMessage(e.target.value)}
-              required
-            />
-            <button type="submit" className="reel-cta solid">
-              {t(copy.sendWishes)}
-            </button>
-          </form>
+        {/* Chapter — Share */}
+        <section className="reel-slide reel-form-slide" id="story-share">
+          <p className="reel-kicker">{t(shareInvite.eyebrow)}</p>
+          <h2 className="reel-big">{t(shareInvite.title)}</h2>
+          <p className="reel-support">{t(shareInvite.sub)}</p>
           <div className="reel-share-row">
-            <button type="button" className="reel-link" onClick={onShare}>
+            <button type="button" className="reel-cta solid" onClick={onShare}>
               {t(shareInvite.shareBtn)}
             </button>
             <button type="button" className="reel-link" onClick={onCopyInvite}>
