@@ -1,33 +1,33 @@
 /**
- * Unique anime-style illustrations per slot (do not reuse the same file).
- * Swap paths later if you add real photos.
+ * Photo slots for the classic invite.
+ * Real couple photos live under /photos/real/; art packs remain optional on /future.
  */
 export const placeholders = {
-  cover: '/photos/placeholders/cover.jpg',
-  couple: '/photos/placeholders/couple.jpg',
-  bride: '/photos/placeholders/bride.jpg',
-  groom: '/photos/placeholders/groom.jpg',
+  cover: '/photos/real/fort-dance.jpg',
+  couple: '/photos/real/quarry-walk.jpg',
+  bride: '/photos/real/ceremony-namaste.jpg',
+  groom: '/photos/real/bike-dusk.jpg',
   caricature: '/photos/caricature.png',
   gallery: [
     {
-      src: '/photos/placeholders/gallery-1.jpg',
+      src: '/photos/real/fort-dance.jpg',
       motion: 'kenburns' as const,
-      alt: 'Anime close-up of the couple',
+      alt: 'Sindhu and Suman dancing near the fort',
     },
     {
-      src: '/photos/placeholders/gallery-2.jpg',
+      src: '/photos/real/ceremony-namaste.jpg',
       motion: 'float' as const,
-      alt: 'Playful anime garden moment',
+      alt: 'Sindhu and Suman in a blessing moment',
     },
     {
-      src: '/photos/placeholders/gallery-3.jpg',
+      src: '/photos/real/quarry-walk.jpg',
       motion: 'pan-left' as const,
-      alt: 'Anime wedding garland portrait',
+      alt: 'Sindhu and Suman walking together',
     },
     {
-      src: '/photos/placeholders/gallery-4.jpg',
+      src: '/photos/real/bike-dusk.jpg',
       motion: 'pulse' as const,
-      alt: 'Anime evening lights together',
+      alt: 'Sindhu and Suman at dusk with their bike',
     },
   ],
 } as const
@@ -50,25 +50,30 @@ export const photoSets: Record<
   photos: {
     label: { en: 'Photos', kn: 'ಫೋಟೋ' },
     hint: { en: 'Real moments', kn: 'ನಿಜವಾದ ಕ್ಷಣಗಳು' },
-    cover: '/photos/couple-cover.jpg',
-    couple: '/photos/couple.jpg',
-    bride: '/photos/couple-square.jpg',
-    groom: '/photos/couple.jpg',
+    cover: '/photos/real/fort-dance.jpg',
+    couple: '/photos/real/quarry-walk.jpg',
+    bride: '/photos/real/ceremony-namaste.jpg',
+    groom: '/photos/real/bike-dusk.jpg',
     gallery: [
-      { src: '/photos/couple-cover.jpg', alt: 'Cover portrait' },
-      { src: '/photos/couple.jpg', alt: 'Together' },
-      { src: '/photos/couple-square.jpg', alt: 'Portrait' },
-      { src: '/photos/caricature.png', alt: 'Caricature keepsake' },
+      { src: '/photos/real/fort-dance.jpg', alt: 'Dancing near the fort' },
+      { src: '/photos/real/ceremony-namaste.jpg', alt: 'Blessing moment' },
+      { src: '/photos/real/quarry-walk.jpg', alt: 'Walking together' },
+      { src: '/photos/real/bike-dusk.jpg', alt: 'Twilight ride' },
     ],
   },
   art: {
     label: { en: 'Art', kn: 'ಆರ್ಟ್' },
     hint: { en: 'Illustrated set', kn: 'ಚಿತ್ರಿತ ಸೆಟ್' },
-    cover: placeholders.cover,
-    couple: placeholders.couple,
-    bride: placeholders.bride,
-    groom: placeholders.groom,
-    gallery: placeholders.gallery.map((g) => ({ src: g.src, alt: g.alt })),
+    cover: '/photos/placeholders/cover.jpg',
+    couple: '/photos/placeholders/couple.jpg',
+    bride: '/photos/placeholders/bride.jpg',
+    groom: '/photos/placeholders/groom.jpg',
+    gallery: [
+      { src: '/photos/placeholders/gallery-1.jpg', alt: 'Anime close-up of the couple' },
+      { src: '/photos/placeholders/gallery-2.jpg', alt: 'Playful anime garden moment' },
+      { src: '/photos/placeholders/gallery-3.jpg', alt: 'Anime wedding garland portrait' },
+      { src: '/photos/placeholders/gallery-4.jpg', alt: 'Anime evening lights together' },
+    ],
   },
   studio: {
     label: { en: 'Studio', kn: 'ಸ್ಟುಡಿಯೋ' },
@@ -202,8 +207,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Anime illustrations made for Sindhu & Suman',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್‌ಗಾಗಿ ರಚಿಸಿದ ಅನಿಮೆ ಚಿತ್ರಗಳು',
+    en: 'Moments from Sindhu & Suman',
+    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಕ್ಷಣಗಳು',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',
