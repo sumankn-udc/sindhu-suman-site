@@ -61,7 +61,7 @@ function readSavedPhotoSet(): PhotoSetId {
   } catch {
     /* ignore */
   }
-  return 'photos'
+  return 'art'
 }
 
 /**

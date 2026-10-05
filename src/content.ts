@@ -1,33 +1,33 @@
 /**
- * Photo slots for the classic invite.
- * Real couple photos live under /photos/real/; art packs remain optional on /future.
+ * Classic invite uses anime versions of the couple photos (with CSS motion).
+ * Real photos stay under /photos/real/ and on the /future Photos pack.
  */
 export const placeholders = {
-  cover: '/photos/real/fort-dance.jpg',
-  couple: '/photos/real/quarry-walk.jpg',
-  bride: '/photos/real/ceremony-namaste.jpg',
-  groom: '/photos/real/bike-dusk.jpg',
+  cover: '/photos/anime/fort-dance.jpg',
+  couple: '/photos/anime/quarry-walk.jpg',
+  bride: '/photos/anime/ceremony-namaste.jpg',
+  groom: '/photos/anime/bike-dusk.jpg',
   caricature: '/photos/caricature.png',
   gallery: [
     {
-      src: '/photos/real/fort-dance.jpg',
+      src: '/photos/anime/fort-dance.jpg',
       motion: 'kenburns' as const,
-      alt: 'Sindhu and Suman dancing near the fort',
+      alt: 'Anime Sindhu and Suman dancing near the fort',
     },
     {
-      src: '/photos/real/ceremony-namaste.jpg',
+      src: '/photos/anime/ceremony-namaste.jpg',
       motion: 'float' as const,
-      alt: 'Sindhu and Suman in a blessing moment',
+      alt: 'Anime Sindhu and Suman in a blessing moment',
     },
     {
-      src: '/photos/real/quarry-walk.jpg',
+      src: '/photos/anime/quarry-walk.jpg',
       motion: 'pan-left' as const,
-      alt: 'Sindhu and Suman walking together',
+      alt: 'Anime Sindhu and Suman walking together',
     },
     {
-      src: '/photos/real/bike-dusk.jpg',
+      src: '/photos/anime/bike-dusk.jpg',
       motion: 'pulse' as const,
-      alt: 'Sindhu and Suman at dusk with their bike',
+      alt: 'Anime Sindhu and Suman at dusk with their bike',
     },
   ],
 } as const
@@ -48,8 +48,8 @@ export const photoSets: Record<
   }
 > = {
   photos: {
-    label: { en: 'Photos', kn: 'ಫೋಟೋ' },
-    hint: { en: 'Real moments', kn: 'ನಿಜವಾದ ಕ್ಷಣಗಳು' },
+    label: { en: 'Photos', kn: '\u0cab\u0ccb\u0c9f\u0ccb' },
+    hint: { en: 'Real moments', kn: '\u0ca8\u0cbf\u0c9c\u0cb5\u0cbe\u0ca6 \u0c95\u0ccd\u0cb7\u0ca3\u0c97\u0cb3\u0cc1' },
     cover: '/photos/real/fort-dance.jpg',
     couple: '/photos/real/quarry-walk.jpg',
     bride: '/photos/real/ceremony-namaste.jpg',
@@ -62,22 +62,22 @@ export const photoSets: Record<
     ],
   },
   art: {
-    label: { en: 'Art', kn: 'ಆರ್ಟ್' },
-    hint: { en: 'Illustrated set', kn: 'ಚಿತ್ರಿತ ಸೆಟ್' },
-    cover: '/photos/placeholders/cover.jpg',
-    couple: '/photos/placeholders/couple.jpg',
-    bride: '/photos/placeholders/bride.jpg',
-    groom: '/photos/placeholders/groom.jpg',
+    label: { en: 'Anime', kn: '\u0c85\u0ca8\u0cbf\u0cae\u0cc6' },
+    hint: { en: 'Animated anime set', kn: '\u0c85\u0ca8\u0cbf\u0cae\u0cc6 \u0cb8\u0cc6\u0c9f\u0ccd' },
+    cover: '/photos/anime/fort-dance.jpg',
+    couple: '/photos/anime/quarry-walk.jpg',
+    bride: '/photos/anime/ceremony-namaste.jpg',
+    groom: '/photos/anime/bike-dusk.jpg',
     gallery: [
-      { src: '/photos/placeholders/gallery-1.jpg', alt: 'Anime close-up of the couple' },
-      { src: '/photos/placeholders/gallery-2.jpg', alt: 'Playful anime garden moment' },
-      { src: '/photos/placeholders/gallery-3.jpg', alt: 'Anime wedding garland portrait' },
-      { src: '/photos/placeholders/gallery-4.jpg', alt: 'Anime evening lights together' },
+      { src: '/photos/anime/fort-dance.jpg', alt: 'Anime fort dance' },
+      { src: '/photos/anime/ceremony-namaste.jpg', alt: 'Anime blessing' },
+      { src: '/photos/anime/quarry-walk.jpg', alt: 'Anime quarry walk' },
+      { src: '/photos/anime/bike-dusk.jpg', alt: 'Anime dusk ride' },
     ],
   },
   studio: {
-    label: { en: 'Studio', kn: 'ಸ್ಟುಡಿಯೋ' },
-    hint: { en: 'Generated portraits', kn: 'ಸ್ಟುಡಿಯೋ ಭಾವಚಿತ್ರಗಳು' },
+    label: { en: 'Studio', kn: '\u0cb8\u0ccd\u0c9f\u0cc1\u0ca1\u0cbf\u0caf\u0ccb' },
+    hint: { en: 'Generated portraits', kn: '\u0cb8\u0ccd\u0c9f\u0cc1\u0ca1\u0cbf\u0caf\u0ccb \u0cad\u0cbe\u0cb5\u0c9a\u0cbf\u0ca4\u0ccd\u0cb0\u0c97\u0cb3\u0cc1' },
     cover: '/photos/generated/slot-cover.png',
     couple: '/photos/generated/slot-couple.png',
     bride: '/photos/generated/slot-bride.png',
@@ -207,8 +207,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Moments from Sindhu & Suman',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಕ್ಷಣಗಳು',
+    en: 'Anime scenes animated from our photos',
+    kn: 'ನಮ್ಮ ಫೋಟೋಗಳಿಂದ ರಚಿಸಿದ ಅನಿಮೆ ದೃಶ್ಯಗಳು',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',

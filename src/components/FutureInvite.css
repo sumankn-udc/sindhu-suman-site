@@ -243,6 +243,28 @@
   display: block;
 }
 
+.reel-cover-frame.is-front img {
+  animation: reel-anime-drift 10s ease-in-out infinite alternate;
+}
+
+.reel-bento-hero img,
+.reel-bento-cell img {
+  animation: reel-anime-drift 12s ease-in-out infinite alternate;
+}
+
+.reel-pair img {
+  animation: reel-anime-drift 9s ease-in-out infinite alternate;
+}
+
+@keyframes reel-anime-drift {
+  from {
+    transform: scale(1.04) translate(0, 0);
+  }
+  to {
+    transform: scale(1.12) translate(-2%, -1.5%);
+  }
+}
+
 .reel-cover-copy {
   display: flex;
   flex-direction: column;

@@ -24,6 +24,7 @@ export function AnimatedPhoto({
   return (
     <div className={`anim-photo anim-${motion} ${className}`.trim()}>
       <img className={imgClassName} src={src} alt={alt} loading="lazy" />
+      <span className="anim-photo-sheen" aria-hidden="true" />
     </div>
   )
 }
