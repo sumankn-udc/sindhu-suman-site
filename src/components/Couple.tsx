@@ -78,40 +78,25 @@ export function Couple() {
           </figure>
         </RevealItem>
         <RevealItem variant="pop" index={3}>
-          <div className="wedding-photo-stack">
-            <figure className="caricature-card">
-              <div className="caricature-frame">
-                <AnimatedPhoto
-                  src={placeholders.weddingPhotos[0]}
-                  alt={t({
-                    en: 'Sindhu & Suman on their wedding day',
-                    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ವಿವಾಹದ ದಿನ',
-                  })}
-                  motion="kenburns"
-                  imgClassName="caricature-img"
-                />
-              </div>
-            </figure>
-            <figure className="caricature-card">
-              <div className="caricature-frame">
-                <AnimatedPhoto
-                  src={placeholders.weddingPhotos[1]}
-                  alt={t({
-                    en: 'Sindhu & Suman showing their wedding rings',
-                    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಉಂಗುರಗಳು',
-                  })}
-                  motion="float"
-                  imgClassName="caricature-img"
-                />
-              </div>
-              <figcaption className="caricature-caption">
-                {t({
-                  en: 'With love — forever ours.',
-                  kn: 'ಪ್ರೀತಿಯಿಂದ — ಯಾವಾಕ್ಕೆ ನಮ್ಮದು.',
+          <figure className="caricature-card">
+            <div className="caricature-frame">
+              <AnimatedPhoto
+                src={placeholders.weddingPhotos[0]}
+                alt={t({
+                  en: 'Sindhu & Suman on their wedding day',
+                  kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ವಿವಾಹದ ದಿನ',
                 })}
-              </figcaption>
-            </figure>
-          </div>
+                motion="float"
+                imgClassName="caricature-img"
+              />
+            </div>
+            <figcaption className="caricature-caption">
+              {t({
+                en: 'With love — forever ours.',
+                kn: 'ಪ್ರೀತಿಯಿಂದ — ಯಾವಾಕ್ಕೆ ನಮ್ಮದು.',
+              })}
+            </figcaption>
+          </figure>
         </RevealItem>
       </RevealGroup>
 

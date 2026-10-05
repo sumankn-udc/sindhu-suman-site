@@ -9,7 +9,6 @@ export const placeholders = {
   caricature: '/photos/caricature.jpg',
   weddingPhotos: [
     '/photos/real/wedding-ss.jpg',
-    '/photos/real/wedding-rings.jpg',
   ] as const,
   gallery: [
     {
