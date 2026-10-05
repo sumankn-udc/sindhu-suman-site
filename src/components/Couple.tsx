@@ -79,15 +79,17 @@ export function Couple() {
         </RevealItem>
         <RevealItem variant="pop" index={3}>
           <figure className="caricature-card">
-            <img
-              className="caricature-img"
-              src={placeholders.caricature}
-              alt={t({
-                en: 'Anime wedding portrait of Sindhu & Suman',
-                kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಅನಿಮೆ ವಿವಾಹ ಚಿತ್ರ',
-              })}
-              loading="lazy"
-            />
+            <div className="caricature-frame">
+              <AnimatedPhoto
+                src={placeholders.caricature}
+                alt={t({
+                  en: 'Anime wedding portrait of Sindhu & Suman',
+                  kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಅನಿಮೆ ವಿವಾಹ ಚಿತ್ರ',
+                })}
+                motion="float"
+                imgClassName="caricature-img"
+              />
+            </div>
             <figcaption className="caricature-caption">
               {t({
                 en: 'Drawn with love — same spark.',

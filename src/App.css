@@ -953,13 +953,24 @@ button {
   max-width: 17.5rem;
 }
 
-.caricature-img {
-  display: block;
-  width: 100%;
+.caricature-frame {
   border-radius: 14px;
   border: 2px solid var(--gold-soft);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  background: #5a1638;
   animation: smileFloat 3.2s ease-in-out infinite;
+}
+
+.caricature-frame .anim-photo {
+  aspect-ratio: 3 / 4;
+}
+
+.caricature-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background: #5a1638;
 }
 
