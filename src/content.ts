@@ -7,21 +7,25 @@ export const placeholders = {
   bride: '/photos/placeholders/bride.jpg',
   groom: '/photos/placeholders/groom.jpg',
   caricature: '/photos/caricature.jpg',
+  weddingPhotos: [
+    '/photos/real/wedding-ss.jpg',
+    '/photos/real/wedding-rings.jpg',
+  ] as const,
   gallery: [
     {
-      src: '/photos/real/wedding-ss.jpg',
-      motion: 'kenburns' as const,
-      alt: 'Sindhu and Suman at their wedding',
-    },
-    {
-      src: '/photos/real/wedding-rings.jpg',
-      motion: 'float' as const,
-      alt: 'Sindhu and Suman showing their wedding rings',
-    },
-    {
       src: '/photos/anime/fort-dance.jpg',
-      motion: 'pan-left' as const,
+      motion: 'kenburns' as const,
       alt: 'Anime Sindhu and Suman dancing near the fort',
+    },
+    {
+      src: '/photos/anime/ceremony-namaste.jpg',
+      motion: 'float' as const,
+      alt: 'Anime Sindhu and Suman in a blessing moment',
+    },
+    {
+      src: '/photos/anime/quarry-walk.jpg',
+      motion: 'pan-left' as const,
+      alt: 'Anime Sindhu and Suman walking together',
     },
     {
       src: '/photos/anime/bike-dusk.jpg',
@@ -201,8 +205,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Our wedding moments',
-    kn: 'ನಮ್ಮ ವಿವಾಹ ಕ್ಷಣಗಳು',
+    en: 'Anime scenes animated from our photos',
+    kn: 'ನಮ್ಮ ಫೋಟೋಗಳಿಂದ ರಚಿಸಿದ ಅನಿಮೆ ದೃಶ್ಯಗಳು',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',

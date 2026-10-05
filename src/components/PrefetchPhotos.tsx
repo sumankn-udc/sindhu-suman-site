@@ -10,6 +10,7 @@ export function PrefetchPhotos() {
       placeholders.groom,
       placeholders.couple,
       placeholders.caricature,
+      ...placeholders.weddingPhotos,
       ...placeholders.gallery.map((g) => g.src),
     ]
     const links: HTMLLinkElement[] = []
