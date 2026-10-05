@@ -9,11 +9,12 @@
   # Set VITE_GA_MEASUREMENT_ID in Netlify UI (Site configuration → Environment variables)
   # so production builds embed Google Analytics. Do not commit the real ID.
 
-# SPA fallback — all routes serve index.html
+# SPA fallback — all routes serve index.html (static files like og-*.jpg still win)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Cache hashed assets aggressively; keep HTML fresh
 [[headers]]
@@ -35,3 +36,25 @@
   for = "/index.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# WhatsApp / social crawlers — explicit JPEG headers for share cards
+[[headers]]
+  for = "/og-*.jpg"
+  [headers.values]
+    Content-Type = "image/jpeg"
+    Cache-Control = "public, max-age=86400"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/og-share.jpg"
+  [headers.values]
+    Content-Type = "image/jpeg"
+    Cache-Control = "public, max-age=86400"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/og-wedding.jpg"
+  [headers.values]
+    Content-Type = "image/jpeg"
+    Cache-Control = "public, max-age=86400"
+    Access-Control-Allow-Origin = "*"

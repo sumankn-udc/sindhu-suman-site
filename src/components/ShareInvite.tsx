@@ -58,7 +58,11 @@ export function ShareInvite() {
             kn: 'ವಿವಾಹ ಹಂಚಿಕೆ ಪೂರ್ವವೀಕ್ಷಣೆ ಚಿತ್ರ',
           })}
         >
-          <img src="/og-share.jpg" alt="" className="share-preview-img" />
+          <img
+            src="/og-share.jpg?v=garden-wa1"
+            alt=""
+            className="share-preview-img"
+          />
         </button>
         <div className="share-preview-meta" aria-hidden="true">
           <p className="share-preview-domain">thesianchronicles.blog</p>
