@@ -83,8 +83,8 @@ export function Couple() {
               <AnimatedPhoto
                 src={placeholders.weddingPhotos[0]}
                 alt={t({
-                  en: 'Anime portrait of Sindhu & Suman on their wedding day',
-                  kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ವಿವಾಹದ ದಿನ',
+                  en: 'Anime Sindhu & Suman walking the wedding garden path',
+                  kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ವಿವಾಹ ಉದ್ಯಾನ ಮಾರ್ಗದಲ್ಲಿ',
                 })}
                 motion="kenburns"
                 imgClassName="caricature-img"
