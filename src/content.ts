@@ -6,7 +6,7 @@ export const placeholders = {
   couple: '/photos/placeholders/couple.jpg',
   bride: '/photos/placeholders/bride.jpg',
   groom: '/photos/placeholders/groom.jpg',
-  caricature: '/photos/caricature.png',
+  caricature: '/photos/caricature.jpg',
   gallery: [
     {
       src: '/photos/anime/fort-dance.jpg',
