@@ -1,12 +1,11 @@
 /**
- * Classic invite uses anime versions of the couple photos (with CSS motion).
- * Real photos stay under /photos/real/ and on the /future Photos pack.
+ * Cover/couple keep the original artwork; only the gallery uses the new photos.
  */
 export const placeholders = {
-  cover: '/photos/anime/fort-dance.jpg',
-  couple: '/photos/anime/quarry-walk.jpg',
-  bride: '/photos/anime/ceremony-namaste.jpg',
-  groom: '/photos/anime/bike-dusk.jpg',
+  cover: '/photos/placeholders/cover.jpg',
+  couple: '/photos/placeholders/couple.jpg',
+  bride: '/photos/placeholders/bride.jpg',
+  groom: '/photos/placeholders/groom.jpg',
   caricature: '/photos/caricature.png',
   gallery: [
     {
@@ -48,12 +47,12 @@ export const photoSets: Record<
   }
 > = {
   photos: {
-    label: { en: 'Photos', kn: '\u0cab\u0ccb\u0c9f\u0ccb' },
-    hint: { en: 'Real moments', kn: '\u0ca8\u0cbf\u0c9c\u0cb5\u0cbe\u0ca6 \u0c95\u0ccd\u0cb7\u0ca3\u0c97\u0cb3\u0cc1' },
-    cover: '/photos/real/fort-dance.jpg',
-    couple: '/photos/real/quarry-walk.jpg',
-    bride: '/photos/real/ceremony-namaste.jpg',
-    groom: '/photos/real/bike-dusk.jpg',
+    label: { en: 'Photos', kn: 'ಫೋಟೋ' },
+    hint: { en: 'Real moments', kn: 'ನಿಜವಾದ ಕ್ಷಣಗಳು' },
+    cover: '/photos/couple-cover.jpg',
+    couple: '/photos/couple.jpg',
+    bride: '/photos/couple-square.jpg',
+    groom: '/photos/couple.jpg',
     gallery: [
       { src: '/photos/real/fort-dance.jpg', alt: 'Dancing near the fort' },
       { src: '/photos/real/ceremony-namaste.jpg', alt: 'Blessing moment' },
@@ -62,22 +61,17 @@ export const photoSets: Record<
     ],
   },
   art: {
-    label: { en: 'Anime', kn: '\u0c85\u0ca8\u0cbf\u0cae\u0cc6' },
-    hint: { en: 'Animated anime set', kn: '\u0c85\u0ca8\u0cbf\u0cae\u0cc6 \u0cb8\u0cc6\u0c9f\u0ccd' },
-    cover: '/photos/anime/fort-dance.jpg',
-    couple: '/photos/anime/quarry-walk.jpg',
-    bride: '/photos/anime/ceremony-namaste.jpg',
-    groom: '/photos/anime/bike-dusk.jpg',
-    gallery: [
-      { src: '/photos/anime/fort-dance.jpg', alt: 'Anime fort dance' },
-      { src: '/photos/anime/ceremony-namaste.jpg', alt: 'Anime blessing' },
-      { src: '/photos/anime/quarry-walk.jpg', alt: 'Anime quarry walk' },
-      { src: '/photos/anime/bike-dusk.jpg', alt: 'Anime dusk ride' },
-    ],
+    label: { en: 'Art', kn: 'ಆರ್ಟ್' },
+    hint: { en: 'Illustrated set', kn: 'ಚಿತ್ರಿತ ಸೆಟ್' },
+    cover: placeholders.cover,
+    couple: placeholders.couple,
+    bride: placeholders.bride,
+    groom: placeholders.groom,
+    gallery: placeholders.gallery.map((g) => ({ src: g.src, alt: g.alt })),
   },
   studio: {
-    label: { en: 'Studio', kn: '\u0cb8\u0ccd\u0c9f\u0cc1\u0ca1\u0cbf\u0caf\u0ccb' },
-    hint: { en: 'Generated portraits', kn: '\u0cb8\u0ccd\u0c9f\u0cc1\u0ca1\u0cbf\u0caf\u0ccb \u0cad\u0cbe\u0cb5\u0c9a\u0cbf\u0ca4\u0ccd\u0cb0\u0c97\u0cb3\u0cc1' },
+    label: { en: 'Studio', kn: 'ಸ್ಟುಡಿಯೋ' },
+    hint: { en: 'Generated portraits', kn: 'ಸ್ಟುಡಿಯೋ ಭಾವಚಿತ್ರಗಳು' },
     cover: '/photos/generated/slot-cover.png',
     couple: '/photos/generated/slot-couple.png',
     bride: '/photos/generated/slot-bride.png',
@@ -207,8 +201,8 @@ export const copy = {
     kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Anime scenes animated from our photos',
-    kn: 'ನಮ್ಮ ಫೋಟೋಗಳಿಂದ ರಚಿಸಿದ ಅನಿಮೆ ದೃಶ್ಯಗಳು',
+    en: 'New moments from Sindhu & Suman',
+    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಹೊಸ ಕ್ಷಣಗಳು',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',
