@@ -1431,6 +1431,16 @@ button {
   text-align: left;
 }
 
+.share-preview-image-btn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
 .share-preview-img {
   display: block;
   width: 100%;

@@ -1,6 +1,10 @@
 import { useCallback, useState } from 'react'
 import { copy, shareInvite, siteUrl } from '../content'
 import { useLang } from '../LangContext'
+import {
+  trackShareImageClick,
+  trackShareWhatsApp,
+} from '../lib/analytics'
 import { Reveal } from './Reveal'
 
 /** Canonical invite URL — no trailing slash (avoids OG / share duplication quirks). */
@@ -21,6 +25,7 @@ export function ShareInvite() {
   const share = useCallback(() => {
     // Open WhatsApp directly with prefilled invite text (no Web Share API —
     // some apps prepend `url` and duplicate the link at the top).
+    trackShareWhatsApp()
     const text = buildShareText(lang)
     const waUrl = `https://wa.me/?text=${encodeURIComponent(text)}`
     window.open(waUrl, '_blank', 'noopener,noreferrer')
@@ -36,15 +41,26 @@ export function ShareInvite() {
       window.prompt(t(copy.copyInvite), text)
     }
   }, [lang, t])
+
   return (
     <Reveal as="section" variant="fade-up" className="section share-section" id="share">
       <p className="section-eyebrow">{t(shareInvite.eyebrow)}</p>
       <h2 className="share-title">{t(shareInvite.title)}</h2>
       <p className="share-sub">{t(shareInvite.sub)}</p>
 
-      <div className="share-preview" aria-hidden="true">
-        <img src="/og-share.jpg" alt="" className="share-preview-img" />
-        <div className="share-preview-meta">
+      <div className="share-preview">
+        <button
+          type="button"
+          className="share-preview-image-btn"
+          onClick={trackShareImageClick}
+          aria-label={t({
+            en: 'Wedding share preview image',
+            kn: 'ವಿವಾಹ ಹಂಚಿಕೆ ಪೂರ್ವವೀಕ್ಷಣೆ ಚಿತ್ರ',
+          })}
+        >
+          <img src="/og-share.jpg" alt="" className="share-preview-img" />
+        </button>
+        <div className="share-preview-meta" aria-hidden="true">
           <p className="share-preview-domain">thesianchronicles.blog</p>
           <p className="share-preview-headline">{t(shareInvite.ogTitle)}</p>
           <p className="share-preview-desc">{t(shareInvite.ogDescription)}</p>

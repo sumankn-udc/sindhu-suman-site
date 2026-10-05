@@ -49,6 +49,26 @@ netlify deploy --prod --dir=dist
 
 After deploy, set a custom domain under **Site configuration → Domain management** if you want.
 
+### Google Analytics (Netlify env)
+
+1. Create a **GA4** property at [analytics.google.com](https://analytics.google.com/) and copy the Measurement ID (`G-XXXXXXXXXX`).
+2. In Netlify → **Site configuration → Environment variables**, add:
+   - **Key:** `VITE_GA_MEASUREMENT_ID`
+   - **Value:** your `G-XXXXXXXXXX` id
+   - Scopes: **Production** (and Preview if you want)
+3. **Trigger a new deploy** so Vite can bake the key into the build.
+
+Tracked automatically when the env key is set:
+
+| Event | What it counts |
+| --- | --- |
+| `page_view` | Site opens / page loads |
+| `invite_open` | Guest taps to open the invite |
+| `share_image_click` | Clicks on the WhatsApp share preview image |
+| `share_whatsapp` | Taps **Share Invite** |
+
+Locally you can copy `.env.example` → `.env` and set the same key.
+
 ## Customize
 
 - Copy & Kannada strings: `src/content.ts`

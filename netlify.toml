@@ -6,6 +6,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Set VITE_GA_MEASUREMENT_ID in Netlify UI (Site configuration → Environment variables)
+  # so production builds embed Google Analytics. Do not commit the real ID.
 
 # SPA fallback — all routes serve index.html
 [[redirects]]

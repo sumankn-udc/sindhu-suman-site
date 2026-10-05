@@ -21,6 +21,7 @@ import { PrefetchPhotos } from './components/PrefetchPhotos'
 import { FutureInvite } from './components/FutureInvite'
 import { useAutoTour } from './hooks/useAutoTour'
 import { useWeddingMusic } from './hooks/useWeddingMusic'
+import { trackInviteOpen } from './lib/analytics'
 import './App.css'
 
 type Phase = 'loading' | 'cover' | 'opened'
@@ -40,6 +41,7 @@ function ClassicInvite() {
     setShowCurtain(true)
     setPhase('opened')
     setTourOn(true)
+    trackInviteOpen()
   }, [play])
 
   useAutoTour({ enabled: tourOn && phase === 'opened', scrollerRef: scrollRef })
