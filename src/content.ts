@@ -153,16 +153,16 @@ export const shareInvite = {
   },
   shareBtn: { en: 'Share Invite', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿ' },
   headline: {
-    en: 'Sindhu & Suman are getting Married',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗುತ್ತಿದ್ದಾರೆ',
+    en: 'Sindhu & Suman are getting Married ✨💍',
+    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗುತ್ತಿದ್ದಾರೆ ✨💍',
   },
   body: {
     en: 'You are warmly invited to our wedding on 17 – 18 October 2026. Click the link below for more details. 👇',
     kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ಆಮಂತ್ರಿಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
   },
   ogTitle: {
-    en: 'Sindhu & Suman are getting Married',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗುತ್ತಿದ್ದಾರೆ',
+    en: 'Sindhu & Suman are getting Married ✨💍',
+    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗುತ್ತಿದ್ದಾರೆ ✨💍',
   },
   ogDescription: {
     en: 'You are warmly invited to our wedding on 17 – 18 October 2026. Click the link for more details.',
