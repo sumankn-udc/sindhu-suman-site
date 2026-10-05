@@ -86,7 +86,7 @@ export function Couple() {
                   en: 'Sindhu & Suman on their wedding day',
                   kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ವಿವಾಹದ ದಿನ',
                 })}
-                motion="float"
+                motion="kenburns"
                 imgClassName="caricature-img"
               />
             </div>
