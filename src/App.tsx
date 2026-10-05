@@ -7,7 +7,6 @@ import { Couple } from './components/Couple'
 import { Gallery } from './components/Gallery'
 import { Countdown } from './components/Countdown'
 import { Events } from './components/Events'
-import { Rsvp } from './components/Rsvp'
 import { Wishes } from './components/Wishes'
 import { ShareInvite } from './components/ShareInvite'
 import { Closing } from './components/Closing'
@@ -71,7 +70,6 @@ function ClassicInvite() {
               <Gallery />
               <Countdown />
               <Events />
-              <Rsvp />
               <Wishes />
               <ShareInvite />
               <Closing />

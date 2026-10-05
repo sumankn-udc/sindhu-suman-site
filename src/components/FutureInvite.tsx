@@ -32,7 +32,6 @@ const CHAPTERS = [
   { id: 'story-events', en: 'Events', kn: 'ಕಾರ್ಯ' },
   { id: 'story-photos', en: 'Photos', kn: 'ಫೋಟೋ' },
   { id: 'story-us', en: 'Us', kn: 'ನಾವು' },
-  { id: 'story-rsvp', en: 'RSVP', kn: 'RSVP' },
   { id: 'story-wishes', en: 'Wish', kn: 'ಆಶಿ' },
 ] as const
 
@@ -71,9 +70,6 @@ export function FutureInvite() {
   const cd = useCountdown(muhurthamAt)
   const [wishName, setWishName] = useState('')
   const [wishMessage, setWishMessage] = useState('')
-  const [rsvpName, setRsvpName] = useState('')
-  const [attendance, setAttendance] = useState<'yes' | 'no'>('yes')
-  const [guests, setGuests] = useState(1)
   const [copied, setCopied] = useState(false)
   const [photoSet, setPhotoSet] = useState<PhotoSetId>(readSavedPhotoSet)
   const [lightbox, setLightbox] = useState<string | null>(null)
@@ -129,42 +125,6 @@ export function FutureInvite() {
       lang === 'kn'
         ? `ಶುಭಾಶಯ — ${wishName || 'Guest'}\n${wishMessage}\n\n(${t(couple.bride)} & ${t(couple.groom)} ವಿವಾಹ)`
         : `Wedding wishes from ${wishName || 'Guest'}\n${wishMessage}\n\n(${couple.bride.en} & ${couple.groom.en})`
-    window.open(
-      `https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(text)}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
-  }
-
-  function onRsvpSubmit(e: FormEvent) {
-    e.preventDefault()
-    const status =
-      attendance === 'yes'
-        ? lang === 'kn'
-          ? 'ಹಾಜರಿ: ಹೌದು'
-          : 'Attending: Yes'
-        : lang === 'kn'
-          ? 'ಹಾಜರಿ: ಬರಲಾಗುವುದಿಲ್ಲ'
-          : 'Attending: No'
-
-    const guestLine =
-      attendance === 'yes'
-        ? lang === 'kn'
-          ? `ಅತಿಥಿಗಳು: ${guests}`
-          : `Guests: ${guests}`
-        : null
-
-    const text = [
-      lang === 'kn' ? 'RSVP — ವಿವಾಹ' : 'Wedding RSVP',
-      `${lang === 'kn' ? 'ಹೆಸರು' : 'Name'}: ${rsvpName || 'Guest'}`,
-      status,
-      guestLine,
-      '',
-      `(${couple.bride.en} & ${couple.groom.en})`,
-    ]
-      .filter(Boolean)
-      .join('\n')
-
     window.open(
       `https://wa.me/${rsvpWhatsApp}?text=${encodeURIComponent(text)}`,
       '_blank',
@@ -403,56 +363,7 @@ export function FutureInvite() {
           <p className="reel-hosts">{t(family.hosts)}</p>
         </section>
 
-        {/* Chapter 7 — RSVP */}
-        <section className="reel-slide reel-form-slide" id="story-rsvp">
-          <p className="reel-kicker">{t(rsvpCopy.eyebrow)}</p>
-          <h2 className="reel-big">{t(rsvpCopy.title)}</h2>
-          <p className="reel-support">{t(rsvpCopy.sub)}</p>
-          <form className="reel-form" onSubmit={onRsvpSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder={t(copy.yourName)}
-              value={rsvpName}
-              onChange={(e) => setRsvpName(e.target.value)}
-              required
-            />
-            <div className="reel-choice" role="group">
-              <button
-                type="button"
-                className={`reel-choice-btn${attendance === 'yes' ? ' is-active' : ''}`}
-                onClick={() => setAttendance('yes')}
-              >
-                {t(rsvpCopy.attending)}
-              </button>
-              <button
-                type="button"
-                className={`reel-choice-btn${attendance === 'no' ? ' is-active' : ''}`}
-                onClick={() => setAttendance('no')}
-              >
-                {t(rsvpCopy.notAttending)}
-              </button>
-            </div>
-            {attendance === 'yes' ? (
-              <label className="reel-guests-count">
-                <span>{t(rsvpCopy.guests)}</span>
-                <input
-                  type="number"
-                  min={1}
-                  max={20}
-                  value={guests}
-                  onChange={(e) => setGuests(Number(e.target.value) || 1)}
-                  required
-                />
-              </label>
-            ) : null}
-            <button type="submit" className="reel-cta solid">
-              {t(rsvpCopy.sendRsvp)}
-            </button>
-          </form>
-        </section>
-
-        {/* Chapter 8 — Wishes + share */}
+        {/* Chapter — Wishes + share */}
         <section className="reel-slide reel-form-slide" id="story-wishes">
           <p className="reel-kicker">{t(copy.wishesTitle)}</p>
           <h2 className="reel-big">{t(copy.withLove)}</h2>
