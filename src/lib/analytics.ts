@@ -2,18 +2,27 @@ const measurementId = (import.meta.env.VITE_GA_MEASUREMENT_ID ?? '').trim()
 
 let initialized = false
 
-/** Load GA4 when `VITE_GA_MEASUREMENT_ID` is set (Netlify / local `.env`). */
+/**
+ * Load GA4 when `VITE_GA_MEASUREMENT_ID` is set (Netlify / local `.env`).
+ *
+ * Important: Google's snippet must push the `arguments` object into
+ * `dataLayer` — not a rest-parameter array — or hits never register.
+ */
 export function initAnalytics() {
   if (initialized || !measurementId || typeof document === 'undefined') return
   initialized = true
 
-  window.dataLayer = window.dataLayer || []
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer!.push(args)
+  const w = window
+  w.dataLayer = w.dataLayer || []
+
+  // Match Google's bootstrap exactly (non-arrow so `arguments` exists).
+  w.gtag = function gtag() {
+    // eslint-disable-next-line prefer-rest-params
+    w.dataLayer!.push(arguments)
   }
 
-  window.gtag('js', new Date())
-  window.gtag('config', measurementId, {
+  w.gtag('js', new Date())
+  w.gtag('config', measurementId, {
     send_page_view: true,
   })
 

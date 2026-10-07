@@ -10,6 +10,7 @@ interface ImportMeta {
 }
 
 interface Window {
+  // GA queues Arguments objects here (see analytics.ts).
   dataLayer?: unknown[]
   gtag?: (...args: unknown[]) => void
 }
