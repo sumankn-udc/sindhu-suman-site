@@ -1,6 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
 import { LangProvider } from './LangContext'
-import { AnimatedFavicon } from './components/AnimatedFavicon'
 import { LoadingScreen } from './components/LoadingScreen'
 import { Cover } from './components/Cover'
 import { Couple } from './components/Couple'
@@ -97,7 +96,6 @@ export default function App() {
 
   return (
     <LangProvider>
-      <AnimatedFavicon />
       {route === '/future' ? (
         <FutureInvite />
       ) : route === '/share' ? (
