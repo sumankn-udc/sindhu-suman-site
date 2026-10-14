@@ -152,13 +152,14 @@ export const shareInvite = {
     kn: 'WhatsApp ನಲ್ಲಿ ಸಿದ್ಧ ಆಮಂತ್ರಣ ಸಂದೇಶದೊಂದಿಗೆ ಹಂಚಿ — ಅತಿಥಿಗಳಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ಪೂರ್ವವೀಕ್ಷಣೆ ಕಾಣುತ್ತದೆ.',
   },
   shareBtn: { en: 'Share Invite', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿ' },
+  /** Prefill for WhatsApp share message (not the OG link-preview title). */
   headline: {
-    en: 'Sindhu & Suman are getting Married ✨💍',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗುತ್ತಿದ್ದಾರೆ ✨💍',
+    en: 'Hi, this is Suman 👋',
+    kn: 'ನಮಸ್ಕಾರ, ನಾನು ಸುಮನ್ 👋',
   },
   body: {
-    en: 'You are warmly invited to our wedding on 17 – 18 October 2026. Click the link below for more details. 👇',
-    kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ಆಮಂತ್ರಿಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
+    en: 'Inviting you to my wedding with Sindhu ✨💍\n\nWe would love to have you with us on 17 – 18 October 2026. Tap the link below for all the details. 👇',
+    kn: 'ಸಿಂಧು ಅವರೊಂದಿಗೆ ನನ್ನ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆಮಂತ್ರಿಸುತ್ತಿದ್ದೇನೆ ✨💍\n\n೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮೊಂದಿಗೆ ಇರಬೇಕೆಂದು ಬಯಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
   },
   ogTitle: {
     en: 'Sindhu & Suman are getting Married ✨💍',
