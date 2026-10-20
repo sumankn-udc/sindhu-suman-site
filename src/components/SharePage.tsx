@@ -19,8 +19,8 @@ export function SharePage() {
           <ShareInvite />
           <p className="share-page-note">
             {t({
-              en: 'Share this from here — guests still open the main invite link.',
-              kn: 'ಇಲ್ಲಿಂದ ಹಂಚಿ — ಅತಿಥಿಗಳು ಮುಖ್ಯ ಆಮಂತ್ರಣ ಲಿಂಕ್ ತೆರೆಯುತ್ತಾರೆ.',
+              en: 'Share from here — friends open our wedding story on the main site.',
+              kn: 'ಇಲ್ಲಿಂದ ಹಂಚಿ — ಸ್ನೇಹಿತರು ಮುಖ್ಯ ಸೈಟ್‌ನಲ್ಲಿ ನಮ್ಮ ವಿವಾಹ ಕಥೆ ತೆರೆಯುತ್ತಾರೆ.',
             })}
           </p>
         </main>

@@ -4,8 +4,9 @@ const TOUR_STOPS = [
   '#cover',
   '#couple',
   '#gallery',
-  '#countdown',
+  '#married',
   '#events',
+  '#thanks',
   '#closing',
 ] as const
 

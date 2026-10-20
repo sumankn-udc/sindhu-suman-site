@@ -4,8 +4,9 @@ import { LoadingScreen } from './components/LoadingScreen'
 import { Cover } from './components/Cover'
 import { Couple } from './components/Couple'
 import { Gallery } from './components/Gallery'
-import { Countdown } from './components/Countdown'
+import { Married } from './components/Married'
 import { Events } from './components/Events'
+import { Thanks } from './components/Thanks'
 import { Closing } from './components/Closing'
 import { FloatingActions } from './components/FloatingActions'
 import { LangToggle } from './components/LangToggle'
@@ -66,8 +67,9 @@ function ClassicInvite() {
               <Cover />
               <Couple />
               <Gallery />
-              <Countdown />
+              <Married />
               <Events />
+              <Thanks />
               <Closing />
             </main>
             <ScrollProgress scrollerRef={scrollRef} />

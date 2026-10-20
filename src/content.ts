@@ -12,24 +12,40 @@ export const placeholders = {
   ] as const,
   gallery: [
     {
-      src: '/photos/anime/fort-dance.jpg',
-      motion: 'kenburns' as const,
-      alt: 'Anime Sindhu and Suman dancing near the fort',
+      src: '/photos/real/ceremony-namaste.jpg',
+      motion: 'float' as const,
+      alt: 'Sindhu and Suman in a blessing moment',
+      caption: { en: 'Muhurtham', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
     },
     {
-      src: '/photos/anime/ceremony-namaste.jpg',
-      motion: 'float' as const,
-      alt: 'Anime Sindhu and Suman in a blessing moment',
+      src: '/photos/anime/wedding-ss.jpg',
+      motion: 'kenburns' as const,
+      alt: 'Sindhu and Suman on their wedding garden path',
+      caption: { en: 'Wedding day', kn: 'ವಿವಾಹದ ದಿನ' },
+    },
+    {
+      src: '/photos/real/fort-dance.jpg',
+      motion: 'kenburns' as const,
+      alt: 'Sindhu and Suman dancing near the fort',
+      caption: { en: 'Celebration', kn: 'ಸಂಭ್ರಮ' },
+    },
+    {
+      src: '/photos/real/bike-dusk.jpg',
+      motion: 'pulse' as const,
+      alt: 'Sindhu and Suman at dusk with their bike',
+      caption: { en: 'Our journey', kn: 'ನಮ್ಮ ಪರ್ಯಟನ' },
+    },
+    {
+      src: '/photos/anime/fort-dance.jpg',
+      motion: 'pan-left' as const,
+      alt: 'Anime Sindhu and Suman dancing near the fort',
+      caption: { en: 'Anime chapter', kn: 'ಅನಿಮೆ ಅಧ್ಯಾಯ' },
     },
     {
       src: '/photos/anime/quarry-walk.jpg',
-      motion: 'pan-left' as const,
+      motion: 'float' as const,
       alt: 'Anime Sindhu and Suman walking together',
-    },
-    {
-      src: '/photos/anime/bike-dusk.jpg',
-      motion: 'pulse' as const,
-      alt: 'Anime Sindhu and Suman at dusk with their bike',
+      caption: { en: 'Anime chapter', kn: 'ಅನಿಮೆ ಅಧ್ಯಾಯ' },
     },
   ],
 } as const
@@ -144,30 +160,30 @@ export const siteUrl = 'https://thesianchronicles.blog'
 export const shareInvite = {
   eyebrow: { en: 'SHARE INVITE', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿಕೊಳ್ಳಿ' },
   title: {
-    en: 'Share this invitation',
-    kn: 'ಈ ಆಮಂತ್ರಣವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ',
+    en: 'Share our wedding story',
+    kn: 'ನಮ್ಮ ವಿವಾಹ ಕಥೆಯನ್ನು ಹಂಚಿ',
   },
   sub: {
-    en: 'Share on WhatsApp with a ready-made invite message — guests see our photo and preview.',
-    kn: 'WhatsApp ನಲ್ಲಿ ಸಿದ್ಧ ಆಮಂತ್ರಣ ಸಂದೇಶದೊಂದಿಗೆ ಹಂಚಿ — ಅತಿಥಿಗಳಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ಪೂರ್ವವೀಕ್ಷಣೆ ಕಾಣುತ್ತದೆ.',
+    en: 'Share our story on WhatsApp — friends see our photo and wedding memories.',
+    kn: 'WhatsApp ನಲ್ಲಿ ನಮ್ಮ ಕಥೆಯನ್ನು ಹಂಚಿ — ಸ್ನೇಹಿತರಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ವಿವಾಹ ನೆನಪುಗಳು ಕಾಣುತ್ತವೆ.',
   },
-  shareBtn: { en: 'Share Invite', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿ' },
+  shareBtn: { en: 'Share Story', kn: 'ಕಥೆ ಹಂಚಿ' },
   /** Prefill for WhatsApp share message (not the OG link-preview title). */
   headline: {
     en: 'Hi, this is Suman 👋',
     kn: 'ನಮಸ್ಕಾರ, ನಾನು ಸುಮನ್ 👋',
   },
   body: {
-    en: 'Inviting you to my wedding with Sindhu ✨💍\n\nWe would love to have you with us on 17 – 18 October 2026. Tap the link below for all the details. 👇',
-    kn: 'ಸಿಂಧು ಅವರೊಂದಿಗೆ ನನ್ನ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆಮಂತ್ರಿಸುತ್ತಿದ್ದೇನೆ ✨💍\n\n೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮೊಂದಿಗೆ ಇರಬೇಕೆಂದು ಬಯಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
+    en: 'Sindhu and I are married ✨💍\n\nThank you for being part of our story — tap below for photos and memories from 17 – 18 October 2026. 👇',
+    kn: 'ಸಿಂಧು ಮತ್ತು ನಾನು ಮದುವೆಯಾಗಿದ್ದೇವೆ ✨💍\n\nನಮ್ಮ ಕಥೆಯ ಭಾಗವಾಗಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು — ೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರ ಫೋಟೋಗಳು ಮತ್ತು ನೆನಪುಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
   },
   ogTitle: {
-    en: 'Sindhu & Suman are getting Married ✨💍',
-    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗುತ್ತಿದ್ದಾರೆ ✨💍',
+    en: 'Sindhu & Suman are Married ✨💍',
+    kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗಿದ್ದಾರೆ ✨💍',
   },
   ogDescription: {
-    en: 'You are warmly invited to our wedding on 17 – 18 October 2026. Click the link for more details.',
-    kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ಆಮಂತ್ರಿಸುತ್ತೇವೆ. ವಿವರಗಳಿಗೆ ಲಿಂಕ್ ತೆರೆಯಿರಿ.',
+    en: 'Thank you for celebrating with us on 17 – 18 October 2026. Open for our wedding story and photos.',
+    kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ನಮ್ಮ ವಿವಾಹ ಕಥೆ ಮತ್ತು ಫೋಟೋಗಳಿಗೆ ತೆರೆಯಿರಿ.',
   },
 }
 
@@ -185,8 +201,8 @@ export const muhurthamAt = new Date('2026-10-18T06:40:00+05:30')
 
 export const copy = {
   together: {
-    en: 'Together with their families, we cordially invite you to attend the wedding of',
-    kn: 'ತಮ್ಮ ಕುಟುಂಬಗಳೊಂದಿಗೆ, ನಾವು ನಿಮ್ಮನ್ನು ಆತ್ಮೀಯವಾಗಿ ವಿವಾಹಕ್ಕೆ ಆಮಂತ್ರಿಸುತ್ತೇವೆ',
+    en: 'Together with their families — the wedding story of',
+    kn: 'ತಮ್ಮ ಕುಟುಂಬಗಳೊಂದಿಗೆ — ಇವರ ವಿವಾಹ ಕಥೆ',
   },
   and: { en: 'AND', kn: 'ಮತ್ತು' },
   weddingDate: {
@@ -195,18 +211,47 @@ export const copy = {
   },
   theCouple: { en: 'THE COUPLE', kn: 'ದಂಪತಿಗಳು' },
   celebrateWith: {
-    en: 'CELEBRATE THIS AUSPICIOUS EVENT WITH',
-    kn: 'ಈ ಶುಭ ಸಂದರ್ಭವನ್ನು ನಮ್ಮೊಂದಿಗೆ',
+    en: 'THANK YOU FOR CELEBRATING WITH',
+    kn: 'ನಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಿದ್ದಕ್ಕಾಗಿ',
   },
-  us: { en: 'US', kn: 'ಆಚರಿಸಿ' },
-  ourGallery: { en: 'OUR GALLERY', kn: 'ನಮ್ಮ ಗ್ಯಾಲರಿ' },
+  us: { en: 'US', kn: 'ಧನ್ಯವಾದಗಳು' },
+  ourGallery: { en: 'OUR WEDDING STORY', kn: 'ನಮ್ಮ ವಿವಾಹ ಕಥೆ' },
   galleryTitle: {
-    en: 'Capturing Our Moments',
-    kn: 'ನಮ್ಮ ಕ್ಷಣಗಳು',
+    en: 'Moments from our days',
+    kn: 'ನಮ್ಮ ದಿನಗಳ ಕ್ಷಣಗಳು',
   },
   galleryNote: {
-    en: 'Anime scenes animated from our photos',
-    kn: 'ನಮ್ಮ ಫೋಟೋಗಳಿಂದ ರಚಿಸಿದ ಅನಿಮೆ ದೃಶ್ಯಗಳು',
+    en: 'Real photos and a playful anime chapter from our journey',
+    kn: 'ನಮ್ಮ ಪ್ರಯಾಣದ ನಿಜವಾದ ಫೋಟೋಗಳು ಮತ್ತು ಅನಿಮೆ ಅಧ್ಯಾಯ',
+  },
+  marriedEyebrow: {
+    en: 'WE SAID I DO',
+    kn: 'ನಾವು ಹೌದು ಎಂದೆವು',
+  },
+  marriedBadge: {
+    en: 'Married · 17 – 18 October 2026',
+    kn: 'ಮದುವೆಯಾಗಿದ್ದೇವೆ · ೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬',
+  },
+  marriedSub: {
+    en: 'Two families, one beautiful beginning.',
+    kn: 'ಎರಡು ಕುಟುಂಬಗಳು, ಒಂದು ಸುಂದರ ಆರಂಭ.',
+  },
+  thanksEyebrow: { en: 'WITH GRATITUDE', kn: 'ಕೃತಜ್ಞತೆಯಿಂದ' },
+  thanksTitle: {
+    en: 'Thank you',
+    kn: 'ಧನ್ಯವಾದಗಳು',
+  },
+  thanksBody: {
+    en: 'Your presence, blessings, and love made our wedding days complete. We are so glad you were part of our beginning.',
+    kn: 'ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ, ಆಶೀರ್ವಾದ ಮತ್ತು ಪ್ರೀತಿ ನಮ್ಮ ವಿವಾಹ ದಿನಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದವು. ನಮ್ಮ ಆರಂಭದ ಭಾಗವಾಗಿದ್ದಕ್ಕಾಗಿ ನಾವು ಸಂತೋಷಪಡುತ್ತೇವೆ.',
+  },
+  shareMemory: {
+    en: 'Share a memory on WhatsApp',
+    kn: 'WhatsApp ನಲ್ಲಿ ನೆನಪು ಹಂಚಿ',
+  },
+  shareMemoryHint: {
+    en: 'Send a photo, blessing, or note — we would love to hear from you.',
+    kn: 'ಫೋಟೋ, ಆಶೀರ್ವಾದ ಅಥವಾ ಸಂದೇಶ ಕಳುಹಿಸಿ — ನಿಮ್ಮಿಂದ ಕೇಳಲು ಇಷ್ಟಪಡುತ್ತೇವೆ.',
   },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',
@@ -216,7 +261,7 @@ export const copy = {
   hours: { en: 'HOURS', kn: 'ಗಂಟೆ' },
   minutes: { en: 'MINS', kn: 'ನಿಮಿಷ' },
   seconds: { en: 'SECS', kn: 'ಸೆಕೆಂಡ್' },
-  events: { en: 'EVENTS', kn: 'ಕಾರ್ಯಕ್ರಮಗಳು' },
+  events: { en: 'THE CELEBRATIONS', kn: 'ಸಂಭ್ರಮಗಳು' },
   wishesTitle: {
     en: 'Send Us Your Wishes',
     kn: 'ನಿಮ್ಮ ಶುಭಾಶಯಗಳನ್ನು ಕಳುಹಿಸಿ',
@@ -230,19 +275,19 @@ export const copy = {
   sendWishes: { en: 'Send Wishes', kn: 'ಕಳುಹಿಸಿ' },
   withLove: { en: 'WITH LOVE', kn: 'ಪ್ರೀತಿಯಿಂದ' },
   closing: {
-    en: 'Your presence and blessings are the greatest gift we could ask for. Thank you for being part of our beautiful beginning.',
-    kn: 'ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ ಮತ್ತು ಆಶೀರ್ವಾದವೇ ನಮಗೆ ದೊರೆತ ಅತ್ಯಂತ ದೊಡ್ಡ ಉಡುಗೊರೆ. ನಮ್ಮ ಹೊಸ ಆರಂಭದ ಭಾಗವಾಗಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.',
+    en: 'Here is to forever — with love from Sindhu & Suman.',
+    kn: 'ಎಂದೆಂದಿಗೂ — ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಅವರ ಪ್ರೀತಿಯಿಂದ.',
   },
-  openInvite: { en: 'Open Invitation', kn: 'ಆಮಂತ್ರಣ ತೆರೆಯಿರಿ' },
+  openInvite: { en: 'Open Our Story', kn: 'ನಮ್ಮ ಕಥೆ ತೆರೆಯಿರಿ' },
   music: { en: 'Music', kn: 'ಸಂಗೀತ' },
   location: { en: 'Location', kn: 'ಸ್ಥಳ' },
   selectLocation: { en: 'Select Location', kn: 'ಸ್ಥಳವನ್ನು ಆಯ್ಕೆಮಾಡಿ' },
   close: { en: 'Close', kn: 'ಮುಚ್ಚಿ' },
   openMaps: { en: 'Open in Maps', kn: 'ನಕ್ಷೆಯಲ್ಲಿ ತೆರೆಯಿರಿ' },
-  weddingLabel: { en: 'WEDDING', kn: 'ವಿವಾಹ' },
+  weddingLabel: { en: 'MARRIED', kn: 'ಮದುವೆಯಾಗಿದ್ದಾರೆ' },
   loadingInvitation: {
-    en: 'LOADING INVITATION',
-    kn: 'ಆಮಂತ್ರಣ ಲೋಡ್ ಆಗುತ್ತಿದೆ',
+    en: 'LOADING OUR STORY',
+    kn: 'ನಮ್ಮ ಕಥೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ',
   },
   amp: { en: '&', kn: '&' },
   copyLink: { en: 'Copy link', kn: 'ಲಿಂಕ್ ನಕಲಿಸಿ' },

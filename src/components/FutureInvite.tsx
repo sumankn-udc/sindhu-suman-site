@@ -9,7 +9,6 @@ import {
   couple,
   events,
   family,
-  muhurthamAt,
   photoSets,
   type PhotoSetId,
   rsvpCopy,
@@ -23,27 +22,12 @@ const PHOTO_SET_IDS = Object.keys(photoSets) as PhotoSetId[]
 
 const CHAPTERS = [
   { id: 'story-cover', en: 'Cover', kn: 'ಕವರ್' },
-  { id: 'story-when', en: 'When', kn: 'ಯಾವಾಗ' },
+  { id: 'story-when', en: 'Married', kn: 'ಮದುವೆ' },
   { id: 'story-events', en: 'Events', kn: 'ಕಾರ್ಯ' },
   { id: 'story-photos', en: 'Photos', kn: 'ಫೋಟೋ' },
   { id: 'story-us', en: 'Us', kn: 'ನಾವು' },
   { id: 'story-share', en: 'Share', kn: 'ಹಂಚು' },
 ] as const
-
-function useCountdown(target: Date) {
-  const [now, setNow] = useState(() => Date.now())
-  useEffect(() => {
-    const id = window.setInterval(() => setNow(Date.now()), 1000)
-    return () => window.clearInterval(id)
-  }, [])
-  const diff = Math.max(0, target.getTime() - now)
-  return {
-    days: Math.floor(diff / 86_400_000),
-    hours: Math.floor((diff % 86_400_000) / 3_600_000),
-    minutes: Math.floor((diff % 3_600_000) / 60_000),
-    seconds: Math.floor((diff % 60_000) / 1000),
-  }
-}
 
 function readSavedPhotoSet(): PhotoSetId {
   try {
@@ -62,7 +46,6 @@ function readSavedPhotoSet(): PhotoSetId {
  */
 export function FutureInvite() {
   const { t, lang, setLang } = useLang()
-  const cd = useCountdown(muhurthamAt)
   const [photoSet, setPhotoSet] = useState<PhotoSetId>(readSavedPhotoSet)
   const [lightbox, setLightbox] = useState<string | null>(null)
   const [activeChapter, setActiveChapter] = useState(0)
@@ -198,27 +181,11 @@ export function FutureInvite() {
           </div>
         </section>
 
-        {/* Chapter 2 — Countdown */}
+        {/* Chapter 2 — Married milestone */}
         <section className="reel-slide reel-when" id="story-when">
-          <p className="reel-kicker">{t(copy.countdownTitle)}</p>
-          <h2 className="reel-big">
-            {lang === 'kn' ? 'ಮುಹೂರ್ತಕ್ಕೆ' : 'Until muhurtham'}
-          </h2>
-          <div className="reel-timer">
-            {(
-              [
-                [cd.days, t(copy.days)],
-                [cd.hours, t(copy.hours)],
-                [cd.minutes, t(copy.minutes)],
-                [cd.seconds, t(copy.seconds)],
-              ] as const
-            ).map(([value, label]) => (
-              <div key={label} className="reel-tick">
-                <strong>{String(value).padStart(2, '0')}</strong>
-                <span>{label}</span>
-              </div>
-            ))}
-          </div>
+          <p className="reel-kicker">{t(copy.marriedEyebrow)}</p>
+          <h2 className="reel-big">{t(copy.marriedBadge)}</h2>
+          <p className="reel-support">{t(copy.marriedSub)}</p>
           <p className="reel-support">{t(copy.together)}</p>
         </section>
 

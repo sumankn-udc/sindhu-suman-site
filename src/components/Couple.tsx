@@ -92,8 +92,8 @@ export function Couple() {
             </div>
             <figcaption className="caricature-caption">
               {t({
-                en: 'With love — forever ours.',
-                kn: 'ಪ್ರೀತಿಯಿಂದ — ಯಾವಾಕ್ಕೆ ನಮ್ಮದು.',
+                en: 'Married — forever ours.',
+                kn: 'ಮದುವೆಯಾಗಿದ್ದೇವೆ — ಯಾವಾಕ್ಕೆ ನಮ್ಮದು.',
               })}
             </figcaption>
           </figure>

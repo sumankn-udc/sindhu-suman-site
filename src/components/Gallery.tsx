@@ -16,18 +16,21 @@ export function Gallery() {
       <RevealGroup className="gallery-grid" stagger={100}>
         {placeholders.gallery.map((item, i) => (
           <RevealItem
-            key={item.src}
+            key={`${item.src}-${item.caption.en}`}
             variant={i % 2 === 0 ? 'zoom' : 'pop'}
             index={i}
           >
-            <div className="polaroid">
+            <figure className="polaroid">
               <AnimatedPhoto
                 src={item.src}
                 alt={item.alt}
                 motion={item.motion}
                 imgClassName="polaroid-img"
               />
-            </div>
+              <figcaption className="polaroid-caption">
+                {t(item.caption)}
+              </figcaption>
+            </figure>
           </RevealItem>
         ))}
       </RevealGroup>
