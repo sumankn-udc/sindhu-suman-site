@@ -1,56 +1,156 @@
 /**
- * Cover/couple keep the original artwork; only the gallery uses the new photos.
+ * Cover/couple keep the original artwork; albums power the post-wedding gallery.
  */
+export type PhotoMotion = 'float' | 'kenburns' | 'pulse' | 'pan-left'
+
+export type AlbumPhoto = {
+  src: string
+  motion: PhotoMotion
+  alt: string
+  caption: { en: string; kn: string }
+}
+
+export type Album = {
+  id: string
+  title: { en: string; kn: string }
+  note: { en: string; kn: string }
+  photos: AlbumPhoto[]
+}
+
+/** Event-day albums — swap in studio day-of shots when they arrive. */
+export const albums: Album[] = [
+  {
+    id: 'haldi',
+    title: { en: 'Haldi', kn: 'ಹಳದಿ' },
+    note: {
+      en: 'Golden morning · 17 October',
+      kn: 'ಚಿನ್ನದ ಬೆಳಗು · ೧೭ ಅಕ್ಟೋಬರ್',
+    },
+    photos: [
+      {
+        src: '/photos/real/fort-dance.jpg',
+        motion: 'kenburns',
+        alt: 'Sindhu and Suman celebrating near the fort',
+        caption: { en: 'Festive joy', kn: 'ಸಂಭ್ರಮ' },
+      },
+      {
+        src: '/photos/real/quarry-walk.jpg',
+        motion: 'float',
+        alt: 'Sindhu and Suman walking together',
+        caption: { en: 'Together', kn: 'ಒಟ್ಟಿಗೆ' },
+      },
+    ],
+  },
+  {
+    id: 'reception',
+    title: { en: 'Reception', kn: 'ಸ್ವಾಗತ ಸಮಾರಂಭ' },
+    note: {
+      en: 'Evening blessings · 17 October',
+      kn: 'ಸಂಜೆಯ ಆಶೀರ್ವಾದ · ೧೭ ಅಕ್ಟೋಬರ್',
+    },
+    photos: [
+      {
+        src: '/photos/real/wedding-garden-walk.jpg',
+        motion: 'kenburns',
+        alt: 'Sindhu and Suman on the wedding garden path',
+        caption: { en: 'Garden walk', kn: 'ಉದ್ಯಾನ ನಡಿಗೆ' },
+      },
+      {
+        src: '/photos/real/bike-dusk.jpg',
+        motion: 'pulse',
+        alt: 'Sindhu and Suman at dusk with their bike',
+        caption: { en: 'Twilight', kn: 'ಸಂಜೆ' },
+      },
+    ],
+  },
+  {
+    id: 'muhurtham',
+    title: { en: 'Muhurtham', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
+    note: {
+      en: 'We said I do · 18 October',
+      kn: 'ನಾವು ಹೌದು ಎಂದೆವು · ೧೮ ಅಕ್ಟೋಬರ್',
+    },
+    photos: [
+      {
+        src: '/photos/real/ceremony-namaste.jpg',
+        motion: 'float',
+        alt: 'Sindhu and Suman in a blessing moment',
+        caption: { en: 'Blessings', kn: 'ಆಶೀರ್ವಾದ' },
+      },
+      {
+        src: '/photos/real/wedding-ss.jpg',
+        motion: 'kenburns',
+        alt: 'Sindhu and Suman on their wedding day',
+        caption: { en: 'Married', kn: 'ಮದುವೆಯಾದರು' },
+      },
+    ],
+  },
+  {
+    id: 'anime',
+    title: { en: 'Anime chapter', kn: 'ಅನಿಮೆ ಅಧ್ಯಾಯ' },
+    note: {
+      en: 'A playful retelling of our story',
+      kn: 'ನಮ್ಮ ಕಥೆಯ ಮುದ್ದಾದ ಪುನರ್‌ಕಥನ',
+    },
+    photos: [
+      {
+        src: '/photos/anime/wedding-ss.jpg',
+        motion: 'kenburns',
+        alt: 'Anime Sindhu and Suman on their wedding garden path',
+        caption: { en: 'Wedding day', kn: 'ವಿವಾಹದ ದಿನ' },
+      },
+      {
+        src: '/photos/anime/fort-dance.jpg',
+        motion: 'pan-left',
+        alt: 'Anime Sindhu and Suman dancing near the fort',
+        caption: { en: 'Dance', kn: 'ನೃತ್ಯ' },
+      },
+      {
+        src: '/photos/anime/quarry-walk.jpg',
+        motion: 'float',
+        alt: 'Anime Sindhu and Suman walking together',
+        caption: { en: 'Walk', kn: 'ನಡಿಗೆ' },
+      },
+      {
+        src: '/photos/anime/ceremony-namaste.jpg',
+        motion: 'pulse',
+        alt: 'Anime Sindhu and Suman in a blessing moment',
+        caption: { en: 'Namaste', kn: 'ನಮಸ್ಕಾರ' },
+      },
+    ],
+  },
+]
+
+/** Flat list for prefetch / legacy callers */
+export const galleryPhotos: AlbumPhoto[] = albums.flatMap((a) => a.photos)
+
+/**
+ * Paste your Google Drive / Dropbox shared album URL here when ready.
+ * Leave empty to hide the external album button.
+ */
+export const photoAlbum = {
+  url: '',
+  label: {
+    en: 'Open full wedding album',
+    kn: 'ಪೂರ್ಣ ವಿವಾಹ ಆಲ್ಬಂ ತೆರೆಯಿರಿ',
+  },
+  hint: {
+    en: 'Official photos from Haldi, Reception & Muhurtham',
+    kn: 'ಹಳದಿ, ಸ್ವಾಗತ ಮತ್ತು ಮುಹೂರ್ತದ ಅಧಿಕೃತ ಫೋಟೋಗಳು',
+  },
+}
+
 export const placeholders = {
   cover: '/photos/placeholders/cover.jpg',
   couple: '/photos/placeholders/couple.jpg',
   bride: '/photos/placeholders/bride.jpg',
   groom: '/photos/placeholders/groom.jpg',
   caricature: '/photos/caricature.jpg',
-  weddingPhotos: [
-    '/photos/anime/wedding-ss.jpg',
-  ] as const,
-  gallery: [
-    {
-      src: '/photos/real/ceremony-namaste.jpg',
-      motion: 'float' as const,
-      alt: 'Sindhu and Suman in a blessing moment',
-      caption: { en: 'Muhurtham', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
-    },
-    {
-      src: '/photos/anime/wedding-ss.jpg',
-      motion: 'kenburns' as const,
-      alt: 'Sindhu and Suman on their wedding garden path',
-      caption: { en: 'Wedding day', kn: 'ವಿವಾಹದ ದಿನ' },
-    },
-    {
-      src: '/photos/real/fort-dance.jpg',
-      motion: 'kenburns' as const,
-      alt: 'Sindhu and Suman dancing near the fort',
-      caption: { en: 'Celebration', kn: 'ಸಂಭ್ರಮ' },
-    },
-    {
-      src: '/photos/real/bike-dusk.jpg',
-      motion: 'pulse' as const,
-      alt: 'Sindhu and Suman at dusk with their bike',
-      caption: { en: 'Our journey', kn: 'ನಮ್ಮ ಪರ್ಯಟನ' },
-    },
-    {
-      src: '/photos/anime/fort-dance.jpg',
-      motion: 'pan-left' as const,
-      alt: 'Anime Sindhu and Suman dancing near the fort',
-      caption: { en: 'Anime chapter', kn: 'ಅನಿಮೆ ಅಧ್ಯಾಯ' },
-    },
-    {
-      src: '/photos/anime/quarry-walk.jpg',
-      motion: 'float' as const,
-      alt: 'Anime Sindhu and Suman walking together',
-      caption: { en: 'Anime chapter', kn: 'ಅನಿಮೆ ಅಧ್ಯಾಯ' },
-    },
-  ],
+  weddingPhotos: ['/photos/anime/wedding-ss.jpg'] as const,
+  gallery: galleryPhotos,
 } as const
 
-/** Photo packs for the /future story invite — guests can switch looks */
+/** Photo packs kept for archived /future experiment (not routed) */
 export type PhotoSetId = 'photos' | 'art' | 'studio'
 
 export const photoSets: Record<
@@ -86,7 +186,7 @@ export const photoSets: Record<
     couple: placeholders.couple,
     bride: placeholders.bride,
     groom: placeholders.groom,
-    gallery: placeholders.gallery.map((g) => ({ src: g.src, alt: g.alt })),
+    gallery: galleryPhotos.map((g) => ({ src: g.src, alt: g.alt })),
   },
   studio: {
     label: { en: 'Studio', kn: 'ಸ್ಟುಡಿಯೋ' },
@@ -158,32 +258,32 @@ export const siteUrl = 'https://thesianchronicles.blog'
 
 /** WhatsApp-style share text + Open Graph wording */
 export const shareInvite = {
-  eyebrow: { en: 'SHARE INVITE', kn: 'ಆಮಂತ್ರಣ ಹಂಚಿಕೊಳ್ಳಿ' },
+  eyebrow: { en: 'SHARE OUR STORY', kn: 'ನಮ್ಮ ಕಥೆ ಹಂಚಿ' },
   title: {
-    en: 'Share our wedding story',
-    kn: 'ನಮ್ಮ ವಿವಾಹ ಕಥೆಯನ್ನು ಹಂಚಿ',
+    en: 'Share a thank-you with guests',
+    kn: 'ಅತಿಥಿಗಳಿಗೆ ಧನ್ಯವಾದ ಹಂಚಿ',
   },
   sub: {
-    en: 'Share our story on WhatsApp — friends see our photo and wedding memories.',
-    kn: 'WhatsApp ನಲ್ಲಿ ನಮ್ಮ ಕಥೆಯನ್ನು ಹಂಚಿ — ಸ್ನೇಹಿತರಿಗೆ ನಮ್ಮ ಫೋಟೋ ಮತ್ತು ವಿವಾಹ ನೆನಪುಗಳು ಕಾಣುತ್ತವೆ.',
+    en: 'Send our wedding story on WhatsApp — friends see our photo, thank-you, and memories.',
+    kn: 'WhatsApp ನಲ್ಲಿ ನಮ್ಮ ವಿವಾಹ ಕಥೆ ಕಳುಹಿಸಿ — ಸ್ನೇಹಿತರಿಗೆ ಫೋಟೋ, ಧನ್ಯವಾದ ಮತ್ತು ನೆನಪುಗಳು ಕಾಣುತ್ತವೆ.',
   },
-  shareBtn: { en: 'Share Story', kn: 'ಕಥೆ ಹಂಚಿ' },
+  shareBtn: { en: 'Share thank-you', kn: 'ಧನ್ಯವಾದ ಹಂಚಿ' },
   /** Prefill for WhatsApp share message (not the OG link-preview title). */
   headline: {
     en: 'Hi, this is Suman 👋',
     kn: 'ನಮಸ್ಕಾರ, ನಾನು ಸುಮನ್ 👋',
   },
   body: {
-    en: 'Sindhu and I are married ✨💍\n\nThank you for being part of our story — tap below for photos and memories from 17 – 18 October 2026. 👇',
-    kn: 'ಸಿಂಧು ಮತ್ತು ನಾನು ಮದುವೆಯಾಗಿದ್ದೇವೆ ✨💍\n\nನಮ್ಮ ಕಥೆಯ ಭಾಗವಾಗಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು — ೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರ ಫೋಟೋಗಳು ಮತ್ತು ನೆನಪುಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
+    en: 'Sindhu and I are married ✨💍\n\nThank you for celebrating with us — tap below for our wedding story, albums, and memories from 17 – 18 October 2026. 👇',
+    kn: 'ಸಿಂಧು ಮತ್ತು ನಾನು ಮದುವೆಯಾಗಿದ್ದೇವೆ ✨💍\n\nನಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು — ೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರ ಕಥೆ, ಆಲ್ಬಂಗಳು ಮತ್ತು ನೆನಪುಗಳಿಗೆ ಕೆಳಗಿನ ಲಿಂಕ್ ನೋಡಿ. 👇',
   },
   ogTitle: {
     en: 'Sindhu & Suman are Married ✨💍',
     kn: 'ಸಿಂಧು ಮತ್ತು ಸುಮನ್ ಮದುವೆಯಾಗಿದ್ದಾರೆ ✨💍',
   },
   ogDescription: {
-    en: 'Thank you for celebrating with us on 17 – 18 October 2026. Open for our wedding story and photos.',
-    kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ನಮ್ಮ ವಿವಾಹ ಕಥೆ ಮತ್ತು ಫೋಟೋಗಳಿಗೆ ತೆರೆಯಿರಿ.',
+    en: 'Thank you for celebrating with us on 17 – 18 October 2026. Open for our wedding story and albums.',
+    kn: '೧೭ – ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ ರಂದು ನಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ನಮ್ಮ ವಿವಾಹ ಕಥೆ ಮತ್ತು ಆಲ್ಬಂಗಳಿಗೆ ತೆರೆಯಿರಿ.',
   },
 }
 
@@ -215,14 +315,14 @@ export const copy = {
     kn: 'ನಮ್ಮೊಂದಿಗೆ ಆಚರಿಸಿದ್ದಕ್ಕಾಗಿ',
   },
   us: { en: 'US', kn: 'ಧನ್ಯವಾದಗಳು' },
-  ourGallery: { en: 'OUR WEDDING STORY', kn: 'ನಮ್ಮ ವಿವಾಹ ಕಥೆ' },
+  ourGallery: { en: 'OUR WEDDING ALBUMS', kn: 'ನಮ್ಮ ವಿವಾಹ ಆಲ್ಬಂಗಳು' },
   galleryTitle: {
-    en: 'Moments from our days',
-    kn: 'ನಮ್ಮ ದಿನಗಳ ಕ್ಷಣಗಳು',
+    en: 'Haldi · Reception · Muhurtham',
+    kn: 'ಹಳದಿ · ಸ್ವಾಗತ · ಮುಹೂರ್ತ',
   },
   galleryNote: {
-    en: 'Real photos and a playful anime chapter from our journey',
-    kn: 'ನಮ್ಮ ಪ್ರಯಾಣದ ನಿಜವಾದ ಫೋಟೋಗಳು ಮತ್ತು ಅನಿಮೆ ಅಧ್ಯಾಯ',
+    en: 'Scroll each chapter — and send us your photos from the day',
+    kn: 'ಪ್ರತಿ ಅಧ್ಯಾಯ ನೋಡಿ — ಮತ್ತು ಆ ದಿನದ ನಿಮ್ಮ ಫೋಟೋಗಳನ್ನು ಕಳುಹಿಸಿ',
   },
   marriedEyebrow: {
     en: 'WE SAID I DO',
@@ -253,6 +353,14 @@ export const copy = {
     en: 'Send a photo, blessing, or note — we would love to hear from you.',
     kn: 'ಫೋಟೋ, ಆಶೀರ್ವಾದ ಅಥವಾ ಸಂದೇಶ ಕಳುಹಿಸಿ — ನಿಮ್ಮಿಂದ ಕೇಳಲು ಇಷ್ಟಪಡುತ್ತೇವೆ.',
   },
+  browseMoments: {
+    en: 'Browse our moments',
+    kn: 'ನಮ್ಮ ಕ್ಷಣಗಳನ್ನು ನೋಡಿ',
+  },
+  eventsRemembered: {
+    en: 'Remembered',
+    kn: 'ನೆನಪಿನಲ್ಲಿ',
+  },
   countdownTitle: {
     en: 'THE COUNTDOWN BEGINS',
     kn: 'ಕೌಂಟ್‌ಡೌನ್ ಪ್ರಾರಂಭ',
@@ -261,7 +369,7 @@ export const copy = {
   hours: { en: 'HOURS', kn: 'ಗಂಟೆ' },
   minutes: { en: 'MINS', kn: 'ನಿಮಿಷ' },
   seconds: { en: 'SECS', kn: 'ಸೆಕೆಂಡ್' },
-  events: { en: 'THE CELEBRATIONS', kn: 'ಸಂಭ್ರಮಗಳು' },
+  events: { en: 'HOW WE CELEBRATED', kn: 'ನಾವು ಹೇಗೆ ಆಚರಿಸಿದೆವು' },
   wishesTitle: {
     en: 'Send Us Your Wishes',
     kn: 'ನಿಮ್ಮ ಶುಭಾಶಯಗಳನ್ನು ಕಳುಹಿಸಿ',
@@ -295,16 +403,15 @@ export const copy = {
   copied: { en: 'Copied!', kn: 'ನಕಲಿಸಲಾಗಿದೆ!' },
 }
 
-/** Chronological celebration order */
+/** Retrospective celebration timeline */
 export const events = [
   {
     id: 'haldi',
     title: { en: 'Haldi', kn: 'ಹಳದಿ' },
     when: {
-      en: '17 October 2026 · 10:00 AM',
-      kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೧೦:೦೦',
+      en: 'Celebrated 17 October 2026 · morning',
+      kn: 'ಆಚರಿಸಲಾಯಿತು ೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ',
     },
-    /** ICS / calendar (Asia/Kolkata) */
     start: '20261017T100000',
     end: '20261017T120000',
   },
@@ -312,8 +419,8 @@ export const events = [
     id: 'reception',
     title: { en: 'Reception', kn: 'ಸ್ವಾಗತ ಸಮಾರಂಭ' },
     when: {
-      en: '17 October 2026 · 6:30 PM',
-      kn: '೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಸಂಜೆ ೬:೩೦',
+      en: 'Celebrated 17 October 2026 · evening',
+      kn: 'ಆಚರಿಸಲಾಯಿತು ೧೭ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಸಂಜೆ',
     },
     start: '20261017T183000',
     end: '20261017T220000',
@@ -322,8 +429,8 @@ export const events = [
     id: 'muhurtham',
     title: { en: 'Wedding Ceremony (Muhurtham)', kn: 'ವಿವಾಹ ಮುಹೂರ್ತ' },
     when: {
-      en: '18 October 2026 · 6:40 AM – 7:40 AM',
-      kn: '೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಬೆಳಿಗ್ಗೆ ೬:೪೦ – ೭:೪೦',
+      en: 'Celebrated 18 October 2026 · dawn',
+      kn: 'ಆಚರಿಸಲಾಯಿತು ೧೮ ಅಕ್ಟೋಬರ್ ೨೦೨೬ · ಮುಂಜಾನೆ',
     },
     start: '20261018T064000',
     end: '20261018T074000',

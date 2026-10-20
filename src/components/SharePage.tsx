@@ -14,13 +14,13 @@ export function SharePage() {
         </div>
         <main className="invite-scroll share-page">
           <a className="share-page-back" href="/">
-            ← {t({ en: 'Back to invite', kn: 'ಆಮಂತ್ರಣಕ್ಕೆ ಹಿಂದಿರುಗಿ' })}
+            ← {t({ en: 'Back to our story', kn: 'ನಮ್ಮ ಕಥೆಗೆ ಹಿಂದಿರುಗಿ' })}
           </a>
           <ShareInvite />
           <p className="share-page-note">
             {t({
-              en: 'Share from here — friends open our wedding story on the main site.',
-              kn: 'ಇಲ್ಲಿಂದ ಹಂಚಿ — ಸ್ನೇಹಿತರು ಮುಖ್ಯ ಸೈಟ್‌ನಲ್ಲಿ ನಮ್ಮ ವಿವಾಹ ಕಥೆ ತೆರೆಯುತ್ತಾರೆ.',
+              en: 'Share from here — guests open our thank-you story, albums, and memories.',
+              kn: 'ಇಲ್ಲಿಂದ ಹಂಚಿ — ಅತಿಥಿಗಳು ನಮ್ಮ ಧನ್ಯವಾದ ಕಥೆ, ಆಲ್ಬಂಗಳು ಮತ್ತು ನೆನಪುಗಳನ್ನು ತೆರೆಯುತ್ತಾರೆ.',
             })}
           </p>
         </main>

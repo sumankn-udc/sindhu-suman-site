@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { placeholders } from '../content'
+import { galleryPhotos, placeholders } from '../content'
 
-/** Warm the browser cache for hero images before the invite opens. */
+/** Warm the browser cache for hero & album images before the story opens. */
 export function PrefetchPhotos() {
   useEffect(() => {
     const urls = [
@@ -11,7 +11,7 @@ export function PrefetchPhotos() {
       placeholders.couple,
       placeholders.caricature,
       ...placeholders.weddingPhotos,
-      ...placeholders.gallery.map((g) => g.src),
+      ...galleryPhotos.map((g) => g.src),
     ]
     const links: HTMLLinkElement[] = []
     for (const href of urls) {

@@ -14,7 +14,6 @@ import { OpenCurtain } from './components/OpenCurtain'
 import { ScrollProgress } from './components/ScrollProgress'
 import { ScrollTop } from './components/ScrollTop'
 import { PrefetchPhotos } from './components/PrefetchPhotos'
-import { FutureInvite } from './components/FutureInvite'
 import { SharePage } from './components/SharePage'
 import { useAutoTour } from './hooks/useAutoTour'
 import { useWeddingMusic } from './hooks/useWeddingMusic'
@@ -98,13 +97,7 @@ export default function App() {
 
   return (
     <LangProvider>
-      {route === '/future' ? (
-        <FutureInvite />
-      ) : route === '/share' ? (
-        <SharePage />
-      ) : (
-        <ClassicInvite />
-      )}
+      {route === '/share' ? <SharePage /> : <ClassicInvite />}
     </LangProvider>
   )
 }

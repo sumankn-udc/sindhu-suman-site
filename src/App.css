@@ -1034,6 +1034,34 @@ button {
   background: #171018;
 }
 
+.album-block {
+  margin-top: 1.35rem;
+}
+
+.album-block + .album-block {
+  margin-top: 1.75rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(201, 162, 89, 0.18);
+}
+
+.album-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 4vw, 1.35rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+}
+
+.album-note {
+  margin: 0.35rem 0 0.85rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(232, 220, 200, 0.55);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1191,6 +1219,19 @@ button {
   padding: 1.25rem 1rem;
   background: rgba(61, 24, 38, 0.55);
   text-align: center;
+}
+
+.event-card--memory {
+  position: relative;
+}
+
+.event-remembered {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
 }
 
 .event-card h3 {
@@ -1606,6 +1647,13 @@ button {
   color: rgba(232, 220, 200, 0.85);
   font-size: 1.02rem;
   line-height: 1.55;
+}
+
+.thanks-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .thanks-cta {
